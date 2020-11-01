@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="CinematecaPortuguesa"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CinematecaPortuguesa">
+				<Option output="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/CinematecaPortuguesa.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(ADERENTES)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(CINEMATECA)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(DATETIME)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(EVENTO)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(SALA)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(UI)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(UTILS)"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 CinematecaPortuguesa"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CinematecaPortuguesa/fast">
+				<Option output="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/CinematecaPortuguesa.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(ADERENTES)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(CINEMATECA)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(DATETIME)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(EVENTO)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(SALA)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(UI)"/>
+					<Add directory="C:/Workspace/Feup/AEDA/2020/Projeto/src/$(UTILS)"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 CinematecaPortuguesa/fast"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/mingw32-make.exe -f &quot;C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Aderentes/Aderente.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Aderentes/Aderente.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Cinemateca/Cinemateca.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Cinemateca/Cinemateca.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Date.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Date.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Time.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Time.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Evento/Evento.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Evento/Evento.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Sala/Sala.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Sala/Sala.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/UI/UI.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/UI/UI.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Utils/utils.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/Utils/utils.h">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/main.cpp">
+			<Option target="CinematecaPortuguesa"/>
+		</Unit>
+		<Unit filename="C:/Workspace/Feup/AEDA/2020/Projeto/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
