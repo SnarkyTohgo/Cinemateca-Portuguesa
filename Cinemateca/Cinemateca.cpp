@@ -123,15 +123,6 @@ Cinemateca::registarAderente(string nome, u_int nif, Date dataNasc, u_int anoAtu
          << novoAderente;
 }
 
-void
-Cinemateca::adicionarSala(string nome, u_int capacidade) {
-    Sala novaSala(nome, capacidade);
-
-    this->salas.push_back(novaSala);
-
-    cout << "\n>>>Nova sala adicionada com sucesso!<<<\n"
-         << novaSala;
-}
 
 void
 Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco){

@@ -1,47 +1,47 @@
 [
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\UI\\UI.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\UI\\UI.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/UI/UI.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\UI\\UI.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\UI\\UI.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/UI/UI.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Utils\\utils.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\Utils\\utils.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/Utils/utils.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Utils\\utils.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\Utils\\utils.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/Utils/utils.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Aderentes\\Aderente.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\Aderentes\\Aderente.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/Aderentes/Aderente.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Aderentes\\Aderente.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\Aderentes\\Aderente.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/Aderentes/Aderente.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Cinemateca\\Cinemateca.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\Cinemateca\\Cinemateca.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/Cinemateca/Cinemateca.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Cinemateca\\Cinemateca.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\Cinemateca\\Cinemateca.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/Cinemateca/Cinemateca.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\DateTime\\Date.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\DateTime\\Date.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Date.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\DateTime\\Date.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\DateTime\\Date.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/DateTime/Date.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\DateTime\\Time.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\DateTime\\Time.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/DateTime/Time.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\DateTime\\Time.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\DateTime\\Time.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/DateTime/Time.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Evento\\Evento.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\Evento\\Evento.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/Evento/Evento.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Evento\\Evento.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\Evento\\Evento.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/Evento/Evento.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Sala\\Sala.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\Sala\\Sala.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/Sala/Sala.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\Sala\\Sala.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\Sala\\Sala.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/Sala/Sala.cpp"
 },
 {
-  "directory": "C:/Workspace/Feup/AEDA/2020/Projeto/src/cmake-build-debug",
-  "command": "C:\\PROGRA~2\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\main.cpp.obj -c C:\\Workspace\\Feup\\AEDA\\2020\\Projeto\\src\\main.cpp",
-  "file": "C:/Workspace/Feup/AEDA/2020/Projeto/src/main.cpp"
+  "directory": "C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug",
+  "command": "C:\\mingw32\\mingw32\\bin\\g++.exe   @CMakeFiles/CinematecaPortuguesa.dir/includes_CXX.rsp -g   -std=gnu++2a -o CMakeFiles\\CinematecaPortuguesa.dir\\main.cpp.obj -c C:\\Users\\Adriana\\Cinemateca-Portuguesa\\main.cpp",
+  "file": "C:/Users/Adriana/Cinemateca-Portuguesa/main.cpp"
 }
 ]
