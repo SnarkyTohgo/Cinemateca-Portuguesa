@@ -1,14 +1,17 @@
 #ifndef SRC_EVENTO_H
 #define SRC_EVENTO_H
 
+/** @defgroup Classe Evento
+ * Atributos e métodos para a classe Evento
+ *
+ * @{
+ */
+
 #include "../Utils/utils.h"
 #include "../DateTime/Date.h"
 #include "../DateTime/Time.h"
 #include "../Aderentes/Aderente.h"
 
-/**
- *  Classe Evento
- */
 
 class Evento {
 private:
@@ -157,5 +160,6 @@ public:
     bool operator ==(const Evento& evento);
 };
 
+/** @} */ // end of Classe Evento
 
 #endif //SRC_EVENTO_H

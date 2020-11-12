@@ -1,0 +1,153 @@
+\hypertarget{group___f_i_l_e_s}{}\doxysection{F\+I\+L\+ES}
+\label{group___f_i_l_e_s}\index{FILES@{FILES}}
+
+
+Funções de manipulação de ficheiros.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{group___f_i_l_e_s_ga83d0fc5c8c7d3257389fb2a188f14392}{file\+Is\+Empty}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Verifica se um ficheiro está vazio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga1dd149de04d2177b036e826963ab40c6}{make\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Cria um novo ficheiro. \end{DoxyCompactList}\item 
+ifstream \mbox{\hyperlink{group___f_i_l_e_s_ga101d0096fb729671fe8f1748b9a05918}{read\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Abre um ficheiro em modo de leitura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga2e3daa30641877670c5084579e996bef}{write\+To\+File}} (vector$<$ string $>$ \&data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___f_i_l_e_s_ga937908194523e0c388d1d393703cde29}\label{group___f_i_l_e_s_ga937908194523e0c388d1d393703cde29}} 
+void {\bfseries write\+To\+File} (string \&data, string filename)
+\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga651d6f12e9e25af3c653348e0537b75c}{write\+Data}} (string data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___f_i_l_e_s_ga476d28210ed315c2dc1fa1185c133984}{parse\+File}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Faz parsing da informação de um ficheiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_gabaac8f6a32825b8c3a8d30e4468b833b}{delete\+File\+Data}} (string filename)
+\begin{DoxyCompactList}\small\item\em Apaga a informação de um ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funções de manipulação de ficheiros. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___f_i_l_e_s_gabaac8f6a32825b8c3a8d30e4468b833b}\label{group___f_i_l_e_s_gabaac8f6a32825b8c3a8d30e4468b833b}} 
+\index{FILES@{FILES}!deleteFileData@{deleteFileData}}
+\index{deleteFileData@{deleteFileData}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{deleteFileData()}{deleteFileData()}}
+{\footnotesize\ttfamily void delete\+File\+Data (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Apaga a informação de um ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga83d0fc5c8c7d3257389fb2a188f14392}\label{group___f_i_l_e_s_ga83d0fc5c8c7d3257389fb2a188f14392}} 
+\index{FILES@{FILES}!fileIsEmpty@{fileIsEmpty}}
+\index{fileIsEmpty@{fileIsEmpty}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{fileIsEmpty()}{fileIsEmpty()}}
+{\footnotesize\ttfamily bool file\+Is\+Empty (\begin{DoxyParamCaption}\item[{ifstream \&}]{file }\end{DoxyParamCaption})}
+
+
+
+Verifica se um ficheiro está vazio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Ficheiro a verificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se está vazio, false caso contrário 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga1dd149de04d2177b036e826963ab40c6}\label{group___f_i_l_e_s_ga1dd149de04d2177b036e826963ab40c6}} 
+\index{FILES@{FILES}!makeFile@{makeFile}}
+\index{makeFile@{makeFile}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{makeFile()}{makeFile()}}
+{\footnotesize\ttfamily void make\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Cria um novo ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & String contendo o nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga476d28210ed315c2dc1fa1185c133984}\label{group___f_i_l_e_s_ga476d28210ed315c2dc1fa1185c133984}} 
+\index{FILES@{FILES}!parseFile@{parseFile}}
+\index{parseFile@{parseFile}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{parseFile()}{parseFile()}}
+{\footnotesize\ttfamily vector$<$string$>$ parse\+File (\begin{DoxyParamCaption}\item[{ifstream \&}]{file }\end{DoxyParamCaption})}
+
+
+
+Faz parsing da informação de um ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Endereço de memória do ficheiro contendo a informação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array dinâmico contendo a informação do ficheiro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga101d0096fb729671fe8f1748b9a05918}\label{group___f_i_l_e_s_ga101d0096fb729671fe8f1748b9a05918}} 
+\index{FILES@{FILES}!readFile@{readFile}}
+\index{readFile@{readFile}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily ifstream read\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Abre um ficheiro em modo de leitura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & String contendo o nome do ficheiro \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ficheiro aberto em modo de leitura 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga651d6f12e9e25af3c653348e0537b75c}\label{group___f_i_l_e_s_ga651d6f12e9e25af3c653348e0537b75c}} 
+\index{FILES@{FILES}!writeData@{writeData}}
+\index{writeData@{writeData}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}}
+{\footnotesize\ttfamily void write\+Data (\begin{DoxyParamCaption}\item[{string}]{data,  }\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Escreve para um ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Informação a escrever para o ficheiro \\
+\hline
+{\em filename} & Nome do ficheiro para onde escrever \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___f_i_l_e_s_ga2e3daa30641877670c5084579e996bef}\label{group___f_i_l_e_s_ga2e3daa30641877670c5084579e996bef}} 
+\index{FILES@{FILES}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!FILES@{FILES}}
+\doxysubsubsection{\texorpdfstring{writeToFile()}{writeToFile()}}
+{\footnotesize\ttfamily void write\+To\+File (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ \&}]{data,  }\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Escreve para um ficheiro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Endereço de memória da informação a escrever para o ficheiro \\
+\hline
+{\em filename} & Nome do ficheiro para onde escrever \\
+\hline
+\end{DoxyParams}

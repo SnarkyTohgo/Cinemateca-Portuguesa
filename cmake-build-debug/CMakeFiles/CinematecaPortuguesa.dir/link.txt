@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\CinematecaPortuguesa.dir/objects.a
-C:\mingw32\mingw32\bin\ar.exe cr CMakeFiles\CinematecaPortuguesa.dir/objects.a @CMakeFiles\CinematecaPortuguesa.dir\objects1.rsp
-C:\mingw32\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\CinematecaPortuguesa.dir/objects.a -Wl,--no-whole-archive  -o CinematecaPortuguesa.exe -Wl,--out-implib,libCinematecaPortuguesa.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CinematecaPortuguesa.dir\linklibs.rsp

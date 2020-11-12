@@ -1,12 +1,14 @@
 #ifndef SRC_ADERENTE_H
 #define SRC_ADERENTE_H
 
+/** @defgroup Classe Aderente
+ * Atributos e métodos para a classe Aderente
+ *
+ * @{
+ */
+
 #include "../Utils/utils.h"
 #include "../DateTime/Date.h"
-
-/**
- * Classe Aderente
- */
 
 class Aderente {
 private:
@@ -83,5 +85,6 @@ public:
     bool operator <(const Aderente& aderente);
 };
 
+/** @} */ // end of Classe Aderentes
 
 #endif //SRC_ADERENTE_H

@@ -1,0 +1,111 @@
+\hypertarget{group___t_e_x_t}{}\doxysection{T\+E\+XT}
+\label{group___t_e_x_t}\index{TEXT@{TEXT}}
+
+
+Funções de manipulação de strings.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{group___t_e_x_t_ga91f81abcd82da4dc033be13b878d9240}{to\+Upper}} (string s)
+\begin{DoxyCompactList}\small\item\em Transforma uma string em uppercase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_gab598ddbf7b021da590af48a1f6443b82}{l\+Trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string à esquerda. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_gab3817dd3461ed4755e41864e81c23a07}{r\+Trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string à direita. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_ga8bddc3dcbfa8ff455abebaf144a1f5cf}{trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string de ambos os lados. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___t_e_x_t_gade1eb6f1cfeb9c16ada648eee37a55eb}\label{group___t_e_x_t_gade1eb6f1cfeb9c16ada648eee37a55eb}} 
+{\footnotesize template$<$typename t $>$ }\\void {\bfseries split} (const string \&s, char delim, t result)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___t_e_x_t_gadd313f0fe82466f4c1c4622307d928bc}{split}} (const string \&s, char delim)
+\begin{DoxyCompactList}\small\item\em Corta uma string por um delimitador e transforma-\/a num array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funções de manipulação de strings. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___t_e_x_t_gab598ddbf7b021da590af48a1f6443b82}\label{group___t_e_x_t_gab598ddbf7b021da590af48a1f6443b82}} 
+\index{TEXT@{TEXT}!lTrim@{lTrim}}
+\index{lTrim@{lTrim}!TEXT@{TEXT}}
+\doxysubsubsection{\texorpdfstring{lTrim()}{lTrim()}}
+{\footnotesize\ttfamily void l\+Trim (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Poda uma string à esquerda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a transformar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___t_e_x_t_gab3817dd3461ed4755e41864e81c23a07}\label{group___t_e_x_t_gab3817dd3461ed4755e41864e81c23a07}} 
+\index{TEXT@{TEXT}!rTrim@{rTrim}}
+\index{rTrim@{rTrim}!TEXT@{TEXT}}
+\doxysubsubsection{\texorpdfstring{rTrim()}{rTrim()}}
+{\footnotesize\ttfamily void r\+Trim (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Poda uma string à direita. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a transformar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___t_e_x_t_gadd313f0fe82466f4c1c4622307d928bc}\label{group___t_e_x_t_gadd313f0fe82466f4c1c4622307d928bc}} 
+\index{TEXT@{TEXT}!split@{split}}
+\index{split@{split}!TEXT@{TEXT}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily vector$<$string$>$ split (\begin{DoxyParamCaption}\item[{const string \&}]{s,  }\item[{char}]{delim }\end{DoxyParamCaption})}
+
+
+
+Corta uma string por um delimitador e transforma-\/a num array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a transformar \\
+\hline
+{\em delim} & Delimitador \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array composto pelas partes da string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___t_e_x_t_ga91f81abcd82da4dc033be13b878d9240}\label{group___t_e_x_t_ga91f81abcd82da4dc033be13b878d9240}} 
+\index{TEXT@{TEXT}!toUpper@{toUpper}}
+\index{toUpper@{toUpper}!TEXT@{TEXT}}
+\doxysubsubsection{\texorpdfstring{toUpper()}{toUpper()}}
+{\footnotesize\ttfamily string to\+Upper (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})}
+
+
+
+Transforma uma string em uppercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a transformar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___t_e_x_t_ga8bddc3dcbfa8ff455abebaf144a1f5cf}\label{group___t_e_x_t_ga8bddc3dcbfa8ff455abebaf144a1f5cf}} 
+\index{TEXT@{TEXT}!trim@{trim}}
+\index{trim@{trim}!TEXT@{TEXT}}
+\doxysubsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily void trim (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Poda uma string de ambos os lados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & String a transformar \\
+\hline
+\end{DoxyParams}

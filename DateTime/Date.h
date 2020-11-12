@@ -1,10 +1,15 @@
 #ifndef CINEMATECAPORTUGUESA_DATE_H
 #define CINEMATECAPORTUGUESA_DATE_H
 
-#include "../Utils/utils.h"
-/**
- * Classe Date
+/** @defgroup Classe Date
+ * Atributos e métodos para a classe Date
+ *
+ * @{
  */
+
+#include "../Utils/utils.h"
+
+
 class Date {
 private:
     u_int d; /**Dia*/
@@ -66,5 +71,6 @@ public:
     friend ostream& operator <<(ostream& out, const Date& date);
 };
 
+/** @} */ // end of Classe Date
 
 #endif //CINEMATECAPORTUGUESA_DATE_H

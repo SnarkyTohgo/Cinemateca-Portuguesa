@@ -1,11 +1,16 @@
 #ifndef CINEMATECAPORTUGUESA_TIME_H
 #define CINEMATECAPORTUGUESA_TIME_H
 
+/** @defgroup Classe Time
+ * Atributos e métodos para a classe Time
+ *
+ * @{
+ */
+
+
 #include "../Utils/utils.h"
 
-/**
- * Classe Time
- */
+
 class Time {
 private:
     int h;  /**horas*/
@@ -92,5 +97,6 @@ public:
     friend ostream& operator <<(ostream& out, const Time& time);
 };
 
+/** @} */ // end of Classe Time
 
 #endif //CINEMATECAPORTUGUESA_TIME_H

@@ -1,0 +1,195 @@
+\hypertarget{class_sala}{}\doxysection{Sala Class Reference}
+\label{class_sala}\index{Sala@{Sala}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sala_afcf1b7b533e776b043ce8fb13c6268ca}{Sala}} ()
+\begin{DoxyCompactList}\small\item\em Construtor default da classe \mbox{\hyperlink{class_sala}{Sala}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sala_a469e7bd77ba5fada7a731933d2ce07c5}{Sala}} (string nome, u\+\_\+int capacidade)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{class_sala}{Sala}}. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_sala_a93eb4ca701b3ea99f8b2c5d233e031ee}{get\+Nome}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter o nome da sala. \end{DoxyCompactList}\item 
+u\+\_\+int \mbox{\hyperlink{class_sala_a5209782337b999579e33a205041bc2d2}{get\+Capacidade}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter a capacidade da sala. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ \mbox{\hyperlink{class_sala_a9e3b9ccccf78953f5cafd07e97a10450}{get\+Eventos}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter os eventos associados à sala. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sala_a4c2a27ce916fa606a2bc8ae1b2d72a25}{check\+Disponibilidade}} (const \mbox{\hyperlink{class_evento}{Evento}} evento)
+\begin{DoxyCompactList}\small\item\em Permite confirmar a disponibilidade da sala para um certo evento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sala_ae4c17f66adcba5c7996028eaed869f4e}{adicionar\+Evento}} (const \mbox{\hyperlink{class_evento}{Evento}} evento)
+\begin{DoxyCompactList}\small\item\em Permite adicionar um evento à lista de eventos daquela sala. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sala_ad1426e44a01fae547d826bba7cc7ad85}{operator=}} (const \mbox{\hyperlink{class_sala}{Sala}} \&sala)
+\begin{DoxyCompactList}\small\item\em Permite igualar uma sala a outra -\/ iguala todos os seus atributos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sala_aa0b239309bd8d02e3416b84624e11c9a}{operator$<$}} (const \mbox{\hyperlink{class_sala}{Sala}} \&sala)
+\begin{DoxyCompactList}\small\item\em Permite ordenar as salas por ordem alfabetica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_sala_ac6747fe26ad310ce3edc3c4e50723b3c}{operator$<$$<$}} (ostream \&out, const \mbox{\hyperlink{class_sala}{Sala}} \&sala)
+\begin{DoxyCompactList}\small\item\em Permite mostrar uma certa sala no ecrã \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sala_afcf1b7b533e776b043ce8fb13c6268ca}\label{class_sala_afcf1b7b533e776b043ce8fb13c6268ca}} 
+\index{Sala@{Sala}!Sala@{Sala}}
+\index{Sala@{Sala}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{Sala()}{Sala()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sala\+::\+Sala (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construtor default da classe \mbox{\hyperlink{class_sala}{Sala}}. 
+
+eventos da sala \mbox{\Hypertarget{class_sala_a469e7bd77ba5fada7a731933d2ce07c5}\label{class_sala_a469e7bd77ba5fada7a731933d2ce07c5}} 
+\index{Sala@{Sala}!Sala@{Sala}}
+\index{Sala@{Sala}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{Sala()}{Sala()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sala\+::\+Sala (\begin{DoxyParamCaption}\item[{string}]{nome,  }\item[{u\+\_\+int}]{capacidade }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{class_sala}{Sala}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & -\/ nome da sala \\
+\hline
+{\em capacidade} & -\/ capacidade da sala \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sala_ae4c17f66adcba5c7996028eaed869f4e}\label{class_sala_ae4c17f66adcba5c7996028eaed869f4e}} 
+\index{Sala@{Sala}!adicionarEvento@{adicionarEvento}}
+\index{adicionarEvento@{adicionarEvento}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{adicionarEvento()}{adicionarEvento()}}
+{\footnotesize\ttfamily void Sala\+::adicionar\+Evento (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_evento}{Evento}}}]{evento }\end{DoxyParamCaption})}
+
+
+
+Permite adicionar um evento à lista de eventos daquela sala. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evento} & -\/ evento que queremos adicionar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sala_a4c2a27ce916fa606a2bc8ae1b2d72a25}\label{class_sala_a4c2a27ce916fa606a2bc8ae1b2d72a25}} 
+\index{Sala@{Sala}!checkDisponibilidade@{checkDisponibilidade}}
+\index{checkDisponibilidade@{checkDisponibilidade}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{checkDisponibilidade()}{checkDisponibilidade()}}
+{\footnotesize\ttfamily bool Sala\+::check\+Disponibilidade (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_evento}{Evento}}}]{evento }\end{DoxyParamCaption})}
+
+
+
+Permite confirmar a disponibilidade da sala para um certo evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evento} & -\/ evento para o qual queremos confirmar a disponibilidade \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a sala tenha disponibilidade para aquele evento, e false caso não tenha 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sala_a5209782337b999579e33a205041bc2d2}\label{class_sala_a5209782337b999579e33a205041bc2d2}} 
+\index{Sala@{Sala}!getCapacidade@{getCapacidade}}
+\index{getCapacidade@{getCapacidade}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{getCapacidade()}{getCapacidade()}}
+{\footnotesize\ttfamily u\+\_\+int Sala\+::get\+Capacidade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter a capacidade da sala. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a capacidade da sala 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sala_a9e3b9ccccf78953f5cafd07e97a10450}\label{class_sala_a9e3b9ccccf78953f5cafd07e97a10450}} 
+\index{Sala@{Sala}!getEventos@{getEventos}}
+\index{getEventos@{getEventos}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{getEventos()}{getEventos()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ Sala\+::get\+Eventos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter os eventos associados à sala. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a lista de eventos associados à sala 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sala_a93eb4ca701b3ea99f8b2c5d233e031ee}\label{class_sala_a93eb4ca701b3ea99f8b2c5d233e031ee}} 
+\index{Sala@{Sala}!getNome@{getNome}}
+\index{getNome@{getNome}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily string Sala\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter o nome da sala. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o nome da sala 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sala_aa0b239309bd8d02e3416b84624e11c9a}\label{class_sala_aa0b239309bd8d02e3416b84624e11c9a}} 
+\index{Sala@{Sala}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Sala\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sala}{Sala}} \&}]{sala }\end{DoxyParamCaption})}
+
+
+
+Permite ordenar as salas por ordem alfabetica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sala} & -\/ sala que queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a sala passada como argumento tenha um nome maior por ordem alfabetica 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sala_ad1426e44a01fae547d826bba7cc7ad85}\label{class_sala_ad1426e44a01fae547d826bba7cc7ad85}} 
+\index{Sala@{Sala}!operator=@{operator=}}
+\index{operator=@{operator=}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Sala\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_sala}{Sala}} \&}]{sala }\end{DoxyParamCaption})}
+
+
+
+Permite igualar uma sala a outra -\/ iguala todos os seus atributos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sala} & -\/ sala à qual estamos a igualar a outra sala \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_sala_ac6747fe26ad310ce3edc3c4e50723b3c}\label{class_sala_ac6747fe26ad310ce3edc3c4e50723b3c}} 
+\index{Sala@{Sala}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Sala@{Sala}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_sala}{Sala}} \&}]{sala }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Permite mostrar uma certa sala no ecrã 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & -\/ outstream onde queremos mostrar a sala \\
+\hline
+{\em sala} & -\/ sala que queremos mostrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a outstream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sala/Sala.\+h\item 
+Sala/Sala.\+cpp\end{DoxyCompactItemize}

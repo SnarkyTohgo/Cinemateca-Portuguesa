@@ -1,3 +1,0 @@
-C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug/CMakeFiles/CinematecaPortuguesa.dir
-C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Adriana/Cinemateca-Portuguesa/cmake-build-debug/CMakeFiles/rebuild_cache.dir

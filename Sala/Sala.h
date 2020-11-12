@@ -1,14 +1,19 @@
 #ifndef SRC_SALA_H
 #define SRC_SALA_H
 
+/** @defgroup Classe Sala
+ * Atributos e métodos para a classe Sala
+ *
+ * @{
+ */
+
 #include "../Utils/utils.h"
 #include "../DateTime/Time.h"
 #include "../DateTime/Date.h"
 
 #include "../Evento/Evento.h"
-/**
- * Classe Sala
- */
+
+
 class Sala {
 private:
     string nome;            /**nome da sala*/
@@ -81,5 +86,6 @@ public:
     bool operator <(const Sala& sala);
 };
 
+/** @} */ // end of Classe Sala
 
 #endif //SRC_SALA_H

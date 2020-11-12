@@ -1,15 +1,19 @@
 #ifndef SRC_CINEMATECA_H
 #define SRC_CINEMATECA_H
 
+/** @defgroup Classe Cinemateca
+ * Atributos e métodos para a classe Cinemateca
+ *
+ * @{
+ */
+
 #include "../Utils/utils.h"
 
 #include "../Aderentes/Aderente.h"
 #include "../Evento/Evento.h"
 #include "../Sala/Sala.h"
 
-/**
- * Classe Cinemateca
- */
+
 class Cinemateca {
 private:
     static u_int anoAtual;  /**Ano atual*/
@@ -228,5 +232,6 @@ public:
     void ordenarAderentesAnoAdesao();
 };
 
+/** @} */ // end of Classe Cinemateca
 
 #endif //SRC_CINEMATECA_H
