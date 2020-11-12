@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['aderente_224',['Aderente',['../group___classe.html',1,'']]]
+  ['aderente_228',['Aderente',['../group___classe.html',1,'']]]
 ];

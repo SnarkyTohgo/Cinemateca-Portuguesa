@@ -27,8 +27,24 @@ typedef void (*menuFunctionPtr)();
  * @{
  */
 
+/**
+ * @brief Função que encerra o menu corrente
+ */
 static void close();
+
+/**
+ * @brief Função que gera dinamicamente um menu
+ * @param menuTitle Título do menu
+ * @param menuItems Array de pares nome da opção - função da opção
+ */
 static void createMenu(string menuTitle, vector<pair<string, menuFunctionPtr>> menuItems);
+
+/**
+ * @brief Função que interpreta o input do utilizador
+ * @param lowerBound Mínimo permitido
+ * @param higherBound Máximo permitido
+ * @param errorMsg Mensagem em caso de erro
+ */
 static u_int getUnsignedIntInputInclusive(u_int lowerBound, u_int higherBound, string errorMsg);
 
 /** @} */ // end of Criação de menus
