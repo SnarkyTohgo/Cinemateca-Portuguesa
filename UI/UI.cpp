@@ -213,7 +213,7 @@ void viewListarEventos() {
     cout << ">>> EVENTOS <<<" << endl << endl;
 
     int i = 1;
-    for (auto evento : cinemateca.getEventos()){
+    for (auto evento : cinemateca.eventos){
         cout << i << ". " << evento.getNome() << endl;
         i++;
     }
@@ -240,7 +240,7 @@ viewMostrarEvento(Evento evento){
 
     cout << "Lista de participantes: \n\n";
     for (auto participante : evento.getParticipantes())
-        cout << participante.getNome() << endl;
+        cout << participante.getNif() << endl;
 
     cout << "Sala: ";
     for (auto sala : cinemateca.getSalas()){
@@ -255,29 +255,67 @@ viewMostrarEvento(Evento evento){
 }
 
 void viewComprarBilhetes() {
-    u_int nifParticipante;
-    string nomeEvento;
+    string input;
 
-    cout << "NIF: ";
-    cin >> nifParticipante;
+    cout << "Tem cartao Amigos da Cinemateca? (Y/N)\n";
+    cin >> input;
 
-    cout << "Nome do Evento: ";
-    cin >> nomeEvento;
+    if (input == "Y" or input == "y"){
 
-    cout << endl;
+        u_int nifIntroduzido;
+        string nomeEvento;
 
-    size_t i = 0;
-    for (auto aderente : cinemateca.getAderentes()){
-        if (aderente.getNif() == nifParticipante){
-            for (auto evento : cinemateca.getEventos()){
-                if (evento.getNome() == nomeEvento){
-                    cinemateca.comprarBilhete(aderente, &evento);
-                    break;
+        cout << "NIF: ";
+        cin >> nifIntroduzido;
+
+        cout << "Nome do Evento: ";
+        cin >> nomeEvento;
+
+        cout << endl;
+
+        size_t i = 0;
+        for (auto aderente : cinemateca.getAderentes()){
+            if (aderente.getNif() == nifIntroduzido){
+                for (auto evento : cinemateca.eventos){
+                    if (evento.getNome() == nomeEvento){
+                        cinemateca.comprarBilhete(aderente, &evento);
+                        break;
+                    }
+                    i++;
                 }
-                i++;
+                break;
             }
-            break;
         }
+    } else if (input == "N" or input == "n"){
+
+        // Registar novo utilizador
+
+        u_int nif;
+
+        cout << "NIF: ";
+        cin >> nif;
+        cin.clear();
+        cin.ignore(1000, '\n');
+
+        cinemateca.registarUtilizadorNaoAderente(nif);
+
+
+        // Procurar Evento na Cinemateca
+
+        string nomeEvento;
+
+        cout << "Nome do Evento: ";
+        cin >> nomeEvento;
+
+        for (auto evento : cinemateca.eventos){
+            if (evento.getNome() == nomeEvento){
+                Utilizador novoUtilizador(nif);
+                cinemateca.comprarBilhete(novoUtilizador, &evento);
+                break;
+            }
+        }
+    } else {
+        return viewComprarBilhetes();
     }
 }
 
@@ -288,7 +326,6 @@ void viewBilhetesComprados() {
 void viewValorDeVendas() {
     cout << "Total de Vendas: " << to_string(cinemateca.getTotalVendas()) << " euros\n";
 }
-
 
 
 /*

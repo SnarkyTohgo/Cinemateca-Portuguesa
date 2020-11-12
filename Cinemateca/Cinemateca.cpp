@@ -4,11 +4,12 @@
 ifstream salasDB;
 ifstream eventosDB;
 ifstream aderentesDB;
+ifstream naoAderentesDB;
 
 vector<string> salasData;
 vector<string> eventosData;
 vector<string> aderentesData;
-
+vector<string> naoAderentesData;
 
 /*
  * CONSTRUCTORS
@@ -61,14 +62,14 @@ Cinemateca::getAderentes() const {
     return this->aderentes;
 }
 
+list<Utilizador>
+Cinemateca::getNaoAderentes() const {
+    return this->naoAderentes;
+}
+
 list<Sala>
 Cinemateca::getSalas() const {
     return this->salas;
-}
-
-list<Evento>
-Cinemateca::getEventos() const {
-    return this->eventos;
 }
 
 Evento
@@ -110,6 +111,11 @@ Cinemateca::setAderentes(list<Aderente> aderentes){
     this->aderentes = aderentes;
 }
 
+void
+Cinemateca::setNaoAderentes(list<Utilizador> naoAderentes){
+    this->naoAderentes = naoAderentes;
+}
+
 // OTHER
 
 void
@@ -123,6 +129,21 @@ Cinemateca::registarAderente(string nome, u_int nif, Date dataNasc, u_int anoAtu
          << novoAderente;
 }
 
+void
+Cinemateca::registarUtilizadorNaoAderente(u_int nif) {
+    Utilizador novoUtilizador(nif);
+
+    for (auto utilizador : this->naoAderentes){
+        if (nif == utilizador.getNif())
+            return;
+    }
+
+    this->naoAderentes.push_back(novoUtilizador);
+    this->updateNaoAderentes(novoUtilizador);
+
+    cout << "\n>>>Novo utilizador registado com successo!<<<\n"
+         << novoUtilizador;
+}
 
 void
 Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco){
@@ -167,15 +188,42 @@ Cinemateca::comprarBilhete(Aderente aderente, Evento* evento){
         return EXIT_FAILURE;
     }
 
+    float valorComDesconto = evento->getPreco() - (evento->getPreco() * (this->anoAtual - aderente.getAnoAdesao()) * 0.01);
+
     evento->alocarParticipante(aderente);
+    evento->updateTotalVendas(valorComDesconto);
+
+    this->updateBilhetesComprados();
+    this->updateTotalVendas(valorComDesconto);
+
+    cout << "\nBilhete comprado com sucesso!\n"
+         << "\nEvento: " << toUpper(evento->getNome())
+         << "\nTitular: " << aderente.getNome()
+         << "\nNIF: " << aderente.getNif()
+         << "\nPvP: " << valorComDesconto
+         << endl;
+
+    return EXIT_SUCCESS;
+}
+
+int
+Cinemateca::comprarBilhete(Utilizador utilizador, Evento* evento){
+
+    if (evento->isLotado()){
+        cout << "Evento " << toUpper(evento->getNome()) << " já se encontra lotado\n";
+
+        return EXIT_FAILURE;
+    }
+
+    evento->alocarParticipante(utilizador);
+    evento->updateTotalVendas(evento->getPreco());
 
     this->updateBilhetesComprados();
     this->updateTotalVendas(evento->getPreco());
 
     cout << "\nBilhete comprado com sucesso!\n"
          << "\nEvento: " << toUpper(evento->getNome())
-         << "\nTitular: " << aderente.getNome()
-         << "\nNIF: " << aderente.getNif()
+         << "\nNIF: " << utilizador.getNif()
          << "\nPvP: " << evento->getPreco()
          << endl;
 
@@ -310,6 +358,25 @@ Cinemateca::parseAderentes(){
     this->setAderentes(parsedAderentes);
 }
 
+void
+Cinemateca::parseNaoAderentes(){
+    naoAderentesDB = readFile("../nao_aderentes.dat");
+    naoAderentesData = parseFile(naoAderentesDB);
+
+    list<Utilizador> parsedNaoAderentes;
+
+    for (auto tuple : naoAderentesData){
+        vector<string> data = split(tuple, ';');
+
+        u_int nif = (u_int) stoi(data[0]);
+
+        Utilizador novoUtilizador(nif);
+        parsedNaoAderentes.push_back(novoUtilizador);
+    }
+
+    this->setNaoAderentes(parsedNaoAderentes);
+}
+
 // UPDATE
 
 void
@@ -321,6 +388,15 @@ Cinemateca::updateAderentes(Aderente aderente) const {
          + to_string(aderente.getAnoAdesao());
 
     writeData(data, "../aderentes.dat");
+}
+
+void
+Cinemateca::updateNaoAderentes(Utilizador naoAderente) const {
+    string data = "";
+
+    data += to_string(naoAderente.getNif());
+
+    writeData(data, "../nao_aderentes.dat");
 }
 
 void

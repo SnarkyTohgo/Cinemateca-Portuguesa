@@ -12,6 +12,7 @@ Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, f
     this->duracao = duracao;
     this->lotMax = lotMax;
     this->preco = preco;
+    this->totalVendas = 0;
 }
 
 Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala)
@@ -65,24 +66,26 @@ Evento::getSala() const {
     return this->sala;
 }
 
-list<Aderente>
+list<Utilizador>
 Evento::getParticipantes() const {
-    return this->participantes;
+    list<Utilizador> participantes = this->participantesNaoAderentes;
+
+    for (auto aderente : this->participantesAderentes){
+        Utilizador u = aderente;
+        participantes.push_back(u);
+    }
+
+    return participantes;
 }
 
 u_int
 Evento::getBilhetesComprados() const {
-    return this->participantes.size();
+    return this->participantesAderentes.size() + this->participantesNaoAderentes.size();
 }
 
-double
+float
 Evento::getTotalVendas() const {
-    double total = 0;
-
-    for (auto bilhete : this->participantes)
-        total += (double) this->preco;
-
-    return total;
+    return this->totalVendas;
 }
 
 void
@@ -92,14 +95,23 @@ Evento::setSala(const u_int sala){
 
 bool
 Evento::isLotado() const {
-    return this->participantes.size() == this->lotMax;
+    return (this->participantesAderentes.size() + this->participantesNaoAderentes.size()) == this->lotMax;
+}
+
+void
+Evento::updateTotalVendas(float valor){
+    this->totalVendas += valor;
 }
 
 void
 Evento::alocarParticipante(Aderente aderente){
-    this->participantes.push_back(aderente);
+    this->participantesAderentes.push_back(aderente);
 }
 
+void
+Evento::alocarParticipante(Utilizador naoAderente){
+    this->participantesNaoAderentes.push_back(naoAderente);
+}
 
 /*
  * OPERATOR OVERLOADS
@@ -131,6 +143,7 @@ Evento::operator=(const Evento& evento) {
     this->duracao = evento.duracao;
     this->lotMax = evento.lotMax;
     this->preco = evento.preco;
+    this->totalVendas = evento.getTotalVendas();
 }
 
 bool

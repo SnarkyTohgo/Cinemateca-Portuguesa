@@ -1,0 +1,156 @@
+\hypertarget{class_utilizador}{}\doxysection{Utilizador Class Reference}
+\label{class_utilizador}\index{Utilizador@{Utilizador}}
+Inheritance diagram for Utilizador\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_utilizador}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utilizador_a264cb21da71b44fc2d5cfb21e58fa24a}{Utilizador}} ()
+\begin{DoxyCompactList}\small\item\em Construtor default da classe \mbox{\hyperlink{class_utilizador}{Utilizador}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_utilizador_a6ab056f0ead6a8a9252852844881d485}{Utilizador}} (u\+\_\+int nif)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{class_aderente}{Aderente}}. \end{DoxyCompactList}\item 
+u\+\_\+int \mbox{\hyperlink{class_utilizador_afec7b0f3a55593abfed3128d5909a578}{get\+Nif}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter o N\+IF do aderente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_utilizador_acf4306f82b32ea5fd98704523761e253}{operator=}} (const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&utilizador)
+\begin{DoxyCompactList}\small\item\em Permite igualar um aderente a outro -\/ iguala todos os seus atributos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_utilizador_abe806f5c610d50455066d67650baa20c}{operator==}} (const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&utilizador)
+\begin{DoxyCompactList}\small\item\em Permite comparar o N\+IF de dois aderentes para determinar se são iguais. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_utilizador_a0c4a09364e569fffe5921d78797edd4f}{operator$<$}} (const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&utilizador)
+\begin{DoxyCompactList}\small\item\em Permite ordenar os utilizadores por ordem alfabetica. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_utilizador_a5da40fc06532bd492f9eb17219f5b5a3}{operator$<$$<$}} (ostream \&out, \mbox{\hyperlink{class_utilizador}{Utilizador}} \&utilizador)
+\begin{DoxyCompactList}\small\item\em Permite mostrar um certo aderente no ecrã \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_utilizador_a264cb21da71b44fc2d5cfb21e58fa24a}\label{class_utilizador_a264cb21da71b44fc2d5cfb21e58fa24a}} 
+\index{Utilizador@{Utilizador}!Utilizador@{Utilizador}}
+\index{Utilizador@{Utilizador}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{Utilizador()}{Utilizador()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Utilizador\+::\+Utilizador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construtor default da classe \mbox{\hyperlink{class_utilizador}{Utilizador}}. 
+
+N\+IF do aderente \mbox{\Hypertarget{class_utilizador_a6ab056f0ead6a8a9252852844881d485}\label{class_utilizador_a6ab056f0ead6a8a9252852844881d485}} 
+\index{Utilizador@{Utilizador}!Utilizador@{Utilizador}}
+\index{Utilizador@{Utilizador}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{Utilizador()}{Utilizador()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Utilizador\+::\+Utilizador (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{nif }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{class_aderente}{Aderente}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & -\/ nome do aderente \\
+\hline
+{\em nif} & -\/ N\+IF do aderente \\
+\hline
+{\em data\+Nasc} & -\/ data de nascimento do aderente \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_utilizador_afec7b0f3a55593abfed3128d5909a578}\label{class_utilizador_afec7b0f3a55593abfed3128d5909a578}} 
+\index{Utilizador@{Utilizador}!getNif@{getNif}}
+\index{getNif@{getNif}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{getNif()}{getNif()}}
+{\footnotesize\ttfamily u\+\_\+int Utilizador\+::get\+Nif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter o N\+IF do aderente. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o N\+IF do aderente 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilizador_a0c4a09364e569fffe5921d78797edd4f}\label{class_utilizador_a0c4a09364e569fffe5921d78797edd4f}} 
+\index{Utilizador@{Utilizador}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Utilizador\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&}]{utilizador }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Permite ordenar os utilizadores por ordem alfabetica. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utilizador} & \mbox{\hyperlink{class_utilizador}{Utilizador}} que queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso o utilzador passado como argumento tenha um nif maior 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_utilizador_acf4306f82b32ea5fd98704523761e253}\label{class_utilizador_acf4306f82b32ea5fd98704523761e253}} 
+\index{Utilizador@{Utilizador}!operator=@{operator=}}
+\index{operator=@{operator=}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Utilizador\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&}]{utilizador }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Permite igualar um aderente a outro -\/ iguala todos os seus atributos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aderente} & -\/ aderente ao qual estamos a igualar o outro aderente \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_utilizador_abe806f5c610d50455066d67650baa20c}\label{class_utilizador_abe806f5c610d50455066d67650baa20c}} 
+\index{Utilizador@{Utilizador}!operator==@{operator==}}
+\index{operator==@{operator==}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Utilizador\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_utilizador}{Utilizador}} \&}]{utilizador }\end{DoxyParamCaption})}
+
+
+
+Permite comparar o N\+IF de dois aderentes para determinar se são iguais. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aderente} & -\/ aderente cujo N\+IF queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a igualdade se verifique e false caso não se verifique 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_utilizador_a5da40fc06532bd492f9eb17219f5b5a3}\label{class_utilizador_a5da40fc06532bd492f9eb17219f5b5a3}} 
+\index{Utilizador@{Utilizador}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Utilizador@{Utilizador}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{\mbox{\hyperlink{class_utilizador}{Utilizador}} \&}]{utilizador }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Permite mostrar um certo aderente no ecrã 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & -\/ outstream onde queremos mostrar o aderente \\
+\hline
+{\em aderente} & -\/ aderente que queremos mostrar no ecrã \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna a outstream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Aderentes/Utilizador.\+h\item 
+Aderentes/Utilizador.\+cpp\end{DoxyCompactItemize}

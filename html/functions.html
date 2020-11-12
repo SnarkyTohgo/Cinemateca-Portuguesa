@@ -22,9 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Cinemateca Portuguesa
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.01</span>
    </div>
-   <div id="projectbrief">A Cinemateca Portuguesa pretende informatizar o sistema de compra de bilhetes para as sessões de cinema e eventos que promove, permitindo implementar descontos dedicados aos aderentes do Cartão Amigos da Cinemateca. AsinstalaçõesdaCinematecaestãolocalizadasnascidadesdoPortoedeLisboa.SobrecadalocalizaçãodaCinematecaosistemadeveguardaramorada,oseventosquepromoveramnosúltimos12meseseosaderentesassociadosàrespectivalocalização.Emrelaçãoaosaderentes,edeformaagarantiraemissãodoCartãoAmigosdaCinemateca,éimportanteguardaronome,NIF,datadenascimentoeanodeadesão.</div>
   </td>
  </tr>
  </tbody>
@@ -106,6 +105,9 @@ $(function() {
 <li>Evento()
 : <a class="el" href="class_evento.html#a7aba3bd7a832c5365ea0ccb318511452">Evento</a>
 </li>
+<li>eventos
+: <a class="el" href="class_cinemateca.html#ab89c94eef099d7a92bd47e3648e3ade3">Cinemateca</a>
+</li>
 </ul>
 
 
@@ -145,8 +147,7 @@ $(function() {
 : <a class="el" href="class_cinemateca.html#a96ebc07d500824673f6e4aa9444d2a9d">Cinemateca</a>
 </li>
 <li>getEventos()
-: <a class="el" href="class_cinemateca.html#aca4e5574bb1404db1f5d8e2d32863cf5">Cinemateca</a>
-, <a class="el" href="class_sala.html#a9e3b9ccccf78953f5cafd07e97a10450">Sala</a>
+: <a class="el" href="class_sala.html#a9e3b9ccccf78953f5cafd07e97a10450">Sala</a>
 </li>
 <li>getH()
 : <a class="el" href="class_time.html#ae1662cdf99b8d5eedfe559de3029fa24">Time</a>
@@ -167,8 +168,11 @@ $(function() {
 <li>getMorada()
 : <a class="el" href="class_cinemateca.html#ac7470ab0b2aaeb40f1bd3e8159837b2e">Cinemateca</a>
 </li>
+<li>getNaoAderentes()
+: <a class="el" href="class_cinemateca.html#a81dd09506a0e9022f5c19d7fac0d60fd">Cinemateca</a>
+</li>
 <li>getNif()
-: <a class="el" href="class_aderente.html#aa17645e3c08700a568fdde7a9305103c">Aderente</a>
+: <a class="el" href="class_utilizador.html#afec7b0f3a55593abfed3128d5909a578">Utilizador</a>
 </li>
 <li>getNome()
 : <a class="el" href="class_aderente.html#ad5b9bdec211b44993a43333092920239">Aderente</a>
@@ -176,7 +180,7 @@ $(function() {
 , <a class="el" href="class_sala.html#a93eb4ca701b3ea99f8b2c5d233e031ee">Sala</a>
 </li>
 <li>getParticipantes()
-: <a class="el" href="class_evento.html#aa88a34389dd5830fbf9aa4bf9476b44f">Evento</a>
+: <a class="el" href="class_evento.html#ad92315640f881845e0849d12df210ef7">Evento</a>
 </li>
 <li>getPreco()
 : <a class="el" href="class_evento.html#a0a50d20fb339697532733dae18c59aeb">Evento</a>
@@ -192,7 +196,7 @@ $(function() {
 </li>
 <li>getTotalVendas()
 : <a class="el" href="class_cinemateca.html#a87db7d447e2bb89aa115cf93a1019728">Cinemateca</a>
-, <a class="el" href="class_evento.html#ab005298a9d971f7d8f91c882ddbeb851">Evento</a>
+, <a class="el" href="class_evento.html#ae80a98ba48af461d23093794b0a8f95e">Evento</a>
 </li>
 </ul>
 
@@ -211,6 +215,7 @@ $(function() {
 , <a class="el" href="class_evento.html#a9adfaf98f24dadc099ff4ee7fde5669a">Evento</a>
 , <a class="el" href="class_sala.html#aa0b239309bd8d02e3416b84624e11c9a">Sala</a>
 , <a class="el" href="class_time.html#ad7c45caa41cc1d2a669852e28715a76d">Time</a>
+, <a class="el" href="class_utilizador.html#a0c4a09364e569fffe5921d78797edd4f">Utilizador</a>
 </li>
 <li>operator&lt;&lt;
 : <a class="el" href="class_aderente.html#a5f0561af60ff3d39e3125735394ad440">Aderente</a>
@@ -218,17 +223,19 @@ $(function() {
 , <a class="el" href="class_evento.html#a4929ba3f9af31fdaf5f570ef9ed60e7c">Evento</a>
 , <a class="el" href="class_sala.html#ac6747fe26ad310ce3edc3c4e50723b3c">Sala</a>
 , <a class="el" href="class_time.html#a059b1a199340af155effafd3b9055e2c">Time</a>
+, <a class="el" href="class_utilizador.html#a5da40fc06532bd492f9eb17219f5b5a3">Utilizador</a>
 </li>
 <li>operator=()
 : <a class="el" href="class_aderente.html#a0a17e4fb4daa8d1e561c443172145727">Aderente</a>
 , <a class="el" href="class_evento.html#aaf1b79416377324cc7f59c340ad16274">Evento</a>
 , <a class="el" href="class_sala.html#ad1426e44a01fae547d826bba7cc7ad85">Sala</a>
+, <a class="el" href="class_utilizador.html#acf4306f82b32ea5fd98704523761e253">Utilizador</a>
 </li>
 <li>operator==()
-: <a class="el" href="class_aderente.html#a26e58ac16ad933a0ac8130fad3761db3">Aderente</a>
-, <a class="el" href="class_date.html#a7aee60752a90ac408283efb629d47696">Date</a>
+: <a class="el" href="class_date.html#a7aee60752a90ac408283efb629d47696">Date</a>
 , <a class="el" href="class_evento.html#ac2d379905524160e5c3a96a06477f71a">Evento</a>
 , <a class="el" href="class_time.html#af3f69e307f96cf5981efca12c6772559">Time</a>
+, <a class="el" href="class_utilizador.html#abe806f5c610d50455066d67650baa20c">Utilizador</a>
 </li>
 <li>operator&gt;()
 : <a class="el" href="class_time.html#ae816dbf10eb666d8574c6f4e25f267a1">Time</a>
@@ -270,6 +277,9 @@ $(function() {
 <li>parseEventos()
 : <a class="el" href="class_cinemateca.html#a4a3c2852be254c70c2109fd72397955e">Cinemateca</a>
 </li>
+<li>parseNaoAderentes()
+: <a class="el" href="class_cinemateca.html#a0d2a02b0aa70ef8161fdf8c9aaf58fad">Cinemateca</a>
+</li>
 <li>parseSalas()
 : <a class="el" href="class_cinemateca.html#ad1ddba3da14014db8e11370af7d75ab5">Cinemateca</a>
 </li>
@@ -279,6 +289,9 @@ $(function() {
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>registarAderente()
 : <a class="el" href="class_cinemateca.html#ab928ba717bad5d9c8cb0d88f6d01dcf2">Cinemateca</a>
+</li>
+<li>registarUtilizadorNaoAderente()
+: <a class="el" href="class_cinemateca.html#a1c4a65bf0a489599d9217273c02be8a6">Cinemateca</a>
 </li>
 </ul>
 
@@ -298,6 +311,9 @@ $(function() {
 </li>
 <li>setM()
 : <a class="el" href="class_time.html#a62253c8349413909b839401ec65c1a0b">Time</a>
+</li>
+<li>setNaoAderentes()
+: <a class="el" href="class_cinemateca.html#a0dc55320c505fe17544b24dc210eec70">Cinemateca</a>
 </li>
 <li>setS()
 : <a class="el" href="class_time.html#abb73185142029a2e3fc8bcfa92acdf72">Time</a>
@@ -328,8 +344,15 @@ $(function() {
 <li>updateEventos()
 : <a class="el" href="class_cinemateca.html#aa94a3615492867f203e8f46370d16929">Cinemateca</a>
 </li>
+<li>updateNaoAderentes()
+: <a class="el" href="class_cinemateca.html#a78e4b3ec828c7635b52513f4133021fe">Cinemateca</a>
+</li>
 <li>updateTotalVendas()
 : <a class="el" href="class_cinemateca.html#a6e19da1cba7da4c5596ed20f0de47ee7">Cinemateca</a>
+, <a class="el" href="class_evento.html#a95727f0d4281f9432c4efebb4a896a68">Evento</a>
+</li>
+<li>Utilizador()
+: <a class="el" href="class_utilizador.html#a264cb21da71b44fc2d5cfb21e58fa24a">Utilizador</a>
 </li>
 </ul>
 </div><!-- contents -->

@@ -22,9 +22,8 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Cinemateca Portuguesa
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">1.01</span>
    </div>
-   <div id="projectbrief">A Cinemateca Portuguesa pretende informatizar o sistema de compra de bilhetes para as sessões de cinema e eventos que promove, permitindo implementar descontos dedicados aos aderentes do Cartão Amigos da Cinemateca. AsinstalaçõesdaCinematecaestãolocalizadasnascidadesdoPortoedeLisboa.SobrecadalocalizaçãodaCinematecaosistemadeveguardaramorada,oseventosquepromoveramnosúltimos12meseseosaderentesassociadosàrespectivalocalização.Emrelaçãoaosaderentes,edeformaagarantiraemissãodoCartãoAmigosdaCinemateca,éimportanteguardaronome,NIF,datadenascimentoeanodeadesão.</div>
   </td>
  </tr>
  </tbody>
@@ -74,15 +73,15 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SRC_ADERENTE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SRC_ADERENTE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../Utils/utils.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../DateTime/Date.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_aderente.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_aderente.html">Aderente</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">string</span> nome;    </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    u_int nif;      </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_date.html">Date</a> dataNasc;  </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    u_int anoAdesao;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Utilizador.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../Utils/utils.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../DateTime/Date.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_aderente.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_aderente.html">Aderente</a> : <span class="keyword">public</span> <a class="code" href="class_utilizador.html">Utilizador</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span> nome;        </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_date.html">Date</a> dataNasc;      </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    u_int anoAdesao;    </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_aderente.html#a87db72fd79693703092f048555b4c941">   24</a></span>&#160;    <a class="code" href="class_aderente.html#a87db72fd79693703092f048555b4c941">Aderente</a>(){};</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
@@ -90,32 +89,28 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_aderente.html#ad5b9bdec211b44993a43333092920239">getNome</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    u_int <a class="code" href="class_aderente.html#aa17645e3c08700a568fdde7a9305103c">getNif</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_date.html">Date</a> <a class="code" href="class_aderente.html#a5721ef79279d1b0a2dbed9636220d07d">getDataNasc</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_date.html">Date</a> <a class="code" href="class_aderente.html#a5721ef79279d1b0a2dbed9636220d07d">getDataNasc</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    u_int <a class="code" href="class_aderente.html#a1b2336caef6674f00598377f1d3472f2">getAnoAdesao</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    u_int <a class="code" href="class_aderente.html#a1b2336caef6674f00598377f1d3472f2">getAnoAdesao</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="class_aderente.html#a5f0561af60ff3d39e3125735394ad440">operator &lt;&lt;</a>(ostream&amp; out, <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">friend</span> ostream&amp; <a class="code" href="class_aderente.html#a5f0561af60ff3d39e3125735394ad440">operator &lt;&lt;</a>(ostream&amp; out, <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_aderente.html#a0a17e4fb4daa8d1e561c443172145727">operator =</a>(<span class="keyword">const</span> <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_aderente.html#a0a17e4fb4daa8d1e561c443172145727">operator =</a>(<span class="keyword">const</span> <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_aderente.html#a26e58ac16ad933a0ac8130fad3761db3">operator ==</a>(<span class="keyword">const</span> <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_aderente.html#a1f98aab857bcad7d2a0d3142c0460b81">operator &lt;</a>(<span class="keyword">const</span> <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; <span class="comment">// end of Classe Aderentes</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif //SRC_ADERENTE_H</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_aderente.html#a1f98aab857bcad7d2a0d3142c0460b81">operator &lt;</a>(<span class="keyword">const</span> <a class="code" href="class_aderente.html">Aderente</a>&amp; aderente);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="comment">// end of Classe Aderentes</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif //SRC_ADERENTE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_aderente_html_aa17645e3c08700a568fdde7a9305103c"><div class="ttname"><a href="class_aderente.html#aa17645e3c08700a568fdde7a9305103c">Aderente::getNif</a></div><div class="ttdeci">u_int getNif() const</div><div class="ttdoc">Permite obter o NIF do aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:22</div></div>
-<div class="ttc" id="aclass_aderente_html_ad5b9bdec211b44993a43333092920239"><div class="ttname"><a href="class_aderente.html#ad5b9bdec211b44993a43333092920239">Aderente::getNome</a></div><div class="ttdeci">string getNome() const</div><div class="ttdoc">Permite obter o nome do aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:17</div></div>
+<div class="ttc" id="aclass_aderente_html_ad5b9bdec211b44993a43333092920239"><div class="ttname"><a href="class_aderente.html#ad5b9bdec211b44993a43333092920239">Aderente::getNome</a></div><div class="ttdeci">string getNome() const</div><div class="ttdoc">Permite obter o nome do aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:22</div></div>
 <div class="ttc" id="aclass_aderente_html_a0a17e4fb4daa8d1e561c443172145727"><div class="ttname"><a href="class_aderente.html#a0a17e4fb4daa8d1e561c443172145727">Aderente::operator=</a></div><div class="ttdeci">void operator=(const Aderente &amp;aderente)</div><div class="ttdoc">Permite igualar um aderente a outro - iguala todos os seus atributos.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:53</div></div>
-<div class="ttc" id="aclass_aderente_html"><div class="ttname"><a href="class_aderente.html">Aderente</a></div><div class="ttdef"><b>Definition:</b> Aderente.h:13</div></div>
-<div class="ttc" id="aclass_aderente_html_a1f98aab857bcad7d2a0d3142c0460b81"><div class="ttname"><a href="class_aderente.html#a1f98aab857bcad7d2a0d3142c0460b81">Aderente::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Aderente &amp;aderente)</div><div class="ttdoc">Permite ordenar os aderentes por ordem alfabetica.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:66</div></div>
+<div class="ttc" id="aclass_utilizador_html"><div class="ttname"><a href="class_utilizador.html">Utilizador</a></div><div class="ttdef"><b>Definition:</b> Utilizador.h:13</div></div>
+<div class="ttc" id="aclass_aderente_html"><div class="ttname"><a href="class_aderente.html">Aderente</a></div><div class="ttdef"><b>Definition:</b> Aderente.h:14</div></div>
+<div class="ttc" id="aclass_aderente_html_a1f98aab857bcad7d2a0d3142c0460b81"><div class="ttname"><a href="class_aderente.html#a1f98aab857bcad7d2a0d3142c0460b81">Aderente::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Aderente &amp;aderente)</div><div class="ttdoc">Permite ordenar os utilizadores por ordem alfabetica.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:58</div></div>
 <div class="ttc" id="aclass_aderente_html_a5f0561af60ff3d39e3125735394ad440"><div class="ttname"><a href="class_aderente.html#a5f0561af60ff3d39e3125735394ad440">Aderente::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;out, Aderente &amp;aderente)</div><div class="ttdoc">Permite mostrar um certo aderente no ecrã</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:42</div></div>
 <div class="ttc" id="aclass_aderente_html_a87db72fd79693703092f048555b4c941"><div class="ttname"><a href="class_aderente.html#a87db72fd79693703092f048555b4c941">Aderente::Aderente</a></div><div class="ttdeci">Aderente()</div><div class="ttdoc">Construtor default da classe Aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.h:24</div></div>
-<div class="ttc" id="aclass_aderente_html_a26e58ac16ad933a0ac8130fad3761db3"><div class="ttname"><a href="class_aderente.html#a26e58ac16ad933a0ac8130fad3761db3">Aderente::operator==</a></div><div class="ttdeci">bool operator==(const Aderente &amp;aderente)</div><div class="ttdoc">Permite comparar o NIF de dois aderentes para determinar se são iguais.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:61</div></div>
 <div class="ttc" id="aclass_aderente_html_a1b2336caef6674f00598377f1d3472f2"><div class="ttname"><a href="class_aderente.html#a1b2336caef6674f00598377f1d3472f2">Aderente::getAnoAdesao</a></div><div class="ttdeci">u_int getAnoAdesao() const</div><div class="ttdoc">Permite obter o ano de adesao do aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:32</div></div>
 <div class="ttc" id="aclass_aderente_html_a5721ef79279d1b0a2dbed9636220d07d"><div class="ttname"><a href="class_aderente.html#a5721ef79279d1b0a2dbed9636220d07d">Aderente::getDataNasc</a></div><div class="ttdeci">Date getDataNasc() const</div><div class="ttdoc">Permite obter a data de nascimento do aderente.</div><div class="ttdef"><b>Definition:</b> Aderente.cpp:27</div></div>
 <div class="ttc" id="aclass_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> Date.h:13</div></div>

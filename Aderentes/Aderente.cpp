@@ -6,7 +6,12 @@
  */
 
 Aderente::Aderente(string nome, u_int nif, Date dataNasc, u_int anoAdesao)
-    : anoAdesao(anoAdesao), nif(nif), dataNasc(dataNasc), nome(nome){}
+    : Utilizador(nif){
+
+    this->nome = nome;
+    this->dataNasc = dataNasc;
+    this->anoAdesao = anoAdesao;
+}
 
 
 /*
@@ -16,11 +21,6 @@ Aderente::Aderente(string nome, u_int nif, Date dataNasc, u_int anoAdesao)
 string
 Aderente::getNome() const {
     return this->nome;
-}
-
-u_int
-Aderente::getNif() const {
-    return this->nif;
 }
 
 Date
@@ -51,23 +51,13 @@ operator <<(ostream &out, Aderente& aderente) {
 
 void
 Aderente::operator =(const Aderente& aderente) {
-    this->nome = aderente.nome;
-    this->nif = aderente.nif;
-    this->dataNasc = aderente.dataNasc;
     this->anoAdesao = aderente.anoAdesao;
 }
 
 bool
-Aderente::operator ==(const Aderente& aderente) {
-    return this->nif == aderente.getNif();
-}
-
-bool
-Aderente::operator<(const Aderente& aderente) {
+Aderente::operator <(const Aderente& aderente) {
     return this->nome < aderente.getNome();
 }
-
-
 
 
 

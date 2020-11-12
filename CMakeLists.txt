@@ -30,6 +30,8 @@ set(
             ${UTILS}/utils.h
             ${UTILS}/utils.cpp
         
+            ${ADERENTES}/Utilizador.h
+            ${ADERENTES}/Utilizador.cpp
             ${ADERENTES}/Aderente.h
             ${ADERENTES}/Aderente.cpp
 

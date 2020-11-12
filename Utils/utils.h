@@ -17,10 +17,12 @@
 extern ifstream salasDB;
 extern ifstream eventosDB;
 extern ifstream aderentesDB;
+extern ifstream naoAderentesDB;
 
 extern vector<string> salasData;
 extern vector<string> eventosData;
 extern vector<string> aderentesData;
+extern vector<string> naoAderentesData;
 
 
 /**

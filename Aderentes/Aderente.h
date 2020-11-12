@@ -7,15 +7,15 @@
  * @{
  */
 
+#include "Utilizador.h"
 #include "../Utils/utils.h"
 #include "../DateTime/Date.h"
 
-class Aderente {
+class Aderente : public Utilizador {
 private:
-    string nome;    /**Nome do aderente*/
-    u_int nif;      /**NIF do aderente*/
-    Date dataNasc;  /**Data de nascimento do aderente*/
-    u_int anoAdesao;/**Ano de adesao do aderente*/
+    string nome;        /**Nome do aderente*/
+    Date dataNasc;      /**Data de nascimento do aderente*/
+    u_int anoAdesao;    /**Ano de adesao do aderente*/
 
 public:
     /**
@@ -37,12 +37,6 @@ public:
      * @return Retorna o nome do aderente
      */
     string getNome() const;
-
-    /**
-     * @brief Permite obter o NIF do aderente
-     * @return Retorna o NIF do aderente
-     */
-    u_int getNif() const;
 
     /**
      * @brief Permite obter a data de nascimento do aderente
@@ -71,18 +65,12 @@ public:
     void operator =(const Aderente& aderente);
 
     /**
-     * @brief Permite comparar o NIF de dois aderentes para determinar se são iguais
-     * @param aderente - aderente cujo NIF queremos comparar
-     * @return Retorna true caso a igualdade se verifique e false caso não se verifique
-     */
-    bool operator ==(const Aderente& aderente);
-
-    /**
-     * @brief Permite ordenar os aderentes por ordem alfabetica
-     * @param aderente - aderente que queremos comparar
-     * @return Retorna true caso o aderente passado como argumento tenha um nome maior por ordem alfabetica
+     * @brief Permite ordenar os utilizadores por ordem alfabetica
+     * @param utilizador Utilizador que queremos comparar
+     * @return Retorna true caso o utilzador passado como argumento tenha um nome maior lexicografica
      */
     bool operator <(const Aderente& aderente);
+
 };
 
 /** @} */ // end of Classe Aderentes

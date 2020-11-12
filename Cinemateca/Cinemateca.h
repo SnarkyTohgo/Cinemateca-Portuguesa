@@ -16,19 +16,21 @@
 
 class Cinemateca {
 private:
-    static u_int anoAtual;  /**Ano atual*/
+    static u_int anoAtual;             /**Ano atual*/
 
-    const string localizacao; /**Localizacao da Cinemateca*/
-    const string morada;      /**Morada da Cinemateca*/
+    const string localizacao;          /**Localizacao da Cinemateca*/
+    const string morada;               /**Morada da Cinemateca*/
 
-    list<Aderente> aderentes; /**Aderentes (amigos) da Cinemateca*/
-    list<Sala> salas;         /**Salas da Cinemateca*/
-    list<Evento> eventos;     /**Eventos da Cinemateca*/
+    list<Utilizador> naoAderentes;     /**Utilizadores não aderentes da Cinemateca */
+    list<Aderente> aderentes;          /**Aderentes (amigos) da Cinemateca*/
+    list<Sala> salas;                  /**Salas da Cinemateca*/
 
-    u_int bilhetesComprados;  /**Total de bilhetes comprados na Cinemateca*/
-    double totalVendas;       /**Total de vendas da Cinemateca*/
+    u_int bilhetesComprados;           /**Total de bilhetes comprados na Cinemateca*/
+    double totalVendas;                /**Total de vendas da Cinemateca*/
 
 public:
+    list<Evento> eventos;              /**Eventos da Cinemateca*/
+
     /**
      * @brief Construtor default da classe Cinemateca
      */
@@ -61,21 +63,21 @@ public:
 
     /**
      * @brief Permite obter os aderentes (amigos) da Cinemateca
-     * @return Retorna a lista da aderentes (amigos) da Cinemateca
+     * @return Retorna a lista de aderentes (amigos) da Cinemateca
      */
     list<Aderente> getAderentes() const;
+
+    /**
+     * @brief Permite obter os utilizadores não aderentes Cinemateca
+     * @return Retorna a lista de utilizadores não aderentes da Cinemateca
+     */
+    list<Utilizador> getNaoAderentes() const;
 
     /**
      * @brief Permite obter as salas da Cinemateca
      * @return Retorna a lista de salas da Cinemateca
      */
     list<Sala> getSalas() const;
-
-    /**
-     * @brief Permite obter os eventos da Cinemateca
-     * @return Retorna a lista de eventos da Cinemateca
-     */
-    list<Evento> getEventos() const;
 
     /**
      * @brief Permite obter um evento especifico que se encontra numa certa posicao da lista de eventos
@@ -115,6 +117,12 @@ public:
     void setAderentes(list<Aderente> aderentes);
 
     /**
+     * @brief Permite definir os aderentes da Cinemateca
+     * @param aderentes - aderentes/amigos da Cinemateca
+     */
+    void setNaoAderentes(list<Utilizador> naoAderentes);
+
+    /**
      * @brief Permite criar um novo aderente e adiciona-lo à lista de aderentes da Cinemateca
      * @param nome - nome do novo aderente
      * @param nif - nif do novo aderente
@@ -122,6 +130,12 @@ public:
      * @param anoAtual - ano em que o novo aderente está a aderir à Cinemateca
      */
     void registarAderente(string nome, u_int nif, Date dataNasc, u_int anoAtual);
+
+    /**
+     * @brief Permite criar um novo utilizador e adiciona-lo à lista de utilizadores não-aderentes da Cinemateca
+     * @param nif - nif do novo aderente
+     */
+    void registarUtilizadorNaoAderente(u_int nif);
 
     /**
      * @brief Permite criar um novo evento e adicioná-lo à lista de eventos da Cinemateca
@@ -149,6 +163,14 @@ public:
     int comprarBilhete(Aderente aderente, Evento* evento);
 
     /**
+     * @brief Permite a um certo utilizador comprar bilhete para um certo evento
+     * @param utilizador - utilizador que quer comprar o bilhete
+     * @param evento - evento para o qual o aderente quer comprar o bilhete
+     * @return Retorna 0 em caso de sucesso na compra, e 1 em caso de erro
+     */
+    int comprarBilhete(Utilizador utilizador, Evento* evento);
+
+    /**
      * @brief Permite fazer parse das salas que estao guardadas no ficheiro de salas
      */
     void parseSalas();
@@ -164,10 +186,21 @@ public:
     void parseAderentes();
 
     /**
+     * @brief Permite fazer parse dos utilizadores não-aderentes que estao guardados no ficheiro de não-aderentes
+     */
+    void parseNaoAderentes();
+
+    /**
      * @brief Permite guardar um aderente no ficheiro de aderentes
      * @param aderente - aderente que queremos guardar
      */
     void updateAderentes(Aderente aderente) const;
+
+    /**
+     * @brief Permite guardar um não-aderente no ficheiro de aderentes
+     * @param aderente - aderente que queremos guardar
+     */
+    void updateNaoAderentes(Utilizador naoAderente) const;
 
     /**
      * @brief Permite guardar um evento no ficheiro de eventos

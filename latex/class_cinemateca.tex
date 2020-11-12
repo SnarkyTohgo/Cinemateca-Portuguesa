@@ -15,10 +15,10 @@ string \mbox{\hyperlink{class_cinemateca_ac7470ab0b2aaeb40f1bd3e8159837b2e}{get\
 \begin{DoxyCompactList}\small\item\em Permite obter a morada da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_aderente}{Aderente}} $>$ \mbox{\hyperlink{class_cinemateca_aeff16075340ade44c6406345dc6af1f5}{get\+Aderentes}} () const
 \begin{DoxyCompactList}\small\item\em Permite obter os aderentes (amigos) da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$ \mbox{\hyperlink{class_cinemateca_a81dd09506a0e9022f5c19d7fac0d60fd}{get\+Nao\+Aderentes}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter os utilizadores não aderentes \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 list$<$ \mbox{\hyperlink{class_sala}{Sala}} $>$ \mbox{\hyperlink{class_cinemateca_aacd9d714433c3ab8c722f99e9ca38c5c}{get\+Salas}} () const
 \begin{DoxyCompactList}\small\item\em Permite obter as salas da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
-list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ \mbox{\hyperlink{class_cinemateca_aca4e5574bb1404db1f5d8e2d32863cf5}{get\+Eventos}} () const
-\begin{DoxyCompactList}\small\item\em Permite obter os eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_evento}{Evento}} \mbox{\hyperlink{class_cinemateca_a96ebc07d500824673f6e4aa9444d2a9d}{get\+Evento}} (int pos) const
 \begin{DoxyCompactList}\small\item\em Permite obter um evento especifico que se encontra numa certa posicao da lista de eventos. \end{DoxyCompactList}\item 
 u\+\_\+int \mbox{\hyperlink{class_cinemateca_a9c8f494f2bcba554516433177516664b}{get\+Bilhetes\+Comprados}} () const
@@ -27,18 +27,24 @@ double \mbox{\hyperlink{class_cinemateca_a87db7d447e2bb89aa115cf93a1019728}{get\
 \begin{DoxyCompactList}\small\item\em Permite obter o total de vendas (lucro) da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_a8fac9d2911fa5985dd00558ab7f511c7}{set\+Salas}} (list$<$ \mbox{\hyperlink{class_sala}{Sala}} $>$ salas)
 \begin{DoxyCompactList}\small\item\em Permite definir as salas da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_cinemateca_a61d41f3da070fbed8e9cd78a904bcfcb}{set\+Eventos}} (list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ eventos)
+void \mbox{\hyperlink{class_cinemateca_a61d41f3da070fbed8e9cd78a904bcfcb}{set\+Eventos}} (list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ \mbox{\hyperlink{class_cinemateca_ab89c94eef099d7a92bd47e3648e3ade3}{eventos}})
 \begin{DoxyCompactList}\small\item\em Permite definir os eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_a9fee2b2b266b3f33eaad5edb3a156175}{set\+Aderentes}} (list$<$ \mbox{\hyperlink{class_aderente}{Aderente}} $>$ aderentes)
 \begin{DoxyCompactList}\small\item\em Permite definir os aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cinemateca_a0dc55320c505fe17544b24dc210eec70}{set\+Nao\+Aderentes}} (list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$ nao\+Aderentes)
+\begin{DoxyCompactList}\small\item\em Permite definir os aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_ab928ba717bad5d9c8cb0d88f6d01dcf2}{registar\+Aderente}} (string nome, u\+\_\+int nif, \mbox{\hyperlink{class_date}{Date}} data\+Nasc, u\+\_\+int ano\+Atual)
 \begin{DoxyCompactList}\small\item\em Permite criar um novo aderente e adiciona-\/lo à lista de aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cinemateca_a1c4a65bf0a489599d9217273c02be8a6}{registar\+Utilizador\+Nao\+Aderente}} (u\+\_\+int nif)
+\begin{DoxyCompactList}\small\item\em Permite criar um novo utilizador e adiciona-\/lo à lista de utilizadores não-\/aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_a01dcec522329405e769f9c3eb252b26e}{adicionar\+Evento}} (string nome, \mbox{\hyperlink{class_date}{Date}} data, \mbox{\hyperlink{class_time}{Time}} hora, u\+\_\+int duracao, u\+\_\+int lot\+Max, float preco)
 \begin{DoxyCompactList}\small\item\em Permite criar um novo evento e adicioná-\/lo à lista de eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_ac197d548ad306ffecad7d0f65740f222}{alocar\+Sala}} (\mbox{\hyperlink{class_evento}{Evento}} $\ast$evento)
 \begin{DoxyCompactList}\small\item\em Permite alocar uma sala a um certo evento. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_cinemateca_a6f38c4704f0cf7f944554429373fd1ed}{comprar\+Bilhete}} (\mbox{\hyperlink{class_aderente}{Aderente}} aderente, \mbox{\hyperlink{class_evento}{Evento}} $\ast$evento)
 \begin{DoxyCompactList}\small\item\em Permite a um certo aderente comprar bilhete para um certo evento. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cinemateca_a7d9361e74d1bc62ef8db86d75531e365}{comprar\+Bilhete}} (\mbox{\hyperlink{class_utilizador}{Utilizador}} utilizador, \mbox{\hyperlink{class_evento}{Evento}} $\ast$evento)
+\begin{DoxyCompactList}\small\item\em Permite a um certo utilizador comprar bilhete para um certo evento. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_cinemateca_ad1ddba3da14014db8e11370af7d75ab5}\label{class_cinemateca_ad1ddba3da14014db8e11370af7d75ab5}} 
 void \mbox{\hyperlink{class_cinemateca_ad1ddba3da14014db8e11370af7d75ab5}{parse\+Salas}} ()
 \begin{DoxyCompactList}\small\item\em Permite fazer parse das salas que estao guardadas no ficheiro de salas. \end{DoxyCompactList}\item 
@@ -48,8 +54,13 @@ void \mbox{\hyperlink{class_cinemateca_a4a3c2852be254c70c2109fd72397955e}{parse\
 \mbox{\Hypertarget{class_cinemateca_a778e5369f7ce0e525cb47a05908a49e0}\label{class_cinemateca_a778e5369f7ce0e525cb47a05908a49e0}} 
 void \mbox{\hyperlink{class_cinemateca_a778e5369f7ce0e525cb47a05908a49e0}{parse\+Aderentes}} ()
 \begin{DoxyCompactList}\small\item\em Permite fazer parse dos aderentes que estao guardados no ficheiro de aderentes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_cinemateca_a0d2a02b0aa70ef8161fdf8c9aaf58fad}\label{class_cinemateca_a0d2a02b0aa70ef8161fdf8c9aaf58fad}} 
+void \mbox{\hyperlink{class_cinemateca_a0d2a02b0aa70ef8161fdf8c9aaf58fad}{parse\+Nao\+Aderentes}} ()
+\begin{DoxyCompactList}\small\item\em Permite fazer parse dos utilizadores não-\/aderentes que estao guardados no ficheiro de não-\/aderentes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_aa7b631c054a157ba0e02480d80046e8b}{update\+Aderentes}} (\mbox{\hyperlink{class_aderente}{Aderente}} aderente) const
 \begin{DoxyCompactList}\small\item\em Permite guardar um aderente no ficheiro de aderentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cinemateca_a78e4b3ec828c7635b52513f4133021fe}{update\+Nao\+Aderentes}} (\mbox{\hyperlink{class_utilizador}{Utilizador}} nao\+Aderente) const
+\begin{DoxyCompactList}\small\item\em Permite guardar um não-\/aderente no ficheiro de aderentes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cinemateca_aa94a3615492867f203e8f46370d16929}{update\+Eventos}} (\mbox{\hyperlink{class_evento}{Evento}} evento) const
 \begin{DoxyCompactList}\small\item\em Permite guardar um evento no ficheiro de eventos. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_cinemateca_a4e3358e4303c03d87a9ccf70f0d9c215}\label{class_cinemateca_a4e3358e4303c03d87a9ccf70f0d9c215}} 
@@ -84,6 +95,11 @@ void \mbox{\hyperlink{class_cinemateca_a9dc88fc446ebbc09bb99b634f8985e8d}{ordena
 \mbox{\Hypertarget{class_cinemateca_ab0d8edead9fcd36385798b458ba4bb6d}\label{class_cinemateca_ab0d8edead9fcd36385798b458ba4bb6d}} 
 void \mbox{\hyperlink{class_cinemateca_ab0d8edead9fcd36385798b458ba4bb6d}{ordenar\+Aderentes\+Ano\+Adesao}} ()
 \begin{DoxyCompactList}\small\item\em permite ordenar os aderentes por ano de adesao \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ \mbox{\hyperlink{class_cinemateca_ab89c94eef099d7a92bd47e3648e3ade3}{eventos}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -97,7 +113,7 @@ void \mbox{\hyperlink{class_cinemateca_ab0d8edead9fcd36385798b458ba4bb6d}{ordena
 
 Construtor default da classe \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
 
-Total de vendas da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} \mbox{\Hypertarget{class_cinemateca_a4b270f616d7d8584cbe563d72474e0a4}\label{class_cinemateca_a4b270f616d7d8584cbe563d72474e0a4}} 
+Eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} \mbox{\Hypertarget{class_cinemateca_a4b270f616d7d8584cbe563d72474e0a4}\label{class_cinemateca_a4b270f616d7d8584cbe563d72474e0a4}} 
 \index{Cinemateca@{Cinemateca}!Cinemateca@{Cinemateca}}
 \index{Cinemateca@{Cinemateca}!Cinemateca@{Cinemateca}}
 \doxysubsubsection{\texorpdfstring{Cinemateca()}{Cinemateca()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -160,7 +176,7 @@ Permite alocar uma sala a um certo evento.
 \mbox{\Hypertarget{class_cinemateca_a6f38c4704f0cf7f944554429373fd1ed}\label{class_cinemateca_a6f38c4704f0cf7f944554429373fd1ed}} 
 \index{Cinemateca@{Cinemateca}!comprarBilhete@{comprarBilhete}}
 \index{comprarBilhete@{comprarBilhete}!Cinemateca@{Cinemateca}}
-\doxysubsubsection{\texorpdfstring{comprarBilhete()}{comprarBilhete()}}
+\doxysubsubsection{\texorpdfstring{comprarBilhete()}{comprarBilhete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int Cinemateca\+::comprar\+Bilhete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aderente}{Aderente}}}]{aderente,  }\item[{\mbox{\hyperlink{class_evento}{Evento}} $\ast$}]{evento }\end{DoxyParamCaption})}
 
 
@@ -170,6 +186,26 @@ Permite a um certo aderente comprar bilhete para um certo evento.
 
 \begin{DoxyParams}{Parameters}
 {\em aderente} & -\/ aderente que quer comprar o bilhete \\
+\hline
+{\em evento} & -\/ evento para o qual o aderente quer comprar o bilhete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 em caso de sucesso na compra, e 1 em caso de erro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cinemateca_a7d9361e74d1bc62ef8db86d75531e365}\label{class_cinemateca_a7d9361e74d1bc62ef8db86d75531e365}} 
+\index{Cinemateca@{Cinemateca}!comprarBilhete@{comprarBilhete}}
+\index{comprarBilhete@{comprarBilhete}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{comprarBilhete()}{comprarBilhete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Cinemateca\+::comprar\+Bilhete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_utilizador}{Utilizador}}}]{utilizador,  }\item[{\mbox{\hyperlink{class_evento}{Evento}} $\ast$}]{evento }\end{DoxyParamCaption})}
+
+
+
+Permite a um certo utilizador comprar bilhete para um certo evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utilizador} & -\/ utilizador que quer comprar o bilhete \\
 \hline
 {\em evento} & -\/ evento para o qual o aderente quer comprar o bilhete \\
 \hline
@@ -188,7 +224,7 @@ Retorna 0 em caso de sucesso na compra, e 1 em caso de erro
 Permite obter os aderentes (amigos) da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
 
 \begin{DoxyReturn}{Returns}
-Retorna a lista da aderentes (amigos) da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
+Retorna a lista de aderentes (amigos) da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_cinemateca_a4ce6e04cb7c56810e23753d9149598ef}\label{class_cinemateca_a4ce6e04cb7c56810e23753d9149598ef}} 
 \index{Cinemateca@{Cinemateca}!getAnoAtual@{getAnoAtual}}
@@ -234,19 +270,6 @@ Permite obter um evento especifico que se encontra numa certa posicao da lista d
 \begin{DoxyReturn}{Returns}
 Retorna o evento especifico que queremos obter 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_cinemateca_aca4e5574bb1404db1f5d8e2d32863cf5}\label{class_cinemateca_aca4e5574bb1404db1f5d8e2d32863cf5}} 
-\index{Cinemateca@{Cinemateca}!getEventos@{getEventos}}
-\index{getEventos@{getEventos}!Cinemateca@{Cinemateca}}
-\doxysubsubsection{\texorpdfstring{getEventos()}{getEventos()}}
-{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_evento}{Evento}} $>$ Cinemateca\+::get\+Eventos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-
-
-Permite obter os eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
-
-\begin{DoxyReturn}{Returns}
-Retorna a lista de eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_cinemateca_a3566ec4e3c7e2fff54057d4a8464f4c0}\label{class_cinemateca_a3566ec4e3c7e2fff54057d4a8464f4c0}} 
 \index{Cinemateca@{Cinemateca}!getLocalizacao@{getLocalizacao}}
 \index{getLocalizacao@{getLocalizacao}!Cinemateca@{Cinemateca}}
@@ -272,6 +295,19 @@ Permite obter a morada da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}.
 
 \begin{DoxyReturn}{Returns}
 Retorna a morada da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_cinemateca_a81dd09506a0e9022f5c19d7fac0d60fd}\label{class_cinemateca_a81dd09506a0e9022f5c19d7fac0d60fd}} 
+\index{Cinemateca@{Cinemateca}!getNaoAderentes@{getNaoAderentes}}
+\index{getNaoAderentes@{getNaoAderentes}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{getNaoAderentes()}{getNaoAderentes()}}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$ Cinemateca\+::get\+Nao\+Aderentes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter os utilizadores não aderentes \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
+
+\begin{DoxyReturn}{Returns}
+Retorna a lista de utilizadores não aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_cinemateca_aacd9d714433c3ab8c722f99e9ca38c5c}\label{class_cinemateca_aacd9d714433c3ab8c722f99e9ca38c5c}} 
 \index{Cinemateca@{Cinemateca}!getSalas@{getSalas}}
@@ -320,6 +356,21 @@ Permite criar um novo aderente e adiciona-\/lo à lista de aderentes da \mbox{\h
 {\em ano\+Atual} & -\/ ano em que o novo aderente está a aderir à \mbox{\hyperlink{class_cinemateca}{Cinemateca}} \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_cinemateca_a1c4a65bf0a489599d9217273c02be8a6}\label{class_cinemateca_a1c4a65bf0a489599d9217273c02be8a6}} 
+\index{Cinemateca@{Cinemateca}!registarUtilizadorNaoAderente@{registarUtilizadorNaoAderente}}
+\index{registarUtilizadorNaoAderente@{registarUtilizadorNaoAderente}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{registarUtilizadorNaoAderente()}{registarUtilizadorNaoAderente()}}
+{\footnotesize\ttfamily void Cinemateca\+::registar\+Utilizador\+Nao\+Aderente (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{nif }\end{DoxyParamCaption})}
+
+
+
+Permite criar um novo utilizador e adiciona-\/lo à lista de utilizadores não-\/aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nif} & -\/ nif do novo aderente \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_cinemateca_a9fee2b2b266b3f33eaad5edb3a156175}\label{class_cinemateca_a9fee2b2b266b3f33eaad5edb3a156175}} 
 \index{Cinemateca@{Cinemateca}!setAderentes@{setAderentes}}
 \index{setAderentes@{setAderentes}!Cinemateca@{Cinemateca}}
@@ -348,6 +399,21 @@ Permite definir os eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}.
 
 \begin{DoxyParams}{Parameters}
 {\em eventos} & -\/ eventos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_cinemateca_a0dc55320c505fe17544b24dc210eec70}\label{class_cinemateca_a0dc55320c505fe17544b24dc210eec70}} 
+\index{Cinemateca@{Cinemateca}!setNaoAderentes@{setNaoAderentes}}
+\index{setNaoAderentes@{setNaoAderentes}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{setNaoAderentes()}{setNaoAderentes()}}
+{\footnotesize\ttfamily void Cinemateca\+::set\+Nao\+Aderentes (\begin{DoxyParamCaption}\item[{list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$}]{nao\+Aderentes }\end{DoxyParamCaption})}
+
+
+
+Permite definir os aderentes da \mbox{\hyperlink{class_cinemateca}{Cinemateca}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aderentes} & -\/ aderentes/amigos da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_cinemateca_a8fac9d2911fa5985dd00558ab7f511c7}\label{class_cinemateca_a8fac9d2911fa5985dd00558ab7f511c7}} 
@@ -395,6 +461,21 @@ Permite guardar um evento no ficheiro de eventos.
 {\em evento} & -\/ evento que queremos guardar \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_cinemateca_a78e4b3ec828c7635b52513f4133021fe}\label{class_cinemateca_a78e4b3ec828c7635b52513f4133021fe}} 
+\index{Cinemateca@{Cinemateca}!updateNaoAderentes@{updateNaoAderentes}}
+\index{updateNaoAderentes@{updateNaoAderentes}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{updateNaoAderentes()}{updateNaoAderentes()}}
+{\footnotesize\ttfamily void Cinemateca\+::update\+Nao\+Aderentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_utilizador}{Utilizador}}}]{nao\+Aderente }\end{DoxyParamCaption}) const}
+
+
+
+Permite guardar um não-\/aderente no ficheiro de aderentes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aderente} & -\/ aderente que queremos guardar \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_cinemateca_a6e19da1cba7da4c5596ed20f0de47ee7}\label{class_cinemateca_a6e19da1cba7da4c5596ed20f0de47ee7}} 
 \index{Cinemateca@{Cinemateca}!updateTotalVendas@{updateTotalVendas}}
 \index{updateTotalVendas@{updateTotalVendas}!Cinemateca@{Cinemateca}}
@@ -411,6 +492,15 @@ Atualiza o valor total de vendas.
 \hline
 \end{DoxyParams}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cinemateca_ab89c94eef099d7a92bd47e3648e3ade3}\label{class_cinemateca_ab89c94eef099d7a92bd47e3648e3ade3}} 
+\index{Cinemateca@{Cinemateca}!eventos@{eventos}}
+\index{eventos@{eventos}!Cinemateca@{Cinemateca}}
+\doxysubsubsection{\texorpdfstring{eventos}{eventos}}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{class_evento}{Evento}}$>$ Cinemateca\+::eventos}
+
+Total de vendas da \mbox{\hyperlink{class_cinemateca}{Cinemateca}} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

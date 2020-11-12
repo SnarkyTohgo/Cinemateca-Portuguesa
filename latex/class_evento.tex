@@ -25,18 +25,22 @@ u\+\_\+int \mbox{\hyperlink{class_evento_a85ceae2d7659252ec45dfc1ae7b9cb89}{get\
 \begin{DoxyCompactList}\small\item\em Permite obter a sala do evento. \end{DoxyCompactList}\item 
 u\+\_\+int \mbox{\hyperlink{class_evento_a4a8ccf32b266c2c718c887cf7dfea8d7}{get\+Bilhetes\+Comprados}} () const
 \begin{DoxyCompactList}\small\item\em Permite obter o numero de bilhetes comprados do evento. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_evento_ab005298a9d971f7d8f91c882ddbeb851}{get\+Total\+Vendas}} () const
+float \mbox{\hyperlink{class_evento_ae80a98ba48af461d23093794b0a8f95e}{get\+Total\+Vendas}} () const
 \begin{DoxyCompactList}\small\item\em Permite obter o total de vendas (lucro) do evento. \end{DoxyCompactList}\item 
-list$<$ \mbox{\hyperlink{class_aderente}{Aderente}} $>$ \mbox{\hyperlink{class_evento_aa88a34389dd5830fbf9aa4bf9476b44f}{get\+Participantes}} () const
+list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$ \mbox{\hyperlink{class_evento_ad92315640f881845e0849d12df210ef7}{get\+Participantes}} () const
 \begin{DoxyCompactList}\small\item\em Permite obter os participantes no evento. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_evento_a9f63bc21c2da5d30775e29c07c176397}{set\+Sala}} (const u\+\_\+int sala)
 \begin{DoxyCompactList}\small\item\em Permite definir a sala associada ao evento. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_evento_a95727f0d4281f9432c4efebb4a896a68}\label{class_evento_a95727f0d4281f9432c4efebb4a896a68}} 
+void \mbox{\hyperlink{class_evento_a95727f0d4281f9432c4efebb4a896a68}{update\+Total\+Vendas}} (float valor)
+\begin{DoxyCompactList}\small\item\em Atualiza o valor total das vendas de bilheteira para um dado evento. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_evento_ac09e364b145df3ef561ae4b0718cd84a}\label{class_evento_ac09e364b145df3ef561ae4b0718cd84a}} 
 bool \mbox{\hyperlink{class_evento_ac09e364b145df3ef561ae4b0718cd84a}{is\+Lotado}} () const
 \begin{DoxyCompactList}\small\item\em Permite determinar se a lotacao maxima de um evento ja foi atingida. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_evento_a7f73441bc4d363c7cc840b06aca986db}\label{class_evento_a7f73441bc4d363c7cc840b06aca986db}} 
 void \mbox{\hyperlink{class_evento_a7f73441bc4d363c7cc840b06aca986db}{alocar\+Participante}} (\mbox{\hyperlink{class_aderente}{Aderente}} aderente)
-\begin{DoxyCompactList}\small\item\em Permite adicionar um participante à lista de participantes do evento. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Permite adicionar um participante à lista de participantes aderentes do evento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_evento_ac8b2a479ef8f6c23934a4aeaca66dd68}{alocar\+Participante}} (\mbox{\hyperlink{class_utilizador}{Utilizador}} nao\+Aderente)
+\begin{DoxyCompactList}\small\item\em Permite adicionar um participante à lista de participantes utilizadores do evento. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_evento_a9adfaf98f24dadc099ff4ee7fde5669a}{operator$<$}} (const \mbox{\hyperlink{class_evento}{Evento}} \&evento)
 \begin{DoxyCompactList}\small\item\em Permite ordenar os eventos por ordem alfabetica. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_evento_aaf1b79416377324cc7f59c340ad16274}{operator=}} (const \mbox{\hyperlink{class_evento}{Evento}} \&evento)
@@ -61,7 +65,7 @@ ostream \& \mbox{\hyperlink{class_evento_a4929ba3f9af31fdaf5f570ef9ed60e7c}{oper
 
 Construtor por default da classe \mbox{\hyperlink{class_evento}{Evento}}. 
 
-Participantes do evento \mbox{\Hypertarget{class_evento_a996c84a5637e8d08ee1ea382d36cb17a}\label{class_evento_a996c84a5637e8d08ee1ea382d36cb17a}} 
+Utilizadores participantes do evento \mbox{\Hypertarget{class_evento_a996c84a5637e8d08ee1ea382d36cb17a}\label{class_evento_a996c84a5637e8d08ee1ea382d36cb17a}} 
 \index{Evento@{Evento}!Evento@{Evento}}
 \index{Evento@{Evento}!Evento@{Evento}}
 \doxysubsubsection{\texorpdfstring{Evento()}{Evento()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
@@ -116,6 +120,36 @@ Construtor da classe \mbox{\hyperlink{class_evento}{Evento}}.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_evento_a7f73441bc4d363c7cc840b06aca986db}\label{class_evento_a7f73441bc4d363c7cc840b06aca986db}} 
+\index{Evento@{Evento}!alocarParticipante@{alocarParticipante}}
+\index{alocarParticipante@{alocarParticipante}!Evento@{Evento}}
+\doxysubsubsection{\texorpdfstring{alocarParticipante()}{alocarParticipante()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Evento\+::alocar\+Participante (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aderente}{Aderente}}}]{aderente }\end{DoxyParamCaption})}
+
+
+
+Permite adicionar um participante à lista de participantes aderentes do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aderente} & \mbox{\hyperlink{class_aderente}{Aderente}} que participa num evento \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_evento_ac8b2a479ef8f6c23934a4aeaca66dd68}\label{class_evento_ac8b2a479ef8f6c23934a4aeaca66dd68}} 
+\index{Evento@{Evento}!alocarParticipante@{alocarParticipante}}
+\index{alocarParticipante@{alocarParticipante}!Evento@{Evento}}
+\doxysubsubsection{\texorpdfstring{alocarParticipante()}{alocarParticipante()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Evento\+::alocar\+Participante (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_utilizador}{Utilizador}}}]{nao\+Aderente }\end{DoxyParamCaption})}
+
+
+
+Permite adicionar um participante à lista de participantes utilizadores do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utilizador} & \mbox{\hyperlink{class_utilizador}{Utilizador}} que participa num evento \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_evento_a4a8ccf32b266c2c718c887cf7dfea8d7}\label{class_evento_a4a8ccf32b266c2c718c887cf7dfea8d7}} 
 \index{Evento@{Evento}!getBilhetesComprados@{getBilhetesComprados}}
 \index{getBilhetesComprados@{getBilhetesComprados}!Evento@{Evento}}
@@ -194,11 +228,11 @@ Permite obter o nome do evento.
 \begin{DoxyReturn}{Returns}
 Retorna o nome do evento 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_evento_aa88a34389dd5830fbf9aa4bf9476b44f}\label{class_evento_aa88a34389dd5830fbf9aa4bf9476b44f}} 
+\mbox{\Hypertarget{class_evento_ad92315640f881845e0849d12df210ef7}\label{class_evento_ad92315640f881845e0849d12df210ef7}} 
 \index{Evento@{Evento}!getParticipantes@{getParticipantes}}
 \index{getParticipantes@{getParticipantes}!Evento@{Evento}}
 \doxysubsubsection{\texorpdfstring{getParticipantes()}{getParticipantes()}}
-{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_aderente}{Aderente}} $>$ Evento\+::get\+Participantes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily list$<$ \mbox{\hyperlink{class_utilizador}{Utilizador}} $>$ Evento\+::get\+Participantes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -233,11 +267,11 @@ Permite obter a sala do evento.
 \begin{DoxyReturn}{Returns}
 Retorna a sala do evento 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_evento_ab005298a9d971f7d8f91c882ddbeb851}\label{class_evento_ab005298a9d971f7d8f91c882ddbeb851}} 
+\mbox{\Hypertarget{class_evento_ae80a98ba48af461d23093794b0a8f95e}\label{class_evento_ae80a98ba48af461d23093794b0a8f95e}} 
 \index{Evento@{Evento}!getTotalVendas@{getTotalVendas}}
 \index{getTotalVendas@{getTotalVendas}!Evento@{Evento}}
 \doxysubsubsection{\texorpdfstring{getTotalVendas()}{getTotalVendas()}}
-{\footnotesize\ttfamily double Evento\+::get\+Total\+Vendas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily float Evento\+::get\+Total\+Vendas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

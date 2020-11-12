@@ -16,15 +16,17 @@
 class Evento {
 private:
 
-    string nome;    /**Nome do evento*/
-    Date data;      /**Data do evento*/
-    Time hora;      /**Hora do evento*/
-    u_int duracao;  /**Duracao do evento*/
-    u_int lotMax;   /**Lotacao maxima do evento*/
-    float preco;    /**Preco do evento*/
-    u_int sala;     /**Sala do evento*/
+    string nome;        /**Nome do evento*/
+    Date data;          /**Data do evento*/
+    Time hora;          /**Hora do evento*/
+    u_int duracao;      /**Duracao do evento*/
+    u_int lotMax;       /**Lotacao maxima do evento*/
+    float preco;        /**Preco do evento*/
+    float totalVendas;   /**Valor total das vendas do evento*/
+    u_int sala;         /**Sala do evento*/
 
-    list<Aderente> participantes;   /**Participantes do evento*/
+    list<Aderente> participantesAderentes;        /** Aderentes participantes do evento*/
+    list<Utilizador> participantesNaoAderentes;   /** Utilizadores participantes do evento*/
 
 public:
     /**
@@ -107,13 +109,13 @@ public:
      * @brief Permite obter o total de vendas (lucro) do evento
      * @return Retorna o total de vendas (lucro) do evento
      */
-    double getTotalVendas() const;
+    float getTotalVendas() const;
 
     /**
      * @brief Permite obter os participantes no evento
      * @return Retorna a lista de participantes no evento
      */
-    list<Aderente> getParticipantes() const;
+    list<Utilizador> getParticipantes() const;
 
     /**
      * @brief Permite definir a sala associada ao evento
@@ -122,14 +124,26 @@ public:
     void setSala(const u_int sala);
 
     /**
+    * @brief Atualiza o valor total das vendas de bilheteira para um dado evento
+    */
+    void updateTotalVendas(float valor);
+
+    /**
      * @brief Permite determinar se a lotacao maxima de um evento ja foi atingida
      */
     bool isLotado() const;
 
     /**
-     * @brief Permite adicionar um participante à lista de participantes do evento
+     * @brief Permite adicionar um participante à lista de participantes aderentes do evento
+     * @param aderente Aderente que participa num evento
      */
     void alocarParticipante(Aderente aderente);
+
+    /**
+     * @brief Permite adicionar um participante à lista de participantes utilizadores do evento
+     * @param utilizador Utilizador que participa num evento
+     */
+    void alocarParticipante(Utilizador naoAderente);
 
     /**
      * @brief Permite mostrar o evento no ecrã
