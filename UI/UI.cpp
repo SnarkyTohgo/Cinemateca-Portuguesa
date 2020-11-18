@@ -273,15 +273,14 @@ void viewComprarBilhetes() {
 
         cout << endl;
 
-        size_t i = 0;
         for (auto aderente : cinemateca.getAderentes()){
             if (aderente.getNif() == nifIntroduzido){
-                for (auto evento : cinemateca.eventos){
-                    if (evento.getNome() == nomeEvento){
-                        cinemateca.comprarBilhete(aderente, &evento);
+                list<Evento>::iterator it;
+                for (it = cinemateca.eventos.begin(); it != cinemateca.eventos.end(); ++it){
+                    if (it->getNome() == nomeEvento){
+                        cinemateca.comprarBilhete(aderente, it);
                         break;
                     }
-                    i++;
                 }
                 break;
             }
@@ -307,10 +306,11 @@ void viewComprarBilhetes() {
         cout << "Nome do Evento: ";
         cin >> nomeEvento;
 
-        for (auto evento : cinemateca.eventos){
-            if (evento.getNome() == nomeEvento){
+        list<Evento>::iterator it;
+        for (it = cinemateca.eventos.begin(); it != cinemateca.eventos.end(); ++it){
+            if (it->getNome() == nomeEvento){
                 Utilizador novoUtilizador(nif);
-                cinemateca.comprarBilhete(novoUtilizador, &evento);
+                cinemateca.comprarBilhete(novoUtilizador, it);
                 break;
             }
         }

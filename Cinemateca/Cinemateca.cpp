@@ -27,6 +27,7 @@ Cinemateca::Cinemateca(string localizacao, string morada)
     this->parseEventos();
     this->parseSalas();
     this->parseAderentes();
+    this->parseNaoAderentes();
 
     this->bilhetesComprados = 0;
     this->totalVendas = 0;
@@ -180,7 +181,7 @@ Cinemateca::alocarSala(Evento* evento){
 }
 
 int
-Cinemateca::comprarBilhete(Aderente aderente, Evento* evento){
+Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento){
 
     if (evento->isLotado()){
         cout << "Evento " << toUpper(evento->getNome()) << " já se encontra lotado\n";
@@ -207,7 +208,7 @@ Cinemateca::comprarBilhete(Aderente aderente, Evento* evento){
 }
 
 int
-Cinemateca::comprarBilhete(Utilizador utilizador, Evento* evento){
+Cinemateca::comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento){
 
     if (evento->isLotado()){
         cout << "Evento " << toUpper(evento->getNome()) << " já se encontra lotado\n";

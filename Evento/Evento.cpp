@@ -24,6 +24,7 @@ Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, f
     this->lotMax = lotMax;
     this->preco = preco;
     this->sala = sala;
+    this->totalVendas = 0;
 }
 
 

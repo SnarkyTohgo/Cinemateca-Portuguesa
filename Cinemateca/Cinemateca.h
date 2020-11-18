@@ -160,7 +160,7 @@ public:
      * @param evento - evento para o qual o aderente quer comprar o bilhete
      * @return Retorna 0 em caso de sucesso na compra, e 1 em caso de erro
      */
-    int comprarBilhete(Aderente aderente, Evento* evento);
+    int comprarBilhete(Aderente aderente, list<Evento>::iterator evento);
 
     /**
      * @brief Permite a um certo utilizador comprar bilhete para um certo evento
@@ -168,7 +168,7 @@ public:
      * @param evento - evento para o qual o aderente quer comprar o bilhete
      * @return Retorna 0 em caso de sucesso na compra, e 1 em caso de erro
      */
-    int comprarBilhete(Utilizador utilizador, Evento* evento);
+    int comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento);
 
     /**
      * @brief Permite fazer parse das salas que estao guardadas no ficheiro de salas
