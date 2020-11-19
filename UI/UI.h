@@ -96,42 +96,52 @@ void menuOrdenarEventos();
  */
 
 /**
- * @brief Função que gera o ecrâ de registo de um novo aderente
+ * @brief Função que gera o ecrã de registo de um novo aderente
  */
 void viewRegistarAderente();
 
 /**
- * @brief Função que gera o ecrâ de listagem de todos os aderente
+ * @brief Função que gera o ecrã para apagar o registo de um aderente
+ */
+void viewApagarAderente();
+
+/**
+ * @brief Função que gera o ecrã de listagem de todos os aderente
  */
 void viewListarAderentes();
 
 /**
- * @brief Função que gera o ecrâ de listagem de um evento
+ * @brief Função que gera o ecrã de listagem de um evento
  */
 void viewMostrarEvento(Evento evento);
 
 /**
- * @brief Função que gera o ecrâ de registo de um novo evento
+ * @brief Função que gera o ecrã de registo de um novo evento
  */
 void viewAdicionarEvento();
 
 /**
- * @brief Função que gera o ecrâ de listagem de todos os eventos
+ * @brief Função que gera o ecrã para apagar um evento
+ */
+void viewApagarEvento();
+
+/**
+ * @brief Função que gera o ecrã de listagem de todos os eventos
  */
 void viewListarEventos();
 
 /**
- * @brief Função que gera o ecrâ de compra de bilhetes
+ * @brief Função que gera o ecrã de compra de bilhetes
  */
 void viewComprarBilhetes();
 
 /**
- * @brief Função que gera o ecrâ de listagem do total de bilhetes comprados
+ * @brief Função que gera o ecrã de listagem do total de bilhetes comprados
  */
 void viewBilhetesComprados();
 
 /**
- * @brief Função que gera o ecrâ de listagem do total das vendas
+ * @brief Função que gera o ecrã de listagem do total das vendas
  */
 void viewValorDeVendas();
 

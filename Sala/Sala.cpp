@@ -81,7 +81,7 @@ Sala::adicionarEvento(const Evento evento){
 ostream&
 operator <<(ostream &out, const Sala &sala) {
     out << toUpper(sala.getNome())
-        << "\nCapacidade: " << sala.getCapacidade()
+        << "\nCapacidade da sala: " << sala.getCapacidade()
         <<  endl;
 
     return out;

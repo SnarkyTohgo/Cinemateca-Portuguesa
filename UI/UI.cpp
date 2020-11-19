@@ -80,7 +80,8 @@ menuAderentes(){
     createMenu("Cinemateca Portuguesa - Aderentes", {
             {"Registar Novo Aderente", viewRegistarAderente},
             {"Listar Aderentes", viewListarAderentes},
-            {"Ordenar Aderentes", menuOrdenarAderentes}
+            {"Ordenar Aderentes", menuOrdenarAderentes},
+            {"Apagar Registo do Aderente", viewApagarAderente}
     });
 }
 
@@ -89,7 +90,8 @@ menuEventos(){
     createMenu("Cinemateca Portuguesa - Eventos", {
             {"Adicionar Evento", viewAdicionarEvento},
             {"Listar Eventos", viewListarEventos},
-            {"Ordenar Eventos", menuOrdenarEventos}
+            {"Ordenar Eventos", menuOrdenarEventos},
+            {"Apagar Evento", viewApagarEvento}
     });
 }
 
@@ -140,15 +142,37 @@ void viewRegistarAderente() {
     cin.ignore(1000, '\n');
 
     // input dataNasc
-    cout << "Data de nascimento (dd/mm/aa): ";
-    cin >> dataStr;
-    cin.clear();
-    cin.ignore(1000, '\n');
+    bool dataInvalid = true;
+    while(dataInvalid){
+        cout << "Data de nascimento (dd/mm/aaaa): ";
+        cin >> dataStr;
+        cin.clear();
+        cin.ignore(1000, '\n');
+        int found = dataStr.find('/');
+        if(found >= dataStr.length()){
+            cout << "Formato de data invalido, por favor use dd/mm/aaaa como indicado" << endl;
+        }
+        else{
+            dataInvalid = false;
+        }
+    }
 
     vector<string> dataArr = split(dataStr, '/');
     Date dataNasc(stoi(dataArr[0]), stoi(dataArr[1]), stoi(dataArr[2]));
 
     cinemateca.registarAderente(nome, nif, dataNasc, cinemateca.getAnoAtual());
+}
+
+void viewApagarAderente(){
+    u_int nif;
+    cout << "NIF: ";
+    cin >> nif;
+    cin.clear();
+    cin.ignore(1000, '\n');
+
+    cinemateca.apagarAderente(nif);
+
+    cout << "Registo do aderente foi apagado com sucesso" << endl;
 }
 
 void viewListarAderentes() {
@@ -209,6 +233,18 @@ void viewAdicionarEvento() {
     cinemateca.adicionarEvento(nome, data, hora, duracao, lotMax, preco);
 }
 
+void viewApagarEvento(){
+    string nome;
+    cout << "Nome do evento que quer apagar: ";
+    getline(cin, nome);
+    cin.clear();
+    cin.ignore(1000, '\n');
+
+    cinemateca.removerEvento(nome);
+
+    cout << "Evento removido com sucesso"<< endl;
+}
+
 void viewListarEventos() {
     cout << ">>> EVENTOS <<<" << endl << endl;
 
@@ -238,11 +274,11 @@ viewMostrarEvento(Evento evento){
          << "Informacoes do evento: \n\n"
          << evento;
 
-    cout << "Lista de participantes: \n\n";
+    cout << "Lista de participantes: \n";
     for (auto participante : evento.getParticipantes())
         cout << participante.getNif() << endl;
 
-    cout << "Sala: ";
+    cout << "\nSala: ";
     for (auto sala : cinemateca.getSalas()){
         for (auto eventoSala : sala.getEventos()){
             if (eventoSala == evento)

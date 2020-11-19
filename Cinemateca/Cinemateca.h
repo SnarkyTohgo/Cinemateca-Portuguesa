@@ -138,6 +138,11 @@ public:
     void registarUtilizadorNaoAderente(u_int nif);
 
     /**
+     * @brief Permite apagar o registo de um aderente
+     */
+    void apagarAderente(u_int nif);
+
+    /**
      * @brief Permite criar um novo evento e adicioná-lo à lista de eventos da Cinemateca
      * @param nome - nome do novo evento
      * @param data - data em que decorrerá o novo evento
@@ -147,6 +152,12 @@ public:
      * @param preco - preco do novo evento
      */
     void adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco);
+
+    /**
+     * @brief Permite remover um evento da lista de eventos da Cinemateca
+     * @param nome - nome do evento a remover
+     */
+    void removerEvento(string nome);
 
     /**
      * @brief Permite alocar uma sala a um certo evento

@@ -147,6 +147,20 @@ Cinemateca::registarUtilizadorNaoAderente(u_int nif) {
 }
 
 void
+Cinemateca::apagarAderente(u_int nif){
+    for(auto aderente : this->aderentes){
+        if(aderente.getNif()==nif){
+            aderentes.remove(aderente);
+        }
+    }
+    deleteFileData("../aderentes.dat");
+
+    for(auto aderente : this->aderentes){
+        updateAderentes(aderente);
+    }
+}
+
+void
 Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco){
 
     Evento novoEvento(nome, data, hora, duracao, lotMax, preco);
@@ -160,6 +174,19 @@ Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_
 
     cout << "\n>>>Novo evento adicionado com sucesso!<<<\n"
          << novoEvento;
+}
+
+void Cinemateca::removerEvento(string nome){
+    for(auto evento : this->eventos){
+        if(nome == evento.getNome()){
+            eventos.remove(evento);
+        }
+    }
+    deleteFileData("../eventos.dat");
+
+    for(auto evento : this->eventos){
+        updateEventos(evento);
+    }
 }
 
 void
@@ -184,12 +211,36 @@ int
 Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento){
 
     if (evento->isLotado()){
-        cout << "Evento " << toUpper(evento->getNome()) << " já se encontra lotado\n";
+        cout << "Evento " << toUpper(evento->getNome()) << " ja se encontra lotado\n";
 
         return EXIT_FAILURE;
     }
 
-    float valorComDesconto = evento->getPreco() - (evento->getPreco() * (this->anoAtual - aderente.getAnoAdesao()) * 0.01);
+    float valorComDesconto;
+    bool bilheteGratuito = false;
+
+    //Bilhete gratuito - caso o aderente tenha +65anos, evento no Porto, menos de 8h para o inicio, menos de 50% bilehtes vendidos
+    if(this->getLocalizacao() == "Porto"){
+        if((this->getAnoAtual() - aderente.getDataNasc().getA())>=65){
+            if((evento->getBilhetesComprados()/evento->getLotMax())<0.5){
+                char answer;
+                cout << "\nCaso falte menos de 8 horas para o inicio do evento"
+                     << "\npode usufruir dum bilhete gratuito por ter +65anos\n"
+                     << "\nDeseja assistir ao evento gratuitamente?"
+                     << "\nS ou N ?\n" << endl;
+                cin >> answer;
+                if(answer == 'S'){
+                    valorComDesconto = 0.0;
+                    bilheteGratuito = true;
+                }
+
+            }
+        }
+    }
+    if(!bilheteGratuito){
+        valorComDesconto = evento->getPreco() - (evento->getPreco() * (this->anoAtual - aderente.getAnoAdesao()) * 0.01);
+    }
+
 
     evento->alocarParticipante(aderente);
     evento->updateTotalVendas(valorComDesconto);
@@ -211,7 +262,7 @@ int
 Cinemateca::comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento){
 
     if (evento->isLotado()){
-        cout << "Evento " << toUpper(evento->getNome()) << " já se encontra lotado\n";
+        cout << "Evento " << toUpper(evento->getNome()) << " ja se encontra lotado\n";
 
         return EXIT_FAILURE;
     }
