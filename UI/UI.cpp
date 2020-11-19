@@ -135,11 +135,21 @@ void viewRegistarAderente() {
     cin.clear();
     cin.ignore(1000, '\n');
 
-    // input nif
-    cout << "NIF: ";
-    cin >> nif;
-    cin.clear();
-    cin.ignore(1000, '\n');
+
+    bool nifInvalid= true;
+    while(nifInvalid){
+        // input nif
+        cout << "NIF: ";
+        cin >> nif;
+        cin.clear();
+        cin.ignore(1000, '\n');
+        if(to_string(nif).length() == 9){
+            nifInvalid = false;
+        }
+        else{
+            cout << "\nO NIF introduzido tem de ter 9 digitos\n";
+        }
+    }
 
     // input dataNasc
     bool dataInvalid = true;
@@ -295,7 +305,7 @@ void viewComprarBilhetes() {
 
     cout << "Tem cartao Amigos da Cinemateca? (Y/N)\n";
     cin >> input;
-
+    bool eventFound = false;
     if (input == "Y" or input == "y"){
 
         u_int nifIntroduzido;
@@ -315,11 +325,15 @@ void viewComprarBilhetes() {
                 for (it = cinemateca.eventos.begin(); it != cinemateca.eventos.end(); ++it){
                     if (it->getNome() == nomeEvento){
                         cinemateca.comprarBilhete(aderente, it);
+                        eventFound = true;
                         break;
                     }
                 }
                 break;
             }
+        }
+        if(!eventFound){
+            cout << "O nome do evento introduzido nao existe" << endl;
         }
     } else if (input == "N" or input == "n"){
 
@@ -327,10 +341,20 @@ void viewComprarBilhetes() {
 
         u_int nif;
 
-        cout << "NIF: ";
-        cin >> nif;
-        cin.clear();
-        cin.ignore(1000, '\n');
+        bool nifInvalid= true;
+        while(nifInvalid){
+            // input nif
+            cout << "NIF: ";
+            cin >> nif;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            if(to_string(nif).length() == 9){
+                nifInvalid = false;
+            }
+            else{
+                cout << "\nO NIF introduzido tem de ter 9 digitos\n";
+            }
+        }
 
         cinemateca.registarUtilizadorNaoAderente(nif);
 
@@ -347,8 +371,12 @@ void viewComprarBilhetes() {
             if (it->getNome() == nomeEvento){
                 Utilizador novoUtilizador(nif);
                 cinemateca.comprarBilhete(novoUtilizador, it);
+                eventFound = true;
                 break;
             }
+        }
+        if(!eventFound){
+            cout << "O nome do evento introduzido nao existe" << endl;
         }
     } else {
         return viewComprarBilhetes();
