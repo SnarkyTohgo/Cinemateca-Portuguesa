@@ -1,0 +1,293 @@
+\hypertarget{class_time}{}\doxysection{Time Class Reference}
+\label{class_time}\index{Time@{Time}}
+
+
+{\ttfamily \#include $<$Time.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_time_a4245e409c7347d1d671858962c2ca3b5}{Time}} ()
+\begin{DoxyCompactList}\small\item\em Construtor default da classe \mbox{\hyperlink{class_time}{Time}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_time_a92491fd96ed1f4735d053080e3e47a32}{Time}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} h, \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} m, \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} s)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \mbox{\hyperlink{class_time}{Time}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \mbox{\hyperlink{class_time_ae1662cdf99b8d5eedfe559de3029fa24}{getH}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter as horas. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \mbox{\hyperlink{class_time_a93b01586a82e21838c7b210d044d1f0a}{getM}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter os minutos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \mbox{\hyperlink{class_time_a8bedb9cadc1084dd511e2d9317fbbf78}{getS}} () const
+\begin{DoxyCompactList}\small\item\em Permite obter os segundos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_time_af4dcededbe06538cffef1d8d310698f3}{setH}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} h)
+\begin{DoxyCompactList}\small\item\em Permite definir as horas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_time_a62253c8349413909b839401ec65c1a0b}{setM}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} m)
+\begin{DoxyCompactList}\small\item\em Permite definir os minutos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_time_abb73185142029a2e3fc8bcfa92acdf72}{setS}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} s)
+\begin{DoxyCompactList}\small\item\em Permite definir os segundos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_time_af3f69e307f96cf5981efca12c6772559}{operator==}} (const \mbox{\hyperlink{class_time}{Time}} t)
+\begin{DoxyCompactList}\small\item\em Permite comparar se uma hora é igual a outra. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_time_ad7c45caa41cc1d2a669852e28715a76d}{operator$<$}} (const \mbox{\hyperlink{class_time}{Time}} t)
+\begin{DoxyCompactList}\small\item\em Permite saber se uma hora é posterior a outra. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_time_ae816dbf10eb666d8574c6f4e25f267a1}{operator$>$}} (const \mbox{\hyperlink{class_time}{Time}} t)
+\begin{DoxyCompactList}\small\item\em Permite saber se uma hora é anterior a outra. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_time_a059b1a199340af155effafd3b9055e2c}{operator$<$$<$}} (ostream \&out, const \mbox{\hyperlink{class_time}{Time}} \&time)
+\begin{DoxyCompactList}\small\item\em Permite mostrar uma hora no ecrã \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 14 of file Time.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_time_a4245e409c7347d1d671858962c2ca3b5}\label{class_time_a4245e409c7347d1d671858962c2ca3b5}} 
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{Time()}{Time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Time\+::\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construtor default da classe \mbox{\hyperlink{class_time}{Time}}. 
+
+segundos 
+
+Definition at line 24 of file Time.\+h.
+
+\mbox{\Hypertarget{class_time_a92491fd96ed1f4735d053080e3e47a32}\label{class_time_a92491fd96ed1f4735d053080e3e47a32}} 
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{Time()}{Time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Time\+::\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{h,  }\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{m,  }\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{s }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \mbox{\hyperlink{class_time}{Time}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & -\/ horas \\
+\hline
+{\em m} & -\/ minutos \\
+\hline
+{\em s} & -\/ segundos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Time.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_time_ae1662cdf99b8d5eedfe559de3029fa24}\label{class_time_ae1662cdf99b8d5eedfe559de3029fa24}} 
+\index{Time@{Time}!getH@{getH}}
+\index{getH@{getH}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getH()}{getH()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} Time\+::getH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter as horas. 
+
+\begin{DoxyReturn}{Returns}
+Retorna as horas 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_a93b01586a82e21838c7b210d044d1f0a}\label{class_time_a93b01586a82e21838c7b210d044d1f0a}} 
+\index{Time@{Time}!getM@{getM}}
+\index{getM@{getM}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getM()}{getM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} Time\+::getM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter os minutos. 
+
+\begin{DoxyReturn}{Returns}
+Retorna os minutos 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_a8bedb9cadc1084dd511e2d9317fbbf78}\label{class_time_a8bedb9cadc1084dd511e2d9317fbbf78}} 
+\index{Time@{Time}!getS@{getS}}
+\index{getS@{getS}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getS()}{getS()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} Time\+::getS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obter os segundos. 
+
+\begin{DoxyReturn}{Returns}
+Retorna os segundos 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_ad7c45caa41cc1d2a669852e28715a76d}\label{class_time_ad7c45caa41cc1d2a669852e28715a76d}} 
+\index{Time@{Time}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Time\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_time}{Time}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Permite saber se uma hora é posterior a outra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ hora que queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a hora passada como argumento seja posterior à hora com a qual estamos a comparar 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_af3f69e307f96cf5981efca12c6772559}\label{class_time_af3f69e307f96cf5981efca12c6772559}} 
+\index{Time@{Time}!operator==@{operator==}}
+\index{operator==@{operator==}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Time\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_time}{Time}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Permite comparar se uma hora é igual a outra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & -\/ hora com a qual queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a comparacao se verifique e false caso isso nao aconteca 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_ae816dbf10eb666d8574c6f4e25f267a1}\label{class_time_ae816dbf10eb666d8574c6f4e25f267a1}} 
+\index{Time@{Time}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Time\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_time}{Time}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Permite saber se uma hora é anterior a outra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ hora que queremos comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true caso a hora passada como argumento seja anterior à hora com a qual estamos a comparar 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_af4dcededbe06538cffef1d8d310698f3}\label{class_time_af4dcededbe06538cffef1d8d310698f3}} 
+\index{Time@{Time}!setH@{setH}}
+\index{setH@{setH}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setH()}{setH()}}
+{\footnotesize\ttfamily void Time\+::setH (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{h }\end{DoxyParamCaption})}
+
+
+
+Permite definir as horas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & -\/ horas \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_a62253c8349413909b839401ec65c1a0b}\label{class_time_a62253c8349413909b839401ec65c1a0b}} 
+\index{Time@{Time}!setM@{setM}}
+\index{setM@{setM}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setM()}{setM()}}
+{\footnotesize\ttfamily void Time\+::setM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{m }\end{DoxyParamCaption})}
+
+
+
+Permite definir os minutos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & -\/ minutos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file Time.\+cpp.
+
+\mbox{\Hypertarget{class_time_abb73185142029a2e3fc8bcfa92acdf72}\label{class_time_abb73185142029a2e3fc8bcfa92acdf72}} 
+\index{Time@{Time}!setS@{setS}}
+\index{setS@{setS}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setS()}{setS()}}
+{\footnotesize\ttfamily void Time\+::setS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}}}]{s }\end{DoxyParamCaption})}
+
+
+
+Permite definir os segundos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ segundos \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Time.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_time_a059b1a199340af155effafd3b9055e2c}\label{class_time_a059b1a199340af155effafd3b9055e2c}} 
+\index{Time@{Time}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_time}{Time}} \&}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Permite mostrar uma hora no ecrã 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & -\/ outstream onde queremos mostrar a hora \\
+\hline
+{\em time} & -\/ hora que queremos mostrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a outstream 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file Time.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Date\+Time/\mbox{\hyperlink{_time_8h}{Time.\+h}}\item 
+Date\+Time/\mbox{\hyperlink{_time_8cpp}{Time.\+cpp}}\end{DoxyCompactItemize}

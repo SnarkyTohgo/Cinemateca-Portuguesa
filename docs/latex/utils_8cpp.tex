@@ -1,0 +1,71 @@
+\hypertarget{utils_8cpp}{}\doxysection{Utils/utils.cpp File Reference}
+\label{utils_8cpp}\index{Utils/utils.cpp@{Utils/utils.cpp}}
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___i_ga98e840afc1a4f857d62176ec8c66f432}{line}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} size, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} ch)
+\begin{DoxyCompactList}\small\item\em Imprime uma linha de tamanho especificado com um caracter especificado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga581fe25e456beaf4b4aab3c210f130a3}{cin\+E\+RR}} (const string \&message)
+\begin{DoxyCompactList}\small\item\em Imprime uma uma mensagem de erro para o descritor S\+T\+D\+E\+RR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga2891360816e4509398cb1345cbeb71b4}{get\+Option}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \&dest, const string \&message, function$<$ bool(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}})$>$ cond)
+\begin{DoxyCompactList}\small\item\em Tenta aceder a uma opção válida do tipo inteiro do descritor S\+T\+D\+IN para utilizar dentro de um switch-\/case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga45c88e25ae1de0dbbacf22754aa0523a}{get\+Option\+List}} (vector$<$ \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} $>$ \&dest, const string \&message, function$<$ bool(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}})$>$ cond)
+\begin{DoxyCompactList}\small\item\em Tenta aceder a uma lista de opções válidas do tipo inteiro do descritor S\+T\+D\+IN para utilizar dentro de um switch-\/case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga2432debc050019a071dd540ddb9caa27}{get\+Double}} (double \&dest, const string \&message)
+\item 
+void \mbox{\hyperlink{group___i_ga98fee2cbf3680d890f35eaae179dadf5}{enter\+Wait}} (const string \&message)
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \mbox{\hyperlink{group___c_a_l_c_gad4ad42119767204c4c6fea3bea9b4ff0}{rng}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} lower, \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} upper)
+\begin{DoxyCompactList}\small\item\em Calcula um valor pseudo-\/aleatório dentro de um intervalo numérico. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{group___t_e_x_t_ga91f81abcd82da4dc033be13b878d9240}{to\+Upper}} (string s)
+\begin{DoxyCompactList}\small\item\em Transforma uma string em uppercase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8cpp_a4ec3ade043ee178fd33d710d8bee4d9c}{ltrim}} (string \&s)
+\item 
+void \mbox{\hyperlink{utils_8cpp_abb46025470ed84bf1ed177e0e93a1e21}{rtrim}} (string \&s)
+\item 
+void \mbox{\hyperlink{group___t_e_x_t_ga8bddc3dcbfa8ff455abebaf144a1f5cf}{trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string de ambos os lados. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename t $>$ }\\void \mbox{\hyperlink{group___t_e_x_t_gade1eb6f1cfeb9c16ada648eee37a55eb}{split}} (const string \&s, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} delim, t result)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___t_e_x_t_gadd313f0fe82466f4c1c4622307d928bc}{split}} (const string \&s, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} delim)
+\begin{DoxyCompactList}\small\item\em Corta uma string por um delimitador e transforma-\/a num array. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___f_i_l_e_s_ga83d0fc5c8c7d3257389fb2a188f14392}{file\+Is\+Empty}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Verifica se um ficheiro está vazio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga1dd149de04d2177b036e826963ab40c6}{make\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Cria um novo ficheiro. \end{DoxyCompactList}\item 
+ifstream \mbox{\hyperlink{group___f_i_l_e_s_ga101d0096fb729671fe8f1748b9a05918}{read\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Abre um ficheiro em modo de leitura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga2e3daa30641877670c5084579e996bef}{write\+To\+File}} (vector$<$ string $>$ \&data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga937908194523e0c388d1d393703cde29}{write\+To\+File}} (string \&data, string filename)
+\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga651d6f12e9e25af3c653348e0537b75c}{write\+Data}} (string data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___f_i_l_e_s_ga476d28210ed315c2dc1fa1185c133984}{parse\+File}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Faz parsing da informação de um ficheiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_gabaac8f6a32825b8c3a8d30e4468b833b}{delete\+File\+Data}} (string filename)
+\begin{DoxyCompactList}\small\item\em Apaga a informação de um ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8cpp_a4ec3ade043ee178fd33d710d8bee4d9c}\label{utils_8cpp_a4ec3ade043ee178fd33d710d8bee4d9c}} 
+\index{utils.cpp@{utils.cpp}!ltrim@{ltrim}}
+\index{ltrim@{ltrim}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{ltrim()}{ltrim()}}
+{\footnotesize\ttfamily void ltrim (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 128 of file utils.\+cpp.
+
+\mbox{\Hypertarget{utils_8cpp_abb46025470ed84bf1ed177e0e93a1e21}\label{utils_8cpp_abb46025470ed84bf1ed177e0e93a1e21}} 
+\index{utils.cpp@{utils.cpp}!rtrim@{rtrim}}
+\index{rtrim@{rtrim}!utils.cpp@{utils.cpp}}
+\doxysubsubsection{\texorpdfstring{rtrim()}{rtrim()}}
+{\footnotesize\ttfamily void rtrim (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 136 of file utils.\+cpp.
+

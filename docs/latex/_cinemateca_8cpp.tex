@@ -1,0 +1,61 @@
+\hypertarget{_cinemateca_8cpp}{}\doxysection{Cinemateca/\+Cinemateca.cpp File Reference}
+\label{_cinemateca_8cpp}\index{Cinemateca/Cinemateca.cpp@{Cinemateca/Cinemateca.cpp}}
+{\ttfamily \#include \char`\"{}Cinemateca.\+h\char`\"{}}\newline
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga9a48c4c267545ee503956459efc2b689}{salas\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga2f149e0321d7fa893afabb6f50f4c5f4}{eventos\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga64e01130a87f37414fb0ba51a633cece}{aderentes\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_gad65eaf3daa4377a749cd011249bd3129}{nao\+Aderentes\+DB}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gaa7e1591752432b21cc04ec87f6fd08c1}{salas\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gad2117c7d9d9298c628e889284addcb23}{eventos\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gab4c2e3685d3ce4d2341053fa608424d7}{aderentes\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_ga3c58291ba569d46d5e7eee748b952dbb}{nao\+Aderentes\+Data}}
+\item 
+auto \mbox{\hyperlink{_cinemateca_8cpp_a9be2c8a4bf3938efe7ae1348f409bf1f}{now}} = Clock\+::now()
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{_cinemateca_8cpp_ab293e13a0c7359309b5592f245f4fbc8}{now\+\_\+c}} = Clock\+::to\+\_\+time\+\_\+t(\mbox{\hyperlink{_cinemateca_8cpp_a9be2c8a4bf3938efe7ae1348f409bf1f}{now}})
+\item 
+struct tm $\ast$ \mbox{\hyperlink{_cinemateca_8cpp_a9937acc8d442142deada4b6f9c627e24}{parts}} = std\+::localtime(\&\mbox{\hyperlink{_cinemateca_8cpp_ab293e13a0c7359309b5592f245f4fbc8}{now\+\_\+c}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_cinemateca_8cpp_a9be2c8a4bf3938efe7ae1348f409bf1f}\label{_cinemateca_8cpp_a9be2c8a4bf3938efe7ae1348f409bf1f}} 
+\index{Cinemateca.cpp@{Cinemateca.cpp}!now@{now}}
+\index{now@{now}!Cinemateca.cpp@{Cinemateca.cpp}}
+\doxysubsubsection{\texorpdfstring{now}{now}}
+{\footnotesize\ttfamily auto now = Clock\+::now()}
+
+
+
+Definition at line 18 of file Cinemateca.\+cpp.
+
+\mbox{\Hypertarget{_cinemateca_8cpp_ab293e13a0c7359309b5592f245f4fbc8}\label{_cinemateca_8cpp_ab293e13a0c7359309b5592f245f4fbc8}} 
+\index{Cinemateca.cpp@{Cinemateca.cpp}!now\_c@{now\_c}}
+\index{now\_c@{now\_c}!Cinemateca.cpp@{Cinemateca.cpp}}
+\doxysubsubsection{\texorpdfstring{now\_c}{now\_c}}
+{\footnotesize\ttfamily std\+::time\+\_\+t now\+\_\+c = Clock\+::to\+\_\+time\+\_\+t(\mbox{\hyperlink{_cinemateca_8cpp_a9be2c8a4bf3938efe7ae1348f409bf1f}{now}})}
+
+
+
+Definition at line 19 of file Cinemateca.\+cpp.
+
+\mbox{\Hypertarget{_cinemateca_8cpp_a9937acc8d442142deada4b6f9c627e24}\label{_cinemateca_8cpp_a9937acc8d442142deada4b6f9c627e24}} 
+\index{Cinemateca.cpp@{Cinemateca.cpp}!parts@{parts}}
+\index{parts@{parts}!Cinemateca.cpp@{Cinemateca.cpp}}
+\doxysubsubsection{\texorpdfstring{parts}{parts}}
+{\footnotesize\ttfamily struct tm$\ast$ parts = std\+::localtime(\&\mbox{\hyperlink{_cinemateca_8cpp_ab293e13a0c7359309b5592f245f4fbc8}{now\+\_\+c}})}
+
+
+
+Definition at line 20 of file Cinemateca.\+cpp.
+

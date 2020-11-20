@@ -1,0 +1,67 @@
+\hypertarget{utils_8h}{}\doxysection{Utils/utils.h File Reference}
+\label{utils_8h}\index{Utils/utils.h@{Utils/utils.h}}
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___i_ga98e840afc1a4f857d62176ec8c66f432}{line}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} size, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} ch=\textquotesingle{}-\/\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Imprime uma linha de tamanho especificado com um caracter especificado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga581fe25e456beaf4b4aab3c210f130a3}{cin\+E\+RR}} (const string \&message)
+\begin{DoxyCompactList}\small\item\em Imprime uma uma mensagem de erro para o descritor S\+T\+D\+E\+RR. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga2891360816e4509398cb1345cbeb71b4}{get\+Option}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \&dest, const string \&message=\char`\"{}Option\+: \char`\"{}, function$<$ bool(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}})$>$ cond=\mbox{[}$\,$\mbox{]}(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} a) \{ return true;\})
+\begin{DoxyCompactList}\small\item\em Tenta aceder a uma opção válida do tipo inteiro do descritor S\+T\+D\+IN para utilizar dentro de um switch-\/case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga45c88e25ae1de0dbbacf22754aa0523a}{get\+Option\+List}} (vector$<$ \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} $>$ \&dest, const string \&message=\char`\"{}Option ($\ast$ to end)\+: \char`\"{}, function$<$ bool(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}})$>$ cond=\mbox{[}$\,$\mbox{]}(\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} a) \{ return true;\})
+\begin{DoxyCompactList}\small\item\em Tenta aceder a uma lista de opções válidas do tipo inteiro do descritor S\+T\+D\+IN para utilizar dentro de um switch-\/case. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___i_ga2432debc050019a071dd540ddb9caa27}{get\+Double}} (double \&dest, const string \&message=\char`\"{}Enter double\+: \char`\"{})
+\item 
+void \mbox{\hyperlink{group___i_ga98fee2cbf3680d890f35eaae179dadf5}{enter\+Wait}} (const string \&message=\char`\"{}E\+N\+T\+ER to go back\char`\"{})
+\item 
+\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} \mbox{\hyperlink{group___c_a_l_c_gad4ad42119767204c4c6fea3bea9b4ff0}{rng}} (\mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} lower, \mbox{\hyperlink{_c_make_cache_8txt_ae5ddf38bc47713b2bcad41253d69d372}{int}} upper)
+\begin{DoxyCompactList}\small\item\em Calcula um valor pseudo-\/aleatório dentro de um intervalo numérico. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{group___t_e_x_t_ga91f81abcd82da4dc033be13b878d9240}{to\+Upper}} (string s)
+\begin{DoxyCompactList}\small\item\em Transforma uma string em uppercase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_gab598ddbf7b021da590af48a1f6443b82}{l\+Trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string à esquerda. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_gab3817dd3461ed4755e41864e81c23a07}{r\+Trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string à direita. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___t_e_x_t_ga8bddc3dcbfa8ff455abebaf144a1f5cf}{trim}} (string \&s)
+\begin{DoxyCompactList}\small\item\em Poda uma string de ambos os lados. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename t $>$ }\\void \mbox{\hyperlink{group___t_e_x_t_gade1eb6f1cfeb9c16ada648eee37a55eb}{split}} (const string \&s, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} delim, t result)
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___t_e_x_t_gadd313f0fe82466f4c1c4622307d928bc}{split}} (const string \&s, \mbox{\hyperlink{_c_make_cache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} delim)
+\begin{DoxyCompactList}\small\item\em Corta uma string por um delimitador e transforma-\/a num array. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group___f_i_l_e_s_ga83d0fc5c8c7d3257389fb2a188f14392}{file\+Is\+Empty}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Verifica se um ficheiro está vazio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga1dd149de04d2177b036e826963ab40c6}{make\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Cria um novo ficheiro. \end{DoxyCompactList}\item 
+ifstream \mbox{\hyperlink{group___f_i_l_e_s_ga101d0096fb729671fe8f1748b9a05918}{read\+File}} (string filename)
+\begin{DoxyCompactList}\small\item\em Abre um ficheiro em modo de leitura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga2e3daa30641877670c5084579e996bef}{write\+To\+File}} (vector$<$ string $>$ \&data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga937908194523e0c388d1d393703cde29}{write\+To\+File}} (string \&data, string filename)
+\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_ga651d6f12e9e25af3c653348e0537b75c}{write\+Data}} (string data, string filename)
+\begin{DoxyCompactList}\small\item\em Escreve para um ficheiro. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___f_i_l_e_s_ga476d28210ed315c2dc1fa1185c133984}{parse\+File}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Faz parsing da informação de um ficheiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___f_i_l_e_s_gabaac8f6a32825b8c3a8d30e4468b833b}{delete\+File\+Data}} (string filename)
+\begin{DoxyCompactList}\small\item\em Apaga a informação de um ficheiro. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga9a48c4c267545ee503956459efc2b689}{salas\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga2f149e0321d7fa893afabb6f50f4c5f4}{eventos\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_ga64e01130a87f37414fb0ba51a633cece}{aderentes\+DB}}
+\item 
+ifstream \mbox{\hyperlink{group___utils_gad65eaf3daa4377a749cd011249bd3129}{nao\+Aderentes\+DB}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gaa7e1591752432b21cc04ec87f6fd08c1}{salas\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gad2117c7d9d9298c628e889284addcb23}{eventos\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_gab4c2e3685d3ce4d2341053fa608424d7}{aderentes\+Data}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{group___utils_ga3c58291ba569d46d5e7eee748b952dbb}{nao\+Aderentes\+Data}}
+\end{DoxyCompactItemize}
