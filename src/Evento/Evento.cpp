@@ -1,5 +1,7 @@
 #include "Evento.h"
 
+// EVENTO
+
 /*
  * CONSTRUCTORS
  */
@@ -13,9 +15,10 @@ Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, f
     this->lotMax = lotMax;
     this->preco = preco;
     this->totalVendas = 0;
+    this->bilhetesComprados = 0;
 }
 
-Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala)
+Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados)
         : nome(nome){
 
     this->data = data;
@@ -25,6 +28,7 @@ Evento::Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, f
     this->preco = preco;
     this->sala = sala;
     this->totalVendas = 0;
+    this->bilhetesComprados = bilhetesComprados;
 }
 
 
@@ -81,7 +85,7 @@ Evento::getParticipantes() const {
 
 u_int
 Evento::getBilhetesComprados() const {
-    return this->participantesAderentes.size() + this->participantesNaoAderentes.size();
+    return this->bilhetesComprados;
 }
 
 float
@@ -102,6 +106,11 @@ Evento::isLotado() const {
 void
 Evento::updateTotalVendas(float valor){
     this->totalVendas += valor;
+}
+
+void
+Evento::updateBilhetesComprados() {
+    this->bilhetesComprados++;
 }
 
 void
@@ -153,12 +162,93 @@ Evento::operator==(const Evento& evento) {
 }
 
 
+// ITEM HISTORICO EVENTOS
+
+/*
+ * CONSTRUCTORS
+ */
+
+ItemHistoricoEventos::ItemHistoricoEventos(Evento* itemEvento) {
+    this->itemEvento = itemEvento;
+}
+
+ItemHistoricoEventos::ItemHistoricoEventos(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados) {
+    this->itemEvento = new Evento(nome, data, hora, duracao, lotMax, preco, sala, bilhetesComprados);
+}
 
 
+/*
+ * MEMBER FUNCTIONS
+ */
+
+string
+ItemHistoricoEventos::getNome() const {
+    return this->itemEvento->getNome();
+}
+
+Date
+ItemHistoricoEventos::getData() const {
+    return this->itemEvento->getData();
+}
+
+Time
+ItemHistoricoEventos::getHora() const {
+    return this->itemEvento->getHora();
+}
+
+u_int
+ItemHistoricoEventos::getDuracao() const {
+    return this->itemEvento->getDuracao();
+}
+
+u_int
+ItemHistoricoEventos::getLotMax() const {
+    return this->itemEvento->getLotMax();
+}
+
+float
+ItemHistoricoEventos::getPreco() const {
+    return this->itemEvento->getPreco();
+}
+
+u_int
+ItemHistoricoEventos::getSala() const {
+    return this->itemEvento->getSala();
+}
+
+list<Utilizador>
+ItemHistoricoEventos::getParticipantes() const {
+    return this->itemEvento->getParticipantes();
+}
+
+u_int
+ItemHistoricoEventos::getBilhetesComprados() const {
+    return this->itemEvento->getBilhetesComprados();
+}
+
+float
+ItemHistoricoEventos::getTotalVendas() const {
+    return this->itemEvento->getTotalVendas();
+}
 
 
+/*
+ * OPERATOR OVERLOADS
+ */
 
+bool
+ItemHistoricoEventos::operator <(const ItemHistoricoEventos& ihe) const {
+    if (this->itemEvento->getBilhetesComprados() == ihe.itemEvento->getBilhetesComprados()) {
+        return this->itemEvento->getSala() < ihe.itemEvento->getSala();
+    } else {
+        return this->itemEvento->getBilhetesComprados() < ihe.itemEvento->getBilhetesComprados();
+    }
+}
 
+bool
+ItemHistoricoEventos::operator ==(const ItemHistoricoEventos& ihe) const {
+    return (this->itemEvento->getNome() == ihe.itemEvento->getNome() and this->itemEvento->getSala() == ihe.itemEvento->getSala());
+}
 
 
 

@@ -87,9 +87,15 @@ void menuRecursosHumanos();
 void menuOrdenarAderentes();
 
 /**
+ * @brief Função que gera o menu de Marketing da Cinemateca
+ */
+void menuMarketing();
+
+/**
  * @brief Função que gera o menu de ordenação de Eventos
  */
 void menuOrdenarEventos();
+
 
 /** @} */ // end of Menus
 
@@ -158,12 +164,12 @@ void viewMostrarTrabalhador(RegistoTrabalhador registo);
 /**
  * @brief Função que gera o ecrã de pesquisa de trabalhadores por nome
  */
-void viewPesquisarTrabalhador();     // TODO
+void viewPesquisarTrabalhador();
 
 /**
  * @brief Função que gera o ecrã de contratação de um trabalhador
  */
-void viewContratarTrabalhador();    // TODO
+void viewContratarTrabalhador();
 
 /**
  * @brief Função que gera o ecrã de listagem dos trabalhadores atuais
@@ -174,6 +180,16 @@ void viewListarTrabalhadores();
  * @brief Função que gera o ecrã de listagem de todos os trabalhadores
  */
 void viewListarExTrabalhadores();
+
+/**
+ * @brief Função que gera o ecrã de maiores êxitos de bilheteira da cinemateca
+ */
+void viewTopBilheteira();
+
+/**
+ * @brief Função que gera o ecrã de listagem de eventos passados com lotação máxima
+ */
+void viewEventosLotMax();
 
 /** @} */ // end of Vistas
 

@@ -72,7 +72,8 @@ menuMain(){
             {"Aderentes", menuAderentes},
             {"Eventos", menuEventos},
             {"Kiosk", menuKiosk},
-            {"Recursos Humanos", menuRecursosHumanos}
+            {"Recursos Humanos", menuRecursosHumanos},
+            {"Markting", menuMarketing}
     });
 }
 
@@ -112,6 +113,14 @@ menuRecursosHumanos() {
             {"Contratar Trabalhador", viewContratarTrabalhador},
             {"Listar Trabalhadores", viewListarTrabalhadores},
             {"Listar Ex-trabalhadores", viewListarExTrabalhadores}
+    });
+}
+
+void
+menuMarketing() {
+    createMenu("Cinemateca Portuguesa - Marketing", {
+            {"Top 10 Bilheteira", viewTopBilheteira},
+            {"Eventos Com Lotacao Maxima", viewEventosLotMax}
     });
 }
 
@@ -228,8 +237,10 @@ void viewListarTrabalhadores() {
             int pos = stoi(input) - 1;
             string nomeTrabalhador = tmp[pos];
             viewMostrarTrabalhador(cinemateca.getRegisto(nomeTrabalhador));
+            break;
         } else if (stoi(input) == 0) {
             menuRecursosHumanos();
+            break;
         }
     }
 }
@@ -257,8 +268,10 @@ void viewListarExTrabalhadores() {
             int pos = stoi(input) - 1;
             string nomeTrabalhador = tmp[pos];
             viewMostrarTrabalhador(cinemateca.getRegisto(nomeTrabalhador));
+            break;
         } else if (stoi(input) == 0) {
             menuRecursosHumanos();
+            break;
         }
     }
 }
@@ -282,8 +295,10 @@ void viewMostrarTrabalhador(RegistoTrabalhador registo) {
                 cinemateca.despedirTrabalhador(registo.getTrabalhador());
                 cout << "\n--- Trabalhador despedido ---\n\n";
                 viewListarTrabalhadores();
+                break;
             } else if (input == "0") {
                 viewListarTrabalhadores();
+                break;
             }
         }
 
@@ -297,8 +312,10 @@ void viewMostrarTrabalhador(RegistoTrabalhador registo) {
                 cinemateca.contratarTrabalhador(registo.getTrabalhador());
                 cout << "\n--- Trabalhador contratado ---\n";
                 viewListarExTrabalhadores();
+                break;
             } else if (input == "0") {
                 viewListarExTrabalhadores();
+                break;
             }
         }
     }
@@ -364,6 +381,51 @@ void viewContratarTrabalhador() {
                 menuRecursosHumanos();
                 break;
             }
+        }
+    }
+}
+
+
+// HISTORICO
+
+void viewTopBilheteira() {
+    cout << ">>> EXITOS DE BILHETEIRA <<<" << endl << endl;
+
+    int i = 1;
+    for (auto item : cinemateca.getExitosBilheteira()) {
+        cout << i << ". " << item.getNome() << " - " << item.getBilhetesComprados() << " bilhetes vendidos" << endl;
+        i++;
+    }
+
+    string input;
+    while (true) {
+        cout << "\n0. Back\n";
+        cin >> input;
+
+        if (input == "0") {
+            menuMain();
+            break;
+        }
+    }
+}
+
+void viewEventosLotMax() {
+    cout << ">>> EVENTOS COM LOTACAO MAXIMA <<<" << endl << endl;
+
+    int i = 1;
+    for (auto item : cinemateca.getEventosLotMax()) {
+        cout << i << ". " << item.getNome() << " - " << item.getBilhetesComprados() << " bilhetes vendidos" << endl;
+        i++;
+    }
+
+    string input;
+    while (true) {
+        cout << "\n0. Back\n";
+        cin >> input;
+
+        if (input == "0") {
+            menuMain();
+            break;
         }
     }
 }

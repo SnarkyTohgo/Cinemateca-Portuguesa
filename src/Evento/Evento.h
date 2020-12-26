@@ -16,14 +16,15 @@
 class Evento {
 private:
 
-    string nome;        /**Nome do evento*/
-    Date data;          /**Data do evento*/
-    Time hora;          /**Hora do evento*/
-    u_int duracao;      /**Duracao do evento*/
-    u_int lotMax;       /**Lotacao maxima do evento*/
-    float preco;        /**Preco do evento*/
-    float totalVendas;   /**Valor total das vendas do evento*/
-    u_int sala;         /**Sala do evento*/
+    string nome;                 /**Nome do evento*/
+    Date data;                   /**Data do evento*/
+    Time hora;                   /**Hora do evento*/
+    u_int duracao;               /**Duracao do evento*/
+    u_int lotMax;                /**Lotacao maxima do evento*/
+    float preco;                 /**Preco do evento*/
+    float totalVendas;           /**Valor total das vendas do evento*/
+    u_int sala;                  /**Sala do evento*/
+    u_int bilhetesComprados;     /**Total de bilhetes comprados*/
 
     list<Aderente> participantesAderentes;        /** Aderentes participantes do evento*/
     list<Utilizador> participantesNaoAderentes;   /** Utilizadores participantes do evento*/
@@ -55,7 +56,7 @@ public:
      * @param preco - preco do evento
      * @param sala - sala em que decorre o evento
      */
-    Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala);
+    Evento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados);
 
     /**
      * @brief Permite obter o nome do evento
@@ -129,6 +130,11 @@ public:
     void updateTotalVendas(float valor);
 
     /**
+     * @brief Incrementa o valor de bilhetes comprados para este evento
+     */
+    void updateBilhetesComprados();
+
+    /**
      * @brief Permite determinar se a lotacao maxima de um evento ja foi atingida
      */
     bool isLotado() const;
@@ -175,5 +181,108 @@ public:
 };
 
 /** @} */ // end of Classe Evento
+
+
+class ItemHistoricoEventos {
+private:
+    Evento* itemEvento;
+public:
+    /**
+     * @brief Construtor por default da classe ItemPosterEventos
+     */
+    ItemHistoricoEventos(Evento* itemEvento);
+
+    /**
+     * @brief Construtor da classe ItemPosterEventos
+     * @param nome - nome do evento
+     * @param data - data do evento
+     * @param hora - hora de inicio do evento
+     * @param duracao - duracao do evento
+     * @param lotMax - lotacao maxima do evento
+     * @param preco - preco do evento
+     * @param sala - sala em que decorre o evento
+     */
+    ItemHistoricoEventos(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados);
+
+    /**
+     * @brief Permite obter o evento associado a este item do poster de eventos
+     * @return Retorna o evento associado a este item
+     */
+    Evento* getEvento();
+
+    /**
+     * @brief Permite obter o nome do evento
+     * @return Retorna o nome do evento
+     */
+    string getNome() const;
+
+    /**
+     * @brief Permite obter a data do evento
+     * @return Retorna a data do evento
+     */
+    Date getData() const;
+
+    /**
+     * @brief Permite obter a hora do evento
+     * @return Retorna a hora do evento
+     */
+    Time getHora() const;
+
+    /**
+     * @brief Permite obter a duracao do evento
+     * @return Retorna a duracao do evento
+     */
+    u_int getDuracao() const;
+
+    /**
+     * @brief Permite obter a lotacao maxima do evento
+     * @return Retorna a lotacao maxima do evento
+     */
+    u_int getLotMax() const;
+
+    /**
+     * @brief Permite obter o preco do evento
+     * @return Retorna o preco do evento
+     */
+    float getPreco() const;
+
+    /**
+     * @brief Permite obter a sala do evento
+     * @return Retorna a sala do evento
+     */
+    u_int getSala() const;
+
+    /**
+     * @brief Permite obter o numero de bilhetes comprados do evento
+     * @return Retorna o numero de bilhetes comprados do evento
+     */
+    u_int getBilhetesComprados() const;
+
+    /**
+     * @brief Permite obter o total de vendas (lucro) do evento
+     * @return Retorna o total de vendas (lucro) do evento
+     */
+    float getTotalVendas() const;
+
+    /**
+     * @brief Permite obter os participantes no evento
+     * @return Retorna a lista de participantes no evento
+     */
+    list<Utilizador> getParticipantes() const;
+
+    /**
+     * @brief Permite ordenar os items do poster ordenados pelo número de aderentes que participaram no evento e, em caso de empate, por ordem alfabética da localização
+     * @param ipe - evento que estamos a comparar
+     * @return Retorna true caso o item seja menor
+     */
+    bool operator <(const ItemHistoricoEventos& ihe) const;
+
+    /**
+     * @brief Permite comparar se dois eventos do poster são iguais
+     * @param evento - evento que estamos a comparar
+     * @return Retorna true caso a igualdade se verifique e false caso não se verifique
+     */
+    bool operator ==(const ItemHistoricoEventos& ihe) const;
+};
 
 #endif //SRC_EVENTO_H

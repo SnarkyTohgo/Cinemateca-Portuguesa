@@ -18,27 +18,28 @@ typedef unordered_set<RegistoTrabalhador, RegistoTrabalhadorHash, RegistoTrabalh
 
 class Cinemateca {
 private:
-    static u_int anoAtual;                 /**Ano atual*/
+    static u_int anoAtual;                             /**Ano atual*/
 
-    const string localizacao;              /**Localizacao da Cinemateca*/
-    const string morada;                   /**Morada da Cinemateca*/
+    const string localizacao;                          /**Localizacao da Cinemateca*/
+    const string morada;                               /**Morada da Cinemateca*/
 
-    list<Utilizador> naoAderentes;         /**Utilizadores não aderentes da Cinemateca */
-    list<Aderente> aderentes;              /**Aderentes (amigos) da Cinemateca*/
-    list<Sala> salas;                      /**Salas da Cinemateca*/
+    list<Utilizador> naoAderentes;                     /**Utilizadores não aderentes da Cinemateca */
+    list<Aderente> aderentes;                          /**Aderentes (amigos) da Cinemateca*/
+    list<Sala> salas;                                  /**Salas da Cinemateca*/
 
-    u_int bilhetesComprados;               /**Total de bilhetes comprados na Cinemateca*/
-    double totalVendas;                    /**Total de vendas da Cinemateca*/
+    u_int bilhetesComprados;                           /**Total de bilhetes comprados na Cinemateca*/
+    double totalVendas;                                /**Total de vendas da Cinemateca*/
 
-    HashTableTrabalhadores registoTrabalhadores;        /**Registo de todos os Trabalhadores da Cinemateca*/
+    HashTableTrabalhadores registoTrabalhadores;       /**Registo de todos os Trabalhadores da Cinemateca*/
+    BST<ItemHistoricoEventos> historico;               /**Eventos passados nos quais participaram os aderentes ao cartão*/
 public:
-    list<Evento> eventos;                               /**Eventos da Cinemateca*/
-    vector<Trabalhador *> contratacoes;    /**Histórico de todas as contratações da Cinemateca*/
+    list<Evento> eventos;                              /**Eventos da Cinemateca*/
+    vector<Trabalhador *> contratacoes;                /**Histórico de todas as contratações da Cinemateca*/
 
     /**
      * @brief Construtor default da classe Cinemateca
      */
-    Cinemateca(){};
+    Cinemateca():historico(ItemHistoricoEventos("", Date(), Time(), 0, 0, 0.00, 0, 0)){}
 
     /**
      * @brief Contrutor da classe Cinemateca
@@ -46,6 +47,29 @@ public:
      * @param morada - morada da Cinemateca
      */
     Cinemateca(string localizacao, string morada);
+
+    /**
+     * @brief Criação da árvore de eventos passados
+     */
+    void gerarHistorico();
+
+    /**
+     * @brief Vai buscar a árvore do histórico de eventos
+     * @return Devolve a árvore do histórico de eventos
+     */
+    BST<ItemHistoricoEventos> getHistoricoEventos();
+
+    /**
+     * @brief Procura no histórico de eventos aqueles 10 que que teve mais assistência
+     * @return Retorna um vetor de itens do histórico com mais bilhetes vendidos
+     */
+    vector<ItemHistoricoEventos> getExitosBilheteira();
+
+    /**
+     * @brief Procura no histórico de eventos aqueles que tiveram lotação máxima
+     * @return Retorna um vetor de itens do histórico que obtiveram lotação máxima
+     */
+    vector<ItemHistoricoEventos> getEventosLotMax();
 
     /**
      * @brief Permite obter o ano atual

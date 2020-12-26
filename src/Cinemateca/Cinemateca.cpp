@@ -27,8 +27,11 @@ struct tm *parts = std::localtime(&now_c);
 
 u_int Cinemateca::anoAtual = 1900 + parts->tm_year;
 
+Date dataAtual(parts->tm_mday, 1 + parts->tm_mon, 1900 + parts->tm_year);
+
+
 Cinemateca::Cinemateca(string localizacao, string morada)
-    : localizacao(localizacao), morada(morada){
+    : localizacao(localizacao), morada(morada), historico(ItemHistoricoEventos("", Date(), Time(), 0, 0, 0.00, 0, 0)) {
 
     this->parseEventos();
     this->parseSalas();
@@ -43,6 +46,8 @@ Cinemateca::Cinemateca(string localizacao, string morada)
 
     for (auto evento : this->eventos)
         this->alocarSala(&evento);
+
+    this->gerarHistorico();
 }
 
 
@@ -50,12 +55,74 @@ Cinemateca::Cinemateca(string localizacao, string morada)
  * MEMBER FUNCTIONS
  */
 
+// HISTORICO
+
+void
+Cinemateca::gerarHistorico() {
+    this->historico.makeEmpty();
+
+    list<Evento>::iterator it;
+    for (it = this->eventos.begin(); it != this->eventos.end(); ++it) {
+        if (it->getData() < dataAtual) {
+            Evento* ptrEvento = new Evento(it->getNome(), it->getData(), it->getHora(), it->getDuracao(), it->getLotMax(), it->getPreco(), it->getSala(), it->getBilhetesComprados());
+            historico.insert(ptrEvento);
+        }
+    }
+}
+
+BST<ItemHistoricoEventos>
+Cinemateca::getHistoricoEventos() {
+    return this->historico;
+}
+
+vector<ItemHistoricoEventos>
+Cinemateca::getExitosBilheteira() {
+    vector<ItemHistoricoEventos> tmp, exitos;
+    BSTItrIn<ItemHistoricoEventos> it(this->historico);
+
+    while (!it.isAtEnd()) {
+        tmp.push_back(it.retrieve());
+        it.advance();
+    }
+
+    sort(tmp.begin(), tmp.end(), [](ItemHistoricoEventos& i1, ItemHistoricoEventos& i2){
+        return i1.getBilhetesComprados() > i2.getBilhetesComprados();
+    });
+
+    for (size_t i = 0; i < 10; i++) {
+        exitos.push_back(tmp[i]);
+    }
+
+    return exitos;
+}
+
+vector<ItemHistoricoEventos>
+Cinemateca::getEventosLotMax() {
+    vector<ItemHistoricoEventos> res;
+    BSTItrIn<ItemHistoricoEventos> it(this->historico);
+
+    while (!it.isAtEnd()) {
+        if (it.retrieve().getBilhetesComprados() == it.retrieve().getLotMax()) {
+            res.push_back(it.retrieve());
+        }
+        it.advance();
+    }
+
+    sort(res.begin(), res.end(), [](ItemHistoricoEventos& i1, ItemHistoricoEventos& i2){
+        return i1.getBilhetesComprados() > i2.getBilhetesComprados();
+    });
+
+    return res;
+}
+
+
+
 // GETTERS
+
 u_int
 Cinemateca::getAnoAtual() const {
     return this->anoAtual;
 }
-
 
 string
 Cinemateca::getLocalizacao() const {
@@ -217,7 +284,7 @@ Cinemateca::alocarSala(Evento* evento){
 }
 
 int
-Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento){
+Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento) {
 
     if (evento->isLotado()){
         cout << "Evento " << toUpper(evento->getNome()) << " ja se encontra lotado\n";
@@ -228,10 +295,11 @@ Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento){
     float valorComDesconto;
     bool bilheteGratuito = false;
 
-    //Bilhete gratuito - caso o aderente tenha +65anos, evento no Porto, menos de 8h para o inicio, menos de 50% bilehtes vendidos
-    if(this->getLocalizacao() == "Porto"){
-        if((this->getAnoAtual() - aderente.getDataNasc().getA())>=65){
-            if((evento->getBilhetesComprados()/evento->getLotMax())<0.5){
+    // Bilhete gratuito - caso o aderente tenha +65anos, evento no Porto,
+    // menos de 8h para o inicio, menos de 50% bilehtes vendidos
+    if (this->getLocalizacao() == "Porto") {
+        if ((this->getAnoAtual() - aderente.getDataNasc().getA()) >= 65) {
+            if ((evento->getBilhetesComprados() / evento->getLotMax()) < 0.5) {
                 char answer;
                 cout << "\nCaso falte menos de 8 horas para o inicio do evento"
                      << "\npode usufruir dum bilhete gratuito por ter +65anos\n"
@@ -246,16 +314,23 @@ Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento){
             }
         }
     }
-    if(!bilheteGratuito){
+    if (!bilheteGratuito) {
         valorComDesconto = evento->getPreco() - (evento->getPreco() * (this->anoAtual - aderente.getAnoAdesao()) * 0.01);
     }
 
-
     evento->alocarParticipante(aderente);
+    evento->updateBilhetesComprados();
     evento->updateTotalVendas(valorComDesconto);
 
     this->updateBilhetesComprados();
     this->updateTotalVendas(valorComDesconto);
+
+    // Re-escrever o ficheiro eventos.dat
+    deleteFileData("../eventos.dat");
+
+    for (auto evento : this->eventos) {
+        this->updateEventos(evento);
+    }
 
     cout << "\nBilhete comprado com sucesso!\n"
          << "\nEvento: " << toUpper(evento->getNome())
@@ -277,10 +352,18 @@ Cinemateca::comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento)
     }
 
     evento->alocarParticipante(utilizador);
+    evento->updateBilhetesComprados();
     evento->updateTotalVendas(evento->getPreco());
 
     this->updateBilhetesComprados();
     this->updateTotalVendas(evento->getPreco());
+
+    // Re-escrever o ficheiro eventos.dat
+    deleteFileData("../eventos.dat");
+
+    for (auto evento : this->eventos) {
+        this->updateEventos(evento);
+    }
 
     cout << "\nBilhete comprado com sucesso!\n"
          << "\nEvento: " << toUpper(evento->getNome())
@@ -453,6 +536,7 @@ Cinemateca::parseEventos(){
         u_int sala = (u_int) stoi(data[6]);
         // float preco = stof(data[5]);
         float preco = 12.99;
+        u_int bilhetesComprados = (u_int) stoi(data[7]);
 
         // parse date
         vector<string> dataEventoStr = split(data[1], '/');
@@ -472,7 +556,7 @@ Cinemateca::parseEventos(){
 
         Time hora(h, m, s);
 
-        Evento novoEvento(nome, dataEvento, hora, duracao, lotMax, preco, sala);
+        Evento novoEvento(nome, dataEvento, hora, duracao, lotMax, preco, sala, bilhetesComprados);
         parsedEventos.push_back(novoEvento);
     }
 
@@ -585,7 +669,8 @@ Cinemateca::updateEventos(Evento evento) const {
     data += evento.getNome() + "; "
          + to_string(evento.getData().getD()) + "/" + to_string(evento.getData().getM()) + "/" + to_string(evento.getData().getA()) + "; "
          + to_string(evento.getHora().getH()) + ":" + to_string(evento.getHora().getM()) + ":" + to_string(evento.getHora().getS()) + "; "
-         + to_string(evento.getDuracao()) + "; " + to_string(evento.getLotMax()) + "; " + to_string(evento.getPreco()) + "; " + to_string(evento.getSala());
+         + to_string(evento.getDuracao()) + "; " + to_string(evento.getLotMax()) + "; " + to_string(evento.getPreco()) + "; "
+         + to_string(evento.getSala()) + to_string(evento.getBilhetesComprados());
 
 
     writeData(data, "../eventos.dat");
