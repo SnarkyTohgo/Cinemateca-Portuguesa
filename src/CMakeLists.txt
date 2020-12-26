@@ -13,6 +13,7 @@ set(EVENTO ./Evento)
 set(SALA ./Sala)
 set(UI ./UI)
 set(UTILS ./Utils)
+set(BST ./BST)
 
 include_directories($(ADERENTES))
 include_directories($(CINEMATECA))
@@ -21,6 +22,7 @@ include_directories($(EVENTO))
 include_directories($(SALA))
 include_directories($(UI))
 include_directories($(UTILS))
+include_directories($(BST))
 
 set(
         SOURCE_FILES
@@ -29,11 +31,15 @@ set(
 
             ${UTILS}/utils.h
             ${UTILS}/utils.cpp
+
+            ${BST}/bst.h
         
             ${ADERENTES}/Utilizador.h
             ${ADERENTES}/Utilizador.cpp
             ${ADERENTES}/Aderente.h
             ${ADERENTES}/Aderente.cpp
+            ${ADERENTES}/Trabalhador.h
+            ${ADERENTES}/Trabalhador.cpp
 
             ${CINEMATECA}/Cinemateca.h
             ${CINEMATECA}/Cinemateca.cpp

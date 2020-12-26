@@ -49,6 +49,18 @@ public:
     u_int getA() const;
 
     /**
+     * @brief Verifica se a data está indefinida
+     * @return Retorna true se a data estiver indefinida, false caso contrário
+     */
+    bool undefined() const;
+
+    /**
+     * @brief Permite igualar uma data a outra - iguala todos os seus atributos
+     * @param data - data ao qual estamos a igualar a outro data
+     */
+    void operator =(const Date& data);
+
+    /**
      * @brief Permite comparar se uma data é igual a outra
      * @param date - data com a qual queremos comparar
      * @return Retorna true caso a comparacao se verifique e false caso isso nao aconteca

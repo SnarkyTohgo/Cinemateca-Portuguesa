@@ -8,7 +8,7 @@ Cinemateca cinemateca("Porto", "Rua da Cinemateca, 632");
 
 
 /*
- * Criação dinamica de menus
+ * Criação dinâmica de menus
  */
 
 void
@@ -71,7 +71,8 @@ menuMain(){
     createMenu("Cinemateca Portuguesa - Main Menu", {
             {"Aderentes", menuAderentes},
             {"Eventos", menuEventos},
-            {"Kiosk", menuKiosk}
+            {"Kiosk", menuKiosk},
+            {"Recursos Humanos", menuRecursosHumanos}
     });
 }
 
@@ -104,6 +105,16 @@ menuKiosk(){
     });
 }
 
+void
+menuRecursosHumanos() {
+    createMenu("Cinemateca Portuguesa - Recursos Humanos", {
+            {"Pesquisar Trabalhador", viewPesquisarTrabalhador},
+            {"Contratar Trabalhador", viewContratarTrabalhador},
+            {"Listar Trabalhadores", viewListarTrabalhadores},
+            {"Listar Ex-trabalhadores", viewListarExTrabalhadores}
+    });
+}
+
 void menuOrdenarAderentes() {
     createMenu("Cinemateca Portuguesa - Ordenar Aderentes", {
             {"Ordenar por Nome", funcOrdenarAderentesNome},
@@ -124,6 +135,8 @@ void menuOrdenarEventos() {
 /*
  * Views
  */
+
+// ADERENTE
 
 void viewRegistarAderente() {
     string nome, dataStr;
@@ -191,6 +204,172 @@ void viewListarAderentes() {
     for (auto aderente : cinemateca.getAderentes())
         cout << aderente;
 }
+
+void viewListarTrabalhadores() {
+    cout << ">>> TRABALHADORES DA CINEMATECA <<<" << endl << endl;
+
+    vector<string> tmp;
+
+    int i = 1;
+    for (auto registo : cinemateca.getRegistoTrabalhadores()) {
+        if (registo.getAtual()) {
+            cout << i << ". " << registo.getTrabalhador() << endl;
+            tmp.push_back(registo.getTrabalhador());
+            i++;
+        }
+    }
+
+    cout << "\n\n0. Back\n";
+
+    string input;
+    while (true) {
+        cin >> input;
+        if (stoi(input) >= 1 and stoi(input) <= i - 1) {
+            int pos = stoi(input) - 1;
+            string nomeTrabalhador = tmp[pos];
+            viewMostrarTrabalhador(cinemateca.getRegisto(nomeTrabalhador));
+        } else if (stoi(input) == 0) {
+            menuRecursosHumanos();
+        }
+    }
+}
+
+void viewListarExTrabalhadores() {
+    cout << ">>> EX TRABALHADORES DA CINEMATECA <<<" << endl << endl;
+
+    vector<string> tmp;
+
+    int i = 1;
+    for (auto registo : cinemateca.getRegistoTrabalhadores()) {
+        if (!registo.getAtual()) {
+            cout << i << ". " << registo.getTrabalhador() << endl;
+            tmp.push_back(registo.getTrabalhador());
+            i++;
+        }
+    }
+
+    cout << "\n\n0. Back\n";
+
+    string input;
+    while (true) {
+        cin >> input;
+        if (stoi(input) >= 1 and stoi(input) <= i - 1) {
+            int pos = stoi(input) - 1;
+            string nomeTrabalhador = tmp[pos];
+            viewMostrarTrabalhador(cinemateca.getRegisto(nomeTrabalhador));
+        } else if (stoi(input) == 0) {
+            menuRecursosHumanos();
+        }
+    }
+}
+
+// TRABALHADOR
+
+void viewMostrarTrabalhador(RegistoTrabalhador registo) {
+    cout << "\n------------------------------------------\n\n"
+         << "Informacoes do trabalhador: \n\n"
+         << registo;
+
+    string input;
+
+    if (registo.getAtual()) {
+        cout << "1. Despedir"
+             << "\t0. Back\n";
+
+        while (true) {
+            cin >> input;
+            if (input == "1") {
+                cinemateca.despedirTrabalhador(registo.getTrabalhador());
+                cout << "\n--- Trabalhador despedido ---\n\n";
+                viewListarTrabalhadores();
+            } else if (input == "0") {
+                viewListarTrabalhadores();
+            }
+        }
+
+    } else {
+        cout << "1. Contratar"
+             << "\t0. Back\n";
+
+        while (true) {
+            cin >> input;
+            if (input == "1") {
+                cinemateca.contratarTrabalhador(registo.getTrabalhador());
+                cout << "\n--- Trabalhador contratado ---\n";
+                viewListarExTrabalhadores();
+            } else if (input == "0") {
+                viewListarExTrabalhadores();
+            }
+        }
+    }
+}
+
+void viewPesquisarTrabalhador() {
+    cout << ">>> PESQUISAR TRABALHADOR <<<" << endl << endl;
+
+    string input;
+
+    while (true) {
+        cout << "\n0. Back\n";
+        cout << "\npesquisar: ";
+
+        getline(cin, input);
+        cin.clear();
+        cin.ignore(1000, '\n');
+
+        if (input == "0") {
+            menuRecursosHumanos();
+            break;
+        }
+
+        auto registo = cinemateca.getRegistoTrabalhadores().find(input);
+        if (registo != cinemateca.getRegistoTrabalhadores().end()) {
+            viewMostrarTrabalhador(*registo);
+            break;
+        } else {
+            cout << "\n--- Trabalhador não encontrado ---\n";
+        }
+    }
+}
+
+void viewContratarTrabalhador() {
+    cout << ">>> CONTRATAR TRABALHADOR <<<" << endl << endl;
+
+    string input;
+
+    while (true) {
+        cout << "\n0. Back\n";
+        cout << "\nNome: ";
+
+        getline(cin, input);
+        cin.clear();
+        cin.ignore(1000, '\n');
+
+        if (input == "0") {
+            menuRecursosHumanos();
+        }
+
+        auto registo = cinemateca.getRegistoTrabalhadores().find(input);
+        if (registo == cinemateca.getRegistoTrabalhadores().end()) {
+            cinemateca.contratarTrabalhador(input);
+            cout << "\n--- Trabalhador contratado com sucesso! ---\n";
+            menuRecursosHumanos();
+            break;
+        } else {
+            if (registo->getAtual()) {
+                cout << "\n--- Trabalhador ja esta atualmente contratado. ---\n";
+            } else {
+                cinemateca.contratarTrabalhador(input);
+                cout << "\n--- Trabalhador contratado com sucesso! ---\n";
+                menuRecursosHumanos();
+                break;
+            }
+        }
+    }
+}
+
+
+// EVENTO
 
 void viewAdicionarEvento() {
 
@@ -382,6 +561,9 @@ void viewComprarBilhetes() {
         return viewComprarBilhetes();
     }
 }
+
+
+// BILHETES E VENDAS
 
 void viewBilhetesComprados() {
     cout << "Bilhetes Comprados: " << to_string(cinemateca.getBilhetesComprados()) << endl;

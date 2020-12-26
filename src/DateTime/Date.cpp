@@ -30,10 +30,23 @@ Date::getA() const {
     return this->a;
 }
 
+bool
+Date::undefined() const {
+    return this->a == 0 && this->m == 0 && this->d == 0;
+}
+
 
 /*
  * OPERATOR OVERLOADS
  */
+
+void
+Date::operator =(const Date& data) {
+    this->d = data.d;
+    this->m = data.m;
+    this->a = data.a;
+}
+
 
 ostream&
 operator <<(ostream& out, const Date& date) {
@@ -56,3 +69,5 @@ Date::operator <(Date date) {
     } else
         return this->a < date.getA();
 }
+
+

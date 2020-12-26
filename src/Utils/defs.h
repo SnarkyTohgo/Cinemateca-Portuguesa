@@ -15,14 +15,15 @@
 #include <float.h>
 #include <limits.h>
 
-#include <vector>
-#include <list>
+#include "../BST/bst.h"
 #include <map>
-#include <unordered_map>
 #include <set>
-#include <unordered_set>
+#include <list>
+#include <vector>
 #include <stack>
 #include <queue>
+#include <unordered_map>
+#include <unordered_set>
 
 #include <string>
 #include <iostream>
@@ -49,5 +50,6 @@ typedef unsigned int u_int;
 typedef unsigned long u_long;
 
 typedef chrono::system_clock Clock;
+
 
 #endif //CINEMATECAPORTUGUESA_DEFS_H

@@ -77,6 +77,11 @@ void menuEventos();
 void menuKiosk();
 
 /**
+ * @brief Função que gera o menu Recursos Humanos
+ */
+void menuRecursosHumanos();
+
+/**
  * @brief Função que gera o menu de ordenação de Aderentes
  */
 void menuOrdenarAderentes();
@@ -144,6 +149,31 @@ void viewBilhetesComprados();
  * @brief Função que gera o ecrã de listagem do total das vendas
  */
 void viewValorDeVendas();
+
+/**
+ * @brief Função que gera o ecrã de listagem de um trabalhador
+ */
+void viewMostrarTrabalhador(RegistoTrabalhador registo);
+
+/**
+ * @brief Função que gera o ecrã de pesquisa de trabalhadores por nome
+ */
+void viewPesquisarTrabalhador();     // TODO
+
+/**
+ * @brief Função que gera o ecrã de contratação de um trabalhador
+ */
+void viewContratarTrabalhador();    // TODO
+
+/**
+ * @brief Função que gera o ecrã de listagem dos trabalhadores atuais
+ */
+void viewListarTrabalhadores();
+
+/**
+ * @brief Função que gera o ecrã de listagem de todos os trabalhadores
+ */
+void viewListarExTrabalhadores();
 
 /** @} */ // end of Vistas
 

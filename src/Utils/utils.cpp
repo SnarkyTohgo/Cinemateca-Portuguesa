@@ -236,8 +236,6 @@ writeData(string data, string filename){
             file << line << endl;
 
         file.close();
-
-        // writeToFile(fileData, filename);
     } else
         writeToFile(data, filename);
 }

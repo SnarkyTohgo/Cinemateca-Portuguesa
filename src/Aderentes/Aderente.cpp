@@ -43,7 +43,7 @@ operator <<(ostream &out, Aderente& aderente) {
     out << toUpper(aderente.getNome())
         << "\nNIF: " << aderente.getNif()
         << "\nData de Nascimento: " << aderente.getDataNasc()
-        << "Ano de Adesao: " << aderente.getAnoAdesao()
+        << "\nAno de Adesao: " << aderente.getAnoAdesao()
         << endl << endl;
 
     return out;

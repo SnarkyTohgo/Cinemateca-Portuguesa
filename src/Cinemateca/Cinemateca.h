@@ -9,27 +9,31 @@
 
 #include "../Utils/utils.h"
 
+#include "../Aderentes/Trabalhador.h"
 #include "../Aderentes/Aderente.h"
 #include "../Evento/Evento.h"
 #include "../Sala/Sala.h"
 
+typedef unordered_set<RegistoTrabalhador, RegistoTrabalhadorHash, RegistoTrabalhadorHash> HashTableTrabalhadores;
 
 class Cinemateca {
 private:
-    static u_int anoAtual;             /**Ano atual*/
+    static u_int anoAtual;                 /**Ano atual*/
 
-    const string localizacao;          /**Localizacao da Cinemateca*/
-    const string morada;               /**Morada da Cinemateca*/
+    const string localizacao;              /**Localizacao da Cinemateca*/
+    const string morada;                   /**Morada da Cinemateca*/
 
-    list<Utilizador> naoAderentes;     /**Utilizadores não aderentes da Cinemateca */
-    list<Aderente> aderentes;          /**Aderentes (amigos) da Cinemateca*/
-    list<Sala> salas;                  /**Salas da Cinemateca*/
+    list<Utilizador> naoAderentes;         /**Utilizadores não aderentes da Cinemateca */
+    list<Aderente> aderentes;              /**Aderentes (amigos) da Cinemateca*/
+    list<Sala> salas;                      /**Salas da Cinemateca*/
 
-    u_int bilhetesComprados;           /**Total de bilhetes comprados na Cinemateca*/
-    double totalVendas;                /**Total de vendas da Cinemateca*/
+    u_int bilhetesComprados;               /**Total de bilhetes comprados na Cinemateca*/
+    double totalVendas;                    /**Total de vendas da Cinemateca*/
 
+    HashTableTrabalhadores registoTrabalhadores;        /**Registo de todos os Trabalhadores da Cinemateca*/
 public:
-    list<Evento> eventos;              /**Eventos da Cinemateca*/
+    list<Evento> eventos;                               /**Eventos da Cinemateca*/
+    vector<Trabalhador *> contratacoes;    /**Histórico de todas as contratações da Cinemateca*/
 
     /**
      * @brief Construtor default da classe Cinemateca
@@ -132,6 +136,18 @@ public:
     void registarAderente(string nome, u_int nif, Date dataNasc, u_int anoAtual);
 
     /**
+     * @brief Insere um novo trabalhador no vetor de contratações e regista uma nova contratação
+     * @param nome - nome do trabalhador
+     */
+    void contratarTrabalhador(string nome);
+
+    /**
+     * @brief Despede um trabalhador e atualiza o vetor de contratações
+     * @param nome - nome do trabalhador
+     */
+    void despedirTrabalhador(string nome);
+
+    /**
      * @brief Permite criar um novo utilizador e adiciona-lo à lista de utilizadores não-aderentes da Cinemateca
      * @param nif - nif do novo aderente
      */
@@ -202,6 +218,11 @@ public:
     void parseNaoAderentes();
 
     /**
+     * @brief Permite fazer parse dos trabalhadores que estao guardados no ficheiro de trabalhadores
+     */
+    void parseTrabalhadores();
+
+    /**
      * @brief Permite guardar um aderente no ficheiro de aderentes
      * @param aderente - aderente que queremos guardar
      */
@@ -212,6 +233,12 @@ public:
      * @param aderente - aderente que queremos guardar
      */
     void updateNaoAderentes(Utilizador naoAderente) const;
+
+    /**
+     * @brief Permite guardar um trabalhador no ficheiro de trabalhadores
+     * @param aderente - aderente que queremos guardar
+     */
+    void updateTrabalhadores(Trabalhador* trabalhador) const;
 
     /**
      * @brief Permite guardar um evento no ficheiro de eventos
@@ -229,6 +256,38 @@ public:
      * @param valor - valor a adicionar ao total de vendas
      */
     void updateTotalVendas(const float valor);
+
+    /**
+     * @brief carrega a tabela de dispersao com Trabalhadores
+     * @return retorna o numero de trabalhadores
+     */
+    int registarTrabalhadores();
+
+    /**
+     * @biref Devolve o registo de trabalhadores da Cinemateca
+     * @return retorna o registo de trabalhadores da Cinemateca
+     */
+    HashTableTrabalhadores getRegistoTrabalhadores();
+
+    /**
+     * @brief permite obter o registo de um determinado trabalhador na posição pos da tabela de registos
+     * @param pos posição do trabalhador na tabela
+     * @return retorna o registo do trabalhador
+     */
+    RegistoTrabalhador getRegisto(int pos);
+
+    /**
+     * @brief permite obter o registo de um determinado trabalhador pelo nome
+     * @param nome nome do trabalhador
+     * @return retorna o registo do trabalhador
+     */
+    RegistoTrabalhador getRegisto(string nome);
+
+    /**
+     * @brief Permite definir as contratações da Cinemateca
+     * @param v - vetor de contratações
+     */
+    void setContratacoes(const vector<Trabalhador *> v);
 
     /**
      * @brief Permite ordenar as salas por nome

@@ -1,15 +1,21 @@
 #include "Cinemateca.h"
 
-// Globlas
+/*
+ * Globals
+ */
+
 ifstream salasDB;
 ifstream eventosDB;
 ifstream aderentesDB;
 ifstream naoAderentesDB;
+ifstream trabalhadoresDB;
 
 vector<string> salasData;
 vector<string> eventosData;
 vector<string> aderentesData;
 vector<string> naoAderentesData;
+vector<string> trabalhadoresData;
+
 
 /*
  * CONSTRUCTORS
@@ -28,6 +34,9 @@ Cinemateca::Cinemateca(string localizacao, string morada)
     this->parseSalas();
     this->parseAderentes();
     this->parseNaoAderentes();
+    this->parseTrabalhadores();
+
+    this->registarTrabalhadores();
 
     this->bilhetesComprados = 0;
     this->totalVendas = 0;
@@ -282,6 +291,96 @@ Cinemateca::comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento)
     return EXIT_SUCCESS;
 }
 
+int
+Cinemateca::registarTrabalhadores() {
+    for (auto trabalhador : this->contratacoes) {
+        pair<HashTableTrabalhadores::iterator, bool> res = this->registoTrabalhadores.insert(trabalhador->getNome());
+        if (!res.second) {
+            RegistoTrabalhador novoRegisto = *res.first;
+
+            novoRegisto.setAtual(trabalhador->getAtual());
+            novoRegisto.setLocalizacao(this->localizacao);
+            novoRegisto.setDataContratacao(trabalhador->getDataContatacao());
+            novoRegisto.setDataDespedimento(trabalhador->getDataDespedimento());
+
+            this->registoTrabalhadores.erase(res.first);
+            this->registoTrabalhadores.insert(novoRegisto);
+        }
+    }
+    return this->registoTrabalhadores.size();
+}
+
+void
+Cinemateca::contratarTrabalhador(string nome) {
+    Trabalhador* novoTrabalhador = new Trabalhador(nome, this->localizacao);
+    this->contratacoes.push_back(novoTrabalhador);
+    this->registarTrabalhadores();
+
+    deleteFileData("../trabalhadores.dat");
+
+    for (auto trabalhador : this->contratacoes) {
+        this->updateTrabalhadores(trabalhador);
+    }
+}
+
+void
+Cinemateca::despedirTrabalhador(string nome) {
+    vector<Trabalhador *>::iterator it;
+    for (it = this->contratacoes.begin(); it != this->contratacoes.end(); ++it) {
+        if ((*it)->getNome() == nome) {
+            if ((*it)->getDataDespedimento().undefined()) {
+                auto now = Clock::now();
+                std::time_t now_c = Clock::to_time_t(now);
+                struct tm *parts = std::localtime(&now_c);
+
+                Date dataDesp(parts->tm_mday, parts->tm_mon + 1, 1900 + parts->tm_year);
+                (*it)->setDataDespedimento(dataDesp);
+                (*it)->setAtual(false);
+
+                break;
+            }
+        }
+    }
+    this->registarTrabalhadores();
+
+    deleteFileData("../trabalhadores.dat");
+
+    for (auto trabalhador : this->contratacoes) {
+        this->updateTrabalhadores(trabalhador);
+    }
+}
+
+HashTableTrabalhadores
+Cinemateca::getRegistoTrabalhadores() {
+    return this->registoTrabalhadores;
+}
+
+RegistoTrabalhador
+Cinemateca::getRegisto(int pos) {
+    RegistoTrabalhador rt;
+
+    int i = 0;
+    for (auto trabalhador : this->registoTrabalhadores) {
+        if (i == pos) {
+            rt = trabalhador;
+            break;
+        }
+        i++;
+    }
+
+    return rt;
+}
+
+RegistoTrabalhador
+Cinemateca::getRegisto(string nome) {
+    return *this->registoTrabalhadores.find(nome);
+}
+
+void
+Cinemateca::setContratacoes(const vector<Trabalhador *> v) {
+    this->contratacoes = v;
+}
+
 // PARSING
 
 void
@@ -429,6 +528,34 @@ Cinemateca::parseNaoAderentes(){
     this->setNaoAderentes(parsedNaoAderentes);
 }
 
+
+void
+Cinemateca::parseTrabalhadores() {
+    trabalhadoresDB = readFile("../trabalhadores.dat");
+    trabalhadoresData = parseFile(trabalhadoresDB);
+
+    vector<Trabalhador *> tmp;
+
+    for (auto tuple : trabalhadoresData) {
+        vector<string> data = split(tuple, ';');
+        string n = data[0], l = data[1];
+        vector<string> dataC = split(data[2], '/'), dataD = split(data[3], '/');
+
+        u_int d1 = (u_int) stoi(dataC[0]);      u_int d2 = (u_int) stoi(dataD[0]);
+        u_int m1 = (u_int) stoi(dataC[1]);      u_int m2 = (u_int) stoi(dataD[1]);
+        u_int a1 = (u_int) stoi(dataC[2]);      u_int a2 = (u_int) stoi(dataD[2]);
+
+        Date dataCont(d1, m1, a1), dataDesp(d2, m2, a2);
+        bool atual = dataDesp.undefined();
+
+        Trabalhador* t = new Trabalhador(n, l, dataCont, dataDesp, atual);
+        tmp.push_back(t);
+    }
+
+    this->setContratacoes(tmp);
+}
+
+
 // UPDATE
 
 void
@@ -462,6 +589,18 @@ Cinemateca::updateEventos(Evento evento) const {
 
 
     writeData(data, "../eventos.dat");
+}
+
+void
+Cinemateca::updateTrabalhadores(Trabalhador* trabalhador) const {
+    string data = "";
+
+    data += trabalhador->getNome() + "; "
+         + trabalhador->getLocalizacao() + "; "
+         + to_string(trabalhador->getDataContatacao().getD()) + "/" + to_string(trabalhador->getDataContatacao().getM()) + "/" + to_string(trabalhador->getDataContatacao().getA()) + "; "
+         + to_string(trabalhador->getDataDespedimento().getD()) + "/" + to_string(trabalhador->getDataDespedimento().getM()) + "/" + to_string(trabalhador->getDataDespedimento().getA());
+
+    writeData(data, "../trabalhadores.dat");
 }
 
 void
@@ -536,6 +675,12 @@ Cinemateca::ordenarAderentesAnoAdesao(){
         return a1.getAnoAdesao() < a2.getAnoAdesao() ;
     });
 }
+
+
+
+
+
+
 
 
 
