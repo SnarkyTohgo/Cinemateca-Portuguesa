@@ -5,12 +5,14 @@
  */
 
 ifstream salasDB;
+ifstream ratingsDB;
 ifstream eventosDB;
 ifstream aderentesDB;
 ifstream naoAderentesDB;
 ifstream trabalhadoresDB;
 
 vector<string> salasData;
+vector<string> ratingsData;
 vector<string> eventosData;
 vector<string> aderentesData;
 vector<string> naoAderentesData;
@@ -28,7 +30,7 @@ struct tm *parts = std::localtime(&now_c);
 u_int Cinemateca::anoAtual = 1900 + parts->tm_year;
 
 Date dataAtual(parts->tm_mday, 1 + parts->tm_mon, 1900 + parts->tm_year);
-
+Date ultimosDozeMeses(parts->tm_mday, 1 + parts->tm_mon, 1900 + parts->tm_year - 1);
 
 Cinemateca::Cinemateca(string localizacao, string morada)
     : localizacao(localizacao), morada(morada), historico(ItemHistoricoEventos("", Date(), Time(), 0, 0, 0.00, 0, 0)) {
@@ -48,12 +50,110 @@ Cinemateca::Cinemateca(string localizacao, string morada)
         this->alocarSala(&evento);
 
     this->gerarHistorico();
+    this->checkRatings();
 }
 
 
 /*
  * MEMBER FUNCTIONS
  */
+
+// RATINGS
+
+void
+Cinemateca::adicionarRating(const Evento evento) {
+    ItemEvento novoItem(evento.getNome(), evento.getData(), evento.getHora(), evento.getDuracao(), evento.getLotMax(), evento.getPreco(), evento.getSala(), evento.getBilhetesComprados());
+    this->ratings.push(novoItem);
+    this->updateRatings(novoItem);
+}
+
+priority_queue<ItemEvento>
+Cinemateca::getRatings() const {
+    return this->ratings;
+}
+
+void
+Cinemateca::atribuirRating(const string evento, const u_int satizfacao) {
+    if (satizfacao < 1 or satizfacao > 5)
+        throw InvalidRating();
+
+    priority_queue<ItemEvento> tmp;
+
+    while (!this->ratings.empty()) {
+        if (this->ratings.top().getEvento()->getNome() == evento) {
+            ItemEvento novoItem(this->ratings.top().getEvento());
+            novoItem.setSatizfacao(this->ratings.top().getSatizfacao());
+            novoItem.setTodosRatings(this->ratings.top().getTodosRatings());
+            novoItem.updateSatizfacao(satizfacao);
+            tmp.push(novoItem);
+        } else {
+            tmp.push(this->ratings.top());
+        }
+        this->ratings.pop();
+    }
+
+    while (!tmp.empty()) {
+        this->ratings.push(tmp.top());
+        tmp.pop();
+    }
+
+    // update ficheiro satizfacao
+
+    deleteFileData("../satizfacao.dat");
+
+    priority_queue<ItemEvento> ratingsCpy = this->getRatings();
+    while (!ratingsCpy.empty()) {
+        this->updateRatings(ratingsCpy.top());
+        ratingsCpy.pop();
+    }
+}
+
+void
+Cinemateca::checkRatings() {
+    priority_queue<ItemEvento> tmp;
+
+    while (!this->ratings.empty()) {
+        // Se o evento occoreu nos ultimos 12 meses
+        Evento* ev = this->ratings.top().getEvento();
+        if (ev->getData() <  dataAtual and ev->getData() > ultimosDozeMeses) {
+            tmp.push(this->ratings.top());
+        }
+        this->ratings.pop();
+    }
+
+    while(!tmp.empty()) {
+        this->ratings.push(tmp.top());
+        tmp.pop();
+    }
+
+    // update ficheiro satizfacao
+
+    deleteFileData("../satizfacao.dat");
+
+    priority_queue<ItemEvento> ratingsCpy = this->getRatings();
+    while (!ratingsCpy.empty()) {
+        this->updateRatings(ratingsCpy.top());
+        ratingsCpy.pop();
+    }
+}
+
+Evento
+Cinemateca::pesquisarEvento(const Date dataChao, const Date dataTeto) const {
+    priority_queue<ItemEvento> tmp = this->getRatings();
+    Evento* found;
+
+    while (!tmp.empty()) {
+        Date dataEvento = tmp.top().getEvento()->getData();
+
+        if (dataEvento > dataChao and dataEvento < dataTeto) {
+            found = tmp.top().getEvento();
+            break;
+        }
+        tmp.pop();
+    }
+
+    return *found;
+}
 
 // HISTORICO
 
@@ -114,7 +214,6 @@ Cinemateca::getEventosLotMax() {
 
     return res;
 }
-
 
 
 // GETTERS
@@ -193,7 +292,7 @@ Cinemateca::setNaoAderentes(list<Utilizador> naoAderentes){
     this->naoAderentes = naoAderentes;
 }
 
-// OTHER
+// ADERENTES E EVENTOS
 
 void
 Cinemateca::registarAderente(string nome, u_int nif, Date dataNasc, u_int anoAtual) {
@@ -245,6 +344,9 @@ Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_
     Evento* eventoPtr = &novoEvento;
     this->alocarSala(eventoPtr);
 
+    // Adicionar à fila de ratings
+    this->adicionarRating(novoEvento);
+
     // Write to file
     this->updateEventos(novoEvento);
 
@@ -253,11 +355,17 @@ Cinemateca::adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_
 }
 
 void Cinemateca::removerEvento(string nome){
-    for(auto evento : this->eventos){
-        if(nome == evento.getNome()){
+    bool found = false;
+    for (auto evento : this->eventos) {
+        if (nome == evento.getNome()){
+            found = true;
             eventos.remove(evento);
         }
     }
+
+    if (!found)
+        throw InvalidEvent();
+
     deleteFileData("../eventos.dat");
 
     for(auto evento : this->eventos){
@@ -282,6 +390,8 @@ Cinemateca::alocarSala(Evento* evento){
         }
     }
 }
+
+// BILHETES
 
 int
 Cinemateca::comprarBilhete(Aderente aderente, list<Evento>::iterator evento) {
@@ -373,6 +483,8 @@ Cinemateca::comprarBilhete(Utilizador utilizador, list<Evento>::iterator evento)
 
     return EXIT_SUCCESS;
 }
+
+// TRABALHADORES
 
 int
 Cinemateca::registarTrabalhadores() {
@@ -525,7 +637,20 @@ Cinemateca::parseEventos(){
     eventosDB = readFile("../eventos.dat");
     eventosData = parseFile(eventosDB);
 
+    ratingsDB = readFile("../satizfacao.dat");
+    ratingsData = parseFile(ratingsDB);
+
     list<Evento> parsedEventos;
+    map<string, float> parsedRatings;
+
+    for (auto tuple : ratingsData) {
+        vector<string> data = split(tuple, ';');
+
+        string evento = data[0];
+        float satizfacao = stof(data[1]);
+
+        parsedRatings[evento] = satizfacao;
+    }
 
     for (auto tuple : eventosData){
         vector<string> data = split(tuple, ';');
@@ -560,6 +685,15 @@ Cinemateca::parseEventos(){
         parsedEventos.push_back(novoEvento);
     }
 
+    // popular fila de ratings da cinemateca
+    for (auto evento : parsedEventos) {
+        Evento* ptrEv = new Evento(evento.getNome(), evento.getData(), evento.getHora(), evento.getDuracao(), evento.getLotMax(), evento.getPreco(), evento.getSala(), evento.getBilhetesComprados());
+        ItemEvento novoItem(ptrEv);
+        novoItem.setSatizfacao(parsedRatings[evento.getNome()]);
+        this->ratings.push(novoItem);
+    }
+
+    // popular lista de eventos da cinemateca
     this->setEventos(parsedEventos);
 }
 
@@ -686,6 +820,16 @@ Cinemateca::updateTrabalhadores(Trabalhador* trabalhador) const {
          + to_string(trabalhador->getDataDespedimento().getD()) + "/" + to_string(trabalhador->getDataDespedimento().getM()) + "/" + to_string(trabalhador->getDataDespedimento().getA());
 
     writeData(data, "../trabalhadores.dat");
+}
+
+void
+Cinemateca::updateRatings(ItemEvento item) const {
+    string data = "";
+
+    data += item.getEvento()->getNome() + "; "
+         + to_string(item.getSatizfacao());
+
+    writeData(data, "../satizfacao.dat");
 }
 
 void

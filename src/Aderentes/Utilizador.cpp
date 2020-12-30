@@ -4,8 +4,10 @@
  * CONSTRUCTORS
  */
 
-Utilizador::Utilizador(u_int nif)
-        : nif(nif){}
+Utilizador::Utilizador(u_int nif): nif(nif){
+    if (to_string(this->nif).length() != 9)
+        throw InvalidNif();
+}
 
 /*
  * MEMBER FUNCTIONS

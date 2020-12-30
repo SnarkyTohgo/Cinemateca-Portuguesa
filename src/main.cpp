@@ -3,7 +3,7 @@
 int main(void){
 
     // ----- View -----
-    menuMain();
+     menuMain();
 
     return EXIT_SUCCESS;
 }

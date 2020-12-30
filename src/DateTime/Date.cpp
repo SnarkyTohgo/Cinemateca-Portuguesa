@@ -8,6 +8,13 @@ Date::Date(u_int d, u_int m, u_int a) {
     this->d = d;
     this->m = m;
     this->a = a;
+
+    if (d > 31)
+        throw InvalidDate();
+
+    if (m > 12)
+        throw InvalidDate();
+
 }
 
 
@@ -70,4 +77,13 @@ Date::operator <(Date date) {
         return this->a < date.getA();
 }
 
-
+bool
+Date::operator >(Date date) {
+    if (this->a == date.getA()){
+        if (this->m == date.getM()){
+            return this->d > date.getD();
+        } else
+            return this->m > date.getM();
+    } else
+        return this->a > date.getA();
+}

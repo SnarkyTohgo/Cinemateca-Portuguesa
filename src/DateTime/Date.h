@@ -75,12 +75,27 @@ public:
     bool operator <(const Date date);
 
     /**
+     * @brief Permite determinar se uma data é posterior a outra
+     * @param date - data que queremos comparar
+     * @return Retorna true caso a data passada como argumento seja anterior à data com a qual estamos a comparar
+     */
+    bool operator >(const Date date);
+
+    /**
      * @brief Permite mostrar uma data no ecrã
      * @param out - outstream onde queremos mostrar a data
      * @param date - data que queremos mostrar
      * @return Retorna a outstream
      */
     friend ostream& operator <<(ostream& out, const Date& date);
+};
+
+class InvalidDate : public exception {
+public:
+    InvalidDate(){};
+    virtual const char* what() const throw() {
+        return "Data Invalida";
+    }
 };
 
 /** @} */ // end of Classe Date

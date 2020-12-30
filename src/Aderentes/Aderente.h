@@ -73,6 +73,7 @@ public:
 
 };
 
+
 /** @} */ // end of Classe Aderentes
 
 #endif //SRC_ADERENTE_H

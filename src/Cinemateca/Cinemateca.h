@@ -32,6 +32,7 @@ private:
 
     HashTableTrabalhadores registoTrabalhadores;       /**Registo de todos os Trabalhadores da Cinemateca*/
     BST<ItemHistoricoEventos> historico;               /**Eventos passados nos quais participaram os aderentes ao cartão*/
+    priority_queue<ItemEvento> ratings;                /**Ratings de satizfação dos eventos*/
 public:
     list<Evento> eventos;                              /**Eventos da Cinemateca*/
     vector<Trabalhador *> contratacoes;                /**Histórico de todas as contratações da Cinemateca*/
@@ -194,10 +195,42 @@ public:
     void adicionarEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco);
 
     /**
+     * @brief Adiciona um novo evento na fila de eventos para cálculo de satizfação
+     * @param evento - evento a adicionar
+     */
+    void adicionarRating(const Evento evento);
+
+    /**
+     * @brief Permite obter a fila de ratings de todos os eventos dos últimos 12 meses
+     * @return Retorna os ratings dos eventos dos últimos 12 meses
+     */
+    priority_queue<ItemEvento> getRatings() const;
+
+    /**
+     * @brief Atribui um novo rating de satizfação a um dado evento
+     * @param evento - evento a atribuir novo rating
+     * @param satizfacao - valor de satizfação de 1 a 5
+     */
+    void atribuirRating(const string evento, const u_int satizfacao);
+
+    /**
+     * @brief Elimina todos os eventos da fila que não ocorreram nos últimos 12 meses
+     */
+    void checkRatings();
+
+    /**
      * @brief Permite remover um evento da lista de eventos da Cinemateca
      * @param nome - nome do evento a remover
      */
     void removerEvento(string nome);
+
+    /**
+     * @brief Função que procura na fila de ratings o evento com maior satizfação dentro de 2 datas especificadas
+     * @param dataChao - data limite por baixo
+     * @param dataTeto - data limite por cima
+     * @return Retorna o evento com maior satizfação dentro das datas especificadas
+     */
+    Evento pesquisarEvento(const Date dataChao, const Date dataTeto) const;
 
     /**
      * @brief Permite alocar uma sala a um certo evento
@@ -263,6 +296,12 @@ public:
      * @param aderente - aderente que queremos guardar
      */
     void updateTrabalhadores(Trabalhador* trabalhador) const;
+
+    /**
+     * @brief Permite guardar um trabalhador no ficheiro de trabalhadores
+     * @param aderente - aderente que queremos guardar
+     */
+    void updateRatings(ItemEvento item) const;
 
     /**
      * @brief Permite guardar um evento no ficheiro de eventos
@@ -357,6 +396,22 @@ public:
      * @brief permite ordenar os aderentes por ano de adesao
      */
     void ordenarAderentesAnoAdesao();
+};
+
+class InvalidRating : public exception {
+public:
+    InvalidRating(){};
+    virtual const char* what() const throw() {
+        return "Rating Invalido";
+    }
+};
+
+class InvalidEvent : public exception {
+public:
+    InvalidEvent(){};
+    virtual const char* what() const throw() {
+        return "Evento nao existe";
+    }
 };
 
 /** @} */ // end of Classe Cinemateca

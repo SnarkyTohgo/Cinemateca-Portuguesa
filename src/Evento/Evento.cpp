@@ -251,6 +251,92 @@ ItemHistoricoEventos::operator ==(const ItemHistoricoEventos& ihe) const {
 }
 
 
+// ITEM EVENTO
 
+/*
+ * CONSTRUCTORS
+ */
+
+ItemEvento::ItemEvento(Evento* evento) {
+    this->evento = evento;
+    this->satizfacao = 0.00;
+}
+
+ItemEvento::ItemEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados) {
+    this->evento = new Evento(nome, data, hora, duracao, lotMax, preco, sala, bilhetesComprados);
+    this->satizfacao = 0.00;
+}
+
+
+/*
+ * MEMBER FUNCTIONS
+ */
+
+Evento*
+ItemEvento::getEvento() const {
+    return this->evento;
+}
+
+float
+ItemEvento::getSatizfacao() const {
+    return this->satizfacao;
+}
+
+vector<u_int>
+ItemEvento::getTodosRatings() const {
+    return this->todosRatings;
+}
+
+void
+ItemEvento::setSatizfacao(const float satizfacao) {
+    this->satizfacao = satizfacao;
+}
+
+void
+ItemEvento::setTodosRatings(const vector<u_int> todosRatings) {
+    this->todosRatings = todosRatings;
+}
+
+void
+ItemEvento::adicionarRating(const u_int rating) {
+    this->todosRatings.push_back(rating);
+}
+
+void
+ItemEvento::updateSatizfacao(const float satizfacao) {
+    this->adicionarRating(satizfacao);
+
+    float res = 0;
+    for (auto rating : this->todosRatings) {
+        res += rating;
+    }
+    res /= this->todosRatings.size();
+    this->setSatizfacao(res);
+}
+
+
+/*
+ * OPERATOR OVERLOADS
+ */
+
+bool
+ItemEvento::operator <(const ItemEvento& ie) const {
+    return this->satizfacao < ie.getSatizfacao();
+}
+
+
+bool
+ItemEvento::operator ==(const ItemEvento& ie) const {
+    return (this->evento->getNome() == ie.evento->getNome() and this->evento->getSala() == ie.evento->getSala());
+}
+
+ostream&
+operator <<(ostream& out, const ItemEvento& ie) {
+    out << "Evento: " << ie.evento->getNome() << endl
+        << "Satizfacao: " << ie.satizfacao
+        <<  endl << endl;
+
+    return out;
+}
 
 

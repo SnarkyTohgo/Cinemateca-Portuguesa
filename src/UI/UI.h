@@ -191,6 +191,21 @@ void viewTopBilheteira();
  */
 void viewEventosLotMax();
 
+/**
+ * @brief Função que gera o ecrã de listagem de satizfação de eventos dos últimos 12 meses
+ */
+void viewRatings();
+
+/**
+ * @brief Função que gera o ecrã de atribuição de satizfação para um dado evento
+ */
+void viewAtribuirSatizfacao(string evento);
+
+/**
+ * @brief Função que gera o ecrã que pesquisa o evento com maior satizfação dentro de uma data a especificar
+ */
+void viewEventoMaiorSatisfacao();
+
 /** @} */ // end of Vistas
 
 /**

@@ -65,6 +65,15 @@ public:
     virtual bool operator <(const Utilizador& utilizador);
 };
 
+
+class InvalidNif : public exception {
+public:
+    InvalidNif(){};
+    virtual const char* what() const throw() {
+        return "Nif Invalido";
+    }
+};
+
 /** @} */ // end of Classe Aderentes
 
 #endif //CINEMATECAPORTUGUESA_UTILIZADOR_H

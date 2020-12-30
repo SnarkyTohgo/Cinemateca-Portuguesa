@@ -9,6 +9,15 @@ Time::Time(int h, int m, int s) {
     this->h = h;
     this->m = m;
     this->s = s;
+
+    if (h > 24)
+        throw InvalidTime();
+
+    if (m > 59)
+        throw InvalidTime();
+
+    if (s > 59)
+        throw InvalidTime();
 }
 
 

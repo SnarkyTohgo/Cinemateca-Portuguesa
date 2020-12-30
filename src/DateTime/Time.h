@@ -97,6 +97,14 @@ public:
     friend ostream& operator <<(ostream& out, const Time& time);
 };
 
+class InvalidTime : public exception {
+public:
+    InvalidTime(){};
+    virtual const char* what() const throw() {
+        return "Hora Invalida";
+    }
+};
+
 /** @} */ // end of Classe Time
 
 #endif //CINEMATECAPORTUGUESA_TIME_H

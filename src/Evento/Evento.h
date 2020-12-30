@@ -285,4 +285,28 @@ public:
     bool operator ==(const ItemHistoricoEventos& ihe) const;
 };
 
+class ItemEvento {
+private:
+    Evento* evento;
+    float satizfacao;
+    vector<u_int>todosRatings;
+public:
+    ItemEvento(Evento* evento);
+    ItemEvento(string nome, Date data, Time hora, u_int duracao, u_int lotMax, float preco, u_int sala, u_int bilhetesComprados);
+
+    Evento* getEvento() const;
+    float getSatizfacao() const;
+    void adicionarRating(const u_int rating);
+    void setSatizfacao(const float satizfacao);
+    void setTodosRatings(const vector<u_int> todosRatings);
+    vector<u_int> getTodosRatings() const;
+    void updateSatizfacao(const float satizfacao);
+
+    bool operator <(const ItemEvento& ie) const;
+    bool operator ==(const ItemEvento& ie) const;
+
+    friend ostream& operator <<(ostream& out, const ItemEvento& ie);
+
+};
+
 #endif //SRC_EVENTO_H

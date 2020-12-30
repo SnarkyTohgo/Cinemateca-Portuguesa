@@ -93,7 +93,9 @@ menuEventos(){
             {"Adicionar Evento", viewAdicionarEvento},
             {"Listar Eventos", viewListarEventos},
             {"Ordenar Eventos", menuOrdenarEventos},
-            {"Apagar Evento", viewApagarEvento}
+            {"Apagar Evento", viewApagarEvento},
+            {"Ratings", viewRatings},
+            {"Pesquisar Evento com Maior Satizfacao", viewEventoMaiorSatisfacao}
     });
 }
 
@@ -148,51 +150,45 @@ void menuOrdenarEventos() {
 // ADERENTE
 
 void viewRegistarAderente() {
-    string nome, dataStr;
-    u_int nif;
+    try {
+        string nome, dataStr;
+        u_int nif;
 
-    // input nome
-    cout << "Nome completo: ";
-    getline(cin, nome);
-    cin.clear();
-    cin.ignore(1000, '\n');
+        // input nome
+        cout << "Nome completo: ";
+        getline(cin, nome);
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-
-    bool nifInvalid= true;
-    while(nifInvalid){
         // input nif
         cout << "NIF: ";
         cin >> nif;
         cin.clear();
         cin.ignore(1000, '\n');
-        if(to_string(nif).length() == 9){
-            nifInvalid = false;
+
+
+        // input dataNasc
+        bool dataInvalid = true;
+        while (dataInvalid) {
+            cout << "Data de nascimento (dd/mm/aaaa): ";
+            cin >> dataStr;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            int found = dataStr.find('/');
+            if (found >= dataStr.length()) {
+                cout << "Formato de data invalido, por favor use dd/mm/aaaa como indicado" << endl;
+            } else {
+                dataInvalid = false;
+            }
         }
-        else{
-            cout << "\nO NIF introduzido tem de ter 9 digitos\n";
-        }
+
+        vector<string> dataArr = split(dataStr, '/');
+        Date dataNasc(stoi(dataArr[0]), stoi(dataArr[1]), stoi(dataArr[2]));
+
+        cinemateca.registarAderente(nome, nif, dataNasc, cinemateca.getAnoAtual());
+    } catch (exception& e) {
+        cout << endl << e.what() << endl << endl;
     }
-
-    // input dataNasc
-    bool dataInvalid = true;
-    while(dataInvalid){
-        cout << "Data de nascimento (dd/mm/aaaa): ";
-        cin >> dataStr;
-        cin.clear();
-        cin.ignore(1000, '\n');
-        int found = dataStr.find('/');
-        if(found >= dataStr.length()){
-            cout << "Formato de data invalido, por favor use dd/mm/aaaa como indicado" << endl;
-        }
-        else{
-            dataInvalid = false;
-        }
-    }
-
-    vector<string> dataArr = split(dataStr, '/');
-    Date dataNasc(stoi(dataArr[0]), stoi(dataArr[1]), stoi(dataArr[2]));
-
-    cinemateca.registarAderente(nome, nif, dataNasc, cinemateca.getAnoAtual());
 }
 
 void viewApagarAderente(){
@@ -213,6 +209,9 @@ void viewListarAderentes() {
     for (auto aderente : cinemateca.getAderentes())
         cout << aderente;
 }
+
+
+// TRABALHADOR
 
 void viewListarTrabalhadores() {
     cout << ">>> TRABALHADORES DA CINEMATECA <<<" << endl << endl;
@@ -275,8 +274,6 @@ void viewListarExTrabalhadores() {
         }
     }
 }
-
-// TRABALHADOR
 
 void viewMostrarTrabalhador(RegistoTrabalhador registo) {
     cout << "\n------------------------------------------\n\n"
@@ -434,66 +431,73 @@ void viewEventosLotMax() {
 // EVENTO
 
 void viewAdicionarEvento() {
+    try {
+        string nome, dataStr, horaStr;
+        u_int duracao, lotMax;
+        float preco;
 
-    string nome, dataStr, horaStr;
-    u_int duracao, lotMax;
-    float preco;
+        // input nome
+        cout << "Nome do evento: ";
+        getline(cin, nome);
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input nome
-    cout << "Nome do evento: ";
-    getline(cin, nome);
-    cin.clear();
-    cin.ignore(1000, '\n');
+        // input data
+        cout << "Data (dd/mm/aa): ";
+        cin >> dataStr;
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input data
-    cout << "Data (dd/mm/aa): ";
-    cin >> dataStr;
-    cin.clear();
-    cin.ignore(1000, '\n');
+        vector<string> dataArr = split(dataStr, '/');
+        Date data(stoi(dataArr[0]), stoi(dataArr[1]), stoi(dataArr[2]));
 
-    vector<string> dataArr = split(dataStr, '/');
-    Date data(stoi(dataArr[0]), stoi(dataArr[1]), stoi(dataArr[2]));
+        // input hora
+        cout << "Hora (hh:mm:ss): ";
+        cin >> horaStr;
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input hora
-    cout << "Hora (hh:mm:ss): ";
-    cin >> horaStr;
-    cin.clear();
-    cin.ignore(1000, '\n');
+        vector<string> horaArr = split(horaStr, ':');
+        Time hora(stoi(horaArr[0]), stoi(horaArr[1]), stoi(horaArr[2]));
 
-    vector<string> horaArr = split(horaStr, ':');
-    Time hora(stoi(horaArr[0]), stoi(horaArr[1]), stoi(horaArr[2]));
+        // input duracao
+        cout << "Duracao: ";
+        cin >> duracao;
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input duracao
-    cout << "Duracao: ";
-    cin >> duracao;
-    cin.clear();
-    cin.ignore(1000, '\n');
+        // input lotMax
+        cout << "Lotacao maxima: ";
+        cin >> lotMax;
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input lotMax
-    cout << "Lotacao maxima: ";
-    cin >> lotMax;
-    cin.clear();
-    cin.ignore(1000, '\n');
+        // input preco
+        cout << "Preco: ";
+        cin >> preco;
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    // input preco
-    cout << "Preco: ";
-    cin >> preco;
-    cin.clear();
-    cin.ignore(1000, '\n');
-
-    cinemateca.adicionarEvento(nome, data, hora, duracao, lotMax, preco);
+        cinemateca.adicionarEvento(nome, data, hora, duracao, lotMax, preco);
+    } catch (exception& e) {
+        cout << endl << e.what() << endl << endl;
+    }
 }
 
 void viewApagarEvento(){
-    string nome;
-    cout << "Nome do evento que quer apagar: ";
-    getline(cin, nome);
-    cin.clear();
-    cin.ignore(1000, '\n');
+    try {
+        string nome;
+        cout << "Nome do evento que quer apagar: ";
+        getline(cin, nome);
+        cin.clear();
+        cin.ignore(1000, '\n');
 
-    cinemateca.removerEvento(nome);
+        cinemateca.removerEvento(nome);
 
-    cout << "Evento removido com sucesso"<< endl;
+        cout << "\n----- Evento removido com sucesso -----\n";
+    } catch (exception& e) {
+        cout << endl << e.what() << endl << endl;
+    }
 }
 
 void viewListarEventos() {
@@ -539,6 +543,37 @@ viewMostrarEvento(Evento evento){
 
     cout << "Bilhetes comprados: " << evento.getBilhetesComprados() << endl;
     cout << "Total de Vendas: " << evento.getTotalVendas() << " euros\n";
+
+    cout << "\n0. Continuar \t1. Atribuir Satizfacao\n";
+
+    u_int input;
+    while (true) {
+        cin >> input;
+        if (input == 1) {
+            viewAtribuirSatizfacao(evento.getNome());
+            break;
+        } else if (input == 0) {
+            break;
+        }
+    }
+}
+
+void viewAtribuirSatizfacao(string evento) {
+    u_int rating = 0;
+
+    while (true) {
+        try {
+            cout << "Atribua um rating de 1 a 5: ";
+            cin >> rating;
+
+            if (rating >= 1 and rating <= 5) {
+                cinemateca.atribuirRating(evento, rating);
+                break;
+            }
+        } catch (exception& e) {
+            cout << endl << e.what() << endl << endl;
+        }
+    }
 }
 
 void viewComprarBilhetes() {
@@ -624,6 +659,71 @@ void viewComprarBilhetes() {
     }
 }
 
+void viewRatings() {
+    cout << ">>> RATING DE SATIZFACAO <<<" << endl << endl;
+
+    cout << "\tEvento - Rating\n\n";
+
+    int i = 1;
+    priority_queue<ItemEvento> ratingsCpy = cinemateca.getRatings();
+    while (!ratingsCpy.empty()) {
+        cout << i << ". " << ratingsCpy.top().getEvento()->getNome() << " - " << ratingsCpy.top().getSatizfacao() << endl;
+
+        ratingsCpy.pop();
+        i++;
+    }
+
+    string input;
+    while (true){
+        ratingsCpy = cinemateca.getRatings();
+        cin >> input;
+
+        if (stoi(input) >= 1 and stoi(input) <= i - 1){
+
+            int j = 1;
+            while (!ratingsCpy.empty()) {
+                if (stoi(input) == j) {
+                    viewMostrarEvento(*ratingsCpy.top().getEvento());
+                    break;
+                }
+                j++;
+                ratingsCpy.pop();
+            }
+            break;
+        }
+    }
+}
+
+void viewEventoMaiorSatisfacao() {
+    cout << ">>> PESQUISAR EVENTO <<<" << endl << endl;
+
+    string inputDataChao, inputDataTeto;
+
+    while (true) {
+        try {
+            vector<string> arrData;
+
+            cout << "Introduza data chao (dd/mm/aaaa): ";
+            cin >> inputDataChao;
+            arrData = split(inputDataChao, '/');
+            Date dataChao((u_int) stoi(arrData[0]), (u_int) stoi(arrData[1]), (u_int) stoi(arrData[2]));
+
+            cout << "Introduza data teto (dd/mm/aaaa): ";
+            cin >> inputDataTeto;
+            arrData = split(inputDataTeto, '/');
+            Date dataTeto((u_int) stoi(arrData[0]), (u_int) stoi(arrData[1]), (u_int) stoi(arrData[2]));
+
+            if (dataChao < dataTeto) {
+                viewMostrarEvento(cinemateca.pesquisarEvento(dataChao, dataTeto));
+                break;
+            } else {
+                cout << "\nData Chao deve ser anterior a Data Teto\n";
+            }
+        } catch (exception& e) {
+            cout << endl << e.what() << endl << endl;
+        }
+    }
+}
 
 // BILHETES E VENDAS
 
